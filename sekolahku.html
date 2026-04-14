@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Proposal Pembuatan Website - Sekolahku | BuildyWeb × DigiNetAll</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --primary: #1a1a2e;
+    --accent: #03AC0E;
+    --accent-dark: #028a0b;
+    --accent-light: #e8f5e9;
+    --blue: #2563eb;
+    --blue-light: #eff6ff;
+    --orange: #f59e0b;
+    --text: #1e293b;
+    --text2: #64748b;
+    --text3: #94a3b8;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+  
+  /* ===== PAGE SYSTEM ===== */
+  .page {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    background: var(--white);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 30px rgba(0,0,0,0.04);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .page-content {
+    padding: 56px 64px;
+  }
+
+  /* ===== COVER PAGE ===== */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    z-index: 0;
+  }
+
+  .cover-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(3,172,14,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover-content {
+    position: relative;
+    z-index: 1;
+    padding: 56px 64px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cover-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cover-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0;
+  }
+
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(3,172,14,0.15);
+    color: #4ade80;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    border: 1px solid rgba(3,172,14,0.2);
+    width: fit-content;
+  }
+
+  .cover-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .cover-title span { color: #4ade80; }
+
+  .cover-subtitle {
+    font-size: 17px;
+    color: #94a3b8;
+    max-width: 500px;
+    line-height: 1.7;
+  }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cover-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cover-meta-label {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+
+  .cover-meta-value {
+    font-size: 14px;
+    color: #e2e8f0;
+    font-weight: 500;
+  }
+
+  .cover-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cover-footer-text {
+    font-size: 12px;
+    color: #475569;
+  }
+
+  /* ===== SECTION STYLES ===== */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    border-radius: 6px;
+  }
+
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--text2);
+    margin-bottom: 32px;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 40px 0;
+  }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px dashed var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+
+  .toc-item:hover { color: var(--accent); }
+
+  .toc-num {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 800;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .toc-text {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .toc-page {
+    font-size: 13px;
+    color: var(--text3);
+    font-weight: 500;
+  }
+
+  /* ===== CARDS & BOXES ===== */
+  .info-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .highlight-box {
+    background: var(--accent-light);
+    border: 1px solid rgba(3,172,14,0.15);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+
+  .highlight-box p {
+    font-size: 14px;
+    color: var(--accent-dark);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  /* ===== PRICING TABLE ===== */
+  .price-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  .price-table thead th {
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 20px;
+    text-align: left;
+  }
+
+  .price-table thead th:last-child { text-align: right; }
+
+  .price-table tbody td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .price-table tbody tr:last-child td { border-bottom: none; }
+
+  .price-table tbody td:last-child {
+    text-align: right;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    white-space: nowrap;
+  }
+
+  .price-table .item-title {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .price-table .item-desc {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+
+  .price-total-row td {
+    background: var(--accent-light) !important;
+    font-weight: 800 !important;
+    font-size: 16px !important;
+    color: var(--accent-dark) !important;
+    border-bottom: none !important;
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    padding-bottom: 32px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item:last-child::before { display: none; }
+
+  .timeline-dot {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .timeline-dot span {
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .timeline-content {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .timeline-day {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+
+  .timeline-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .timeline-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  /* ===== UI PREVIEW ===== */
+  .ui-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .ui-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .ui-card-preview {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    padding: 32px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    position: relative;
+  }
+
+  .ui-card-preview .material-symbols-outlined {
+    font-size: 48px;
+    color: var(--accent);
+  }
+
+  .ui-card-info {
+    padding: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .ui-card-info h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 2px;
+  }
+
+  .ui-card-info p {
+    font-size: 11px;
+    color: var(--text2);
+  }
+
+  .ui-card-full {
+    grid-column: 1 / -1;
+  }
+
+  /* ===== FEATURE LIST ===== */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .feature-list li .material-symbols-outlined {
+    color: var(--accent);
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ===== SIGNATURE ===== */
+  .signature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 40px;
+  }
+
+  .signature-box {
+    text-align: center;
+    padding: 32px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .signature-label {
+    font-size: 11px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 60px;
+  }
+
+  .signature-line {
+    width: 180px;
+    height: 1px;
+    background: var(--text);
+    margin: 0 auto 10px;
+  }
+
+  .signature-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .signature-role {
+    font-size: 12px;
+    color: var(--text2);
+    margin-top: 2px;
+  }
+
+  /* ===== SIGNATURE PAD ===== */
+  .sig-clear-btn {
+    position: absolute;
+    top: 6px;
+    right: calc(50% - 140px + 6px);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.06);
+    color: var(--text2);
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 2;
+  }
+  .sig-clear-btn:hover {
+    background: #fee2e2;
+    color: #ef4444;
+  }
+
+  .sig-name-input {
+    width: 180px;
+    margin: 0 auto 4px;
+    display: block;
+    border: none;
+    border-bottom: 1.5px solid var(--border);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    padding: 4px 8px;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .sig-name-input:focus {
+    border-color: var(--accent);
+  }
+  .sig-name-input::placeholder {
+    color: var(--text3);
+    font-weight: 400;
+    font-size: 12px;
+  }
+
+  /* ===== SIGNATURE STATUS ===== */
+  .sig-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 50px;
+  }
+  .sig-status-pending {
+    background: #fef9c3;
+    color: #a16207;
+  }
+  .sig-status-signed {
+    background: #dcfce7;
+    color: #15803d;
+  }
+
+  .sig-submit-btn {
+    display: block;
+    margin: 12px auto 0;
+    background: #03AC0E;
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: all 0.2s;
+  }
+  .sig-submit-btn:hover { background: #028a0b; }
+  .sig-submit-btn:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+  }
+
+  .sig-box-signed {
+    border-color: #86efac !important;
+    background: #f0fdf4 !important;
+  }
+
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ===== STATS ===== */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .stat-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text2);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* ===== TERMS ===== */
+  .terms-list {
+    counter-reset: terms;
+    list-style: none;
+    padding: 0;
+  }
+
+  .terms-list li {
+    counter-increment: terms;
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .terms-list li:last-child { border-bottom: none; }
+
+  .terms-list li::before {
+    content: counter(terms) ".";
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 24px;
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    @page {
+      size: A4 portrait;
+      margin: 12mm 10mm;
+    }
+
+    *, *::before, *::after {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    html, body {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: white !important;
+      color: #1e293b !important;
+      font-size: 12pt !important;
+      overflow: visible !important;
+    }
+
+    .page {
+      display: block !important;
+      position: relative !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      overflow: visible !important;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-of-type {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .page-content {
+      padding: 24px 16px !important;
+      overflow: visible !important;
+    }
+
+    /* Cover fixes */
+    .cover {
+      min-height: auto !important;
+      height: auto !important;
+      display: block !important;
+      overflow: visible !important;
+    }
+    .cover-bg {
+      position: absolute !important;
+      inset: 0 !important;
+      background: #0f172a !important;
+      z-index: 0 !important;
+    }
+    .cover-bg::before, .cover-bg::after {
+      display: none !important;
+    }
+    .cover-content {
+      position: relative !important;
+      z-index: 1 !important;
+      padding: 32px 24px !important;
+      display: block !important;
+    }
+    .cover-title { color: white !important; }
+    .cover-subtitle { color: #cbd5e1 !important; }
+    .cover-badge { color: #4ade80 !important; }
+    .cover-meta-label { color: #94a3b8 !important; }
+    .cover-meta-value { color: white !important; }
+    .cover-footer { color: #94a3b8 !important; }
+
+    /* Content text colors */
+    .section-title { color: #1e293b !important; }
+    .section-subtitle { color: #64748b !important; }
+    h1, h2, h3, h4, h5, h6 { color: #1e293b !important; }
+    p { color: #1e293b !important; }
+    li { color: #1e293b !important; }
+    td, th { color: #1e293b !important; }
+
+    /* Hide interactive/non-print */
+    .no-print { display: none !important; }
+    .sig-name-input { border: none !important; -webkit-appearance: none; }
+    canvas { display: none !important; }
+    .sig-print-img { display: block !important; }
+
+    /* Tables */
+    table { page-break-inside: avoid; }
+    tr { page-break-inside: avoid; }
+
+    /* Images */
+    img { max-width: 100% !important; page-break-inside: avoid; }
+  }
+
+  @media (max-width: 640px) {
+    .page-content { padding: 32px 24px; }
+    .cover-content { padding: 32px 24px; }
+    .cover-title { font-size: 28px; }
+    .section-title { font-size: 22px; }
+    .cover-meta { grid-template-columns: 1fr; }
+    .ui-grid { grid-template-columns: 1fr; }
+    .signature-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr; }
+    .cover-header { flex-direction: column; gap: 16px; }
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- HALAMAN 1: COVER -->
+<!-- ============================================================ -->
+<div class="page cover">
+  <div class="cover-bg"></div>
+  <div class="cover-content">
+    <div class="cover-header">
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 48px; background: white; padding: 6px 12px; border-radius: 8px;"/>
+        <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.15);"></div>
+        <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 48px; border-radius: 8px;"/>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 11px; color: #64748b; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;">Dokumen Resmi</div>
+        <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">No. BWB/PROP/2026-04-001</div>
+      </div>
+    </div>
+
+    <div class="cover-main">
+      <div class="cover-badge">
+        <span style="width: 6px; height: 6px; background: #4ade80; border-radius: 50%; display: inline-block;"></span>
+        Proposal Project
+      </div>
+      <h1 class="cover-title">
+        Pengembangan Portal<br><span>Sekolahku (SekolahNews)</span>
+      </h1>
+      <p class="cover-subtitle">
+        Proposal penawaran jasa pembuatan website portal berita sekolah dan sistem informasi digital. Platform ini akan mempermudah akses informasi, pengumuman sekolah, serta pendataan program kerja OSIS dengan manajemen CMS.
+      </p>
+
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Dipersiapkan Untuk</span>
+          <span class="cover-meta-value">Tim Manajemen Sekolahku</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Dipersiapkan Oleh</span>
+          <span class="cover-meta-value">BuildyWeb × DigiNetAll</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Tanggal Proposal</span>
+          <span class="cover-meta-value">12 April 2026</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Berlaku Hingga</span>
+          <span class="cover-meta-value">26 April 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-footer-text">© 2026 BuildyWeb × DigiNetAll. Dokumen ini bersifat rahasia.</div>
+      <div class="cover-footer-text">Halaman 1</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HALAMAN 2: DAFTAR ISI + TENTANG KAMI -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-content">
+
+    <!-- DAFTAR ISI -->
+    <div class="section-label">
+      <span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">menu_book</span>
+      Daftar Isi
+    </div>
+    <h2 class="section-title">Isi Proposal</h2>
+    <p class="section-desc">Ringkasan seluruh bagian dalam dokumen proposal ini.</p>
+
+    <div>
+      <div class="toc-item">
+        <div class="toc-num">1</div>
+        <div class="toc-text">Tentang BuildyWeb × DigiNetAll</div>
+        <div class="toc-page">Hal. 2</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">2</div>
+        <div class="toc-text">Latar Belakang & Pemahaman Project</div>
+        <div class="toc-page">Hal. 3</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">3</div>
+        <div class="toc-text">Ruang Lingkup Pekerjaan</div>
+        <div class="toc-page">Hal. 3</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">4</div>
+        <div class="toc-text">Preview Desain UI/UX</div>
+        <div class="toc-page">Hal. 4</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">5</div>
+        <div class="toc-text">Rincian Biaya</div>
+        <div class="toc-page">Hal. 5</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">6</div>
+        <div class="toc-text">Timeline Pengerjaan</div>
+        <div class="toc-page">Hal. 5</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">7</div>
+        <div class="toc-text">Syarat & Ketentuan</div>
+        <div class="toc-page">Hal. 6</div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">8</div>
+        <div class="toc-text">Penutup & Tanda Tangan</div>
+        <div class="toc-page">Hal. 6</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- TENTANG KAMI -->
+    <div class="section-label">
+      <span class="section-number">1</span>
+      Tentang Kami
+    </div>
+    <h2 class="section-title">BuildyWeb × DigiNetAll</h2>
+    <p class="section-desc">Mitra digital terpercaya untuk membangun kehadiran online bisnis Anda.</p>
+
+    <div style="display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap;">
+      <div class="info-box" style="flex: 1; min-width: 280px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 42px;"/>
+        </div>
+        <p style="font-size: 13px; color: var(--text2); line-height: 1.7;">
+          <strong style="color: var(--text);">BuildyWeb</strong> — <em>"From Zero to Online"</em>. Kami adalah tim pengembang web profesional yang berfokus pada pembuatan website modern, responsif, dan berorientasi pada konversi. Setiap project kami kerjakan dengan standar kualitas tinggi dan perhatian penuh pada detail.
+        </p>
+      </div>
+      <div class="info-box" style="flex: 1; min-width: 280px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 44px; border-radius: 6px;"/>
+        </div>
+        <p style="font-size: 13px; color: var(--text2); line-height: 1.7;">
+          <strong style="color: var(--text);">DigiNetAll</strong> — <em>"Web Development Solutions"</em>. Solusi pengembangan web lengkap mulai dari desain UI/UX, development, hingga deployment. Kami memastikan setiap produk digital yang dihasilkan memiliki kualitas terbaik.
+        </p>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-value">50+</div>
+        <div class="stat-label">Project Selesai</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">98%</div>
+        <div class="stat-label">Klien Puas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">24/7</div>
+        <div class="stat-label">Support</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HALAMAN 3: LATAR BELAKANG + RUANG LINGKUP -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-content">
+
+    <!-- LATAR BELAKANG -->
+    <div class="section-label">
+      <span class="section-number">2</span>
+      Latar Belakang
+    </div>
+    <h2 class="section-title">Pemahaman Project</h2>
+    <p class="section-desc">Analisis kebutuhan dan tujuan dari project website Sekolahku.</p>
+
+    <div class="info-box">
+      <p style="font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 16px;">
+        <strong>Sekolahku (SekolahNews)</strong> adalah platform portal berita berbasis digital yang akan menggantikan fungsi majalah dinding (mading) konvensional sekolah menjadi media online terpadu yang interaktif.</p>
+      <p style="font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 16px;">
+        Di era digital saat ini, kehadiran online menjadi <strong>kebutuhan mutlak</strong> bagi setiap bisnis. Konsumen modern menginginkan kemudahan berbelanja dari rumah dengan jaminan kualitas produk yang terpercaya. Website e-commerce menjadi solusi tepat untuk menjembatani penjual dan pembeli secara efisien, sekaligus memberikan kontrol penuh kepada pemilik bisnis melalui <strong>sistem CMS (Content Management System)</strong> untuk mengelola produk, konten, dan transaksi secara mandiri.
+      </p>
+      <p style="font-size: 14px; color: var(--text); line-height: 1.8;">
+        Melihat potensi besar ini, kami dari <strong>BuildyWeb × DigiNetAll</strong> siap mewujudkan visi Sekolahku menjadi platform portal sekolah yang profesional, menarik, dan mudah digunakan — dibangun dengan teknologi <strong>Laravel & Inertia.js</strong> yang terbukti handal, sehingga mampu <strong>meningkatkan kepercayaan calon pelanggan dan mendorong penjualan</strong>.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <p><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #eab308;">lightbulb</span> <strong>Nilai Tambah:</strong> Desain UI / UX profesional dan formal yang kami bangun sangat merepresentasikan nilai institusi pendidikan dan mudah digunakan oleh seluruh warga sekolah.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- RUANG LINGKUP -->
+    <div class="section-label">
+      <span class="section-number">3</span>
+      Ruang Lingkup
+    </div>
+    <h2 class="section-title">Cakupan Pekerjaan</h2>
+    <p class="section-desc">Detail layanan dan fitur yang akan kami kerjakan dalam project ini.</p>
+
+    <h3 class="font-heading" style="font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 16px;">B. Pilihan Stack Teknologi</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;">
+      <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px; display: flex; align-items: flex-start; gap: 12px; border-top: 4px solid #ff2d20;">
+        <div style="flex: 1;">
+          <div style="font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 4px;">Paket 1: Laravel</div>
+          <div style="font-size: 12px; color: var(--text2); line-height: 1.5;">Pengembangan dengan full-stack <strong>Laravel Native</strong>. Tangguh, aman, dan cocok untuk deployment mandiri di hosting konvensional. (Khusus Source Code)</div>
+        </div>
+      </div>
+      <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px; display: flex; align-items: flex-start; gap: 12px; border-top: 4px solid #000000;">
+        <div style="flex: 1;">
+          <div style="font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 4px;">Paket 2: Next.js</div>
+          <div style="font-size: 12px; color: var(--text2); line-height: 1.5;">Pengembangan dengan framework <strong>React / Next.js</strong> terkini. Super cepat dengan performa SEO terbaik. (Sudah termasuk Hosting & Domain)</div>
+        </div>
+      </div>
+    </div>
+    <h3 class="font-heading" style="font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 16px;">C. Fitur Teknis</h3>
+    <ul class="feature-list">
+      <li>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>CMS (Content Management System)</strong> — Panel admin untuk mengelola produk, kategori, konten, dan data secara mandiri tanpa harus coding</div>
+      </li>
+      <li>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>SPA Experience</strong> — Navigasi cepat tanpa reload halaman menggunakan Inertia.js, terasa seperti aplikasi native</div>
+      </li>
+      <li>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>Fully Responsive</strong> — Tampil sempurna di semua ukuran layar (mobile, tablet, desktop)</div>
+      </li>
+      <li>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>Secure & Scalable</strong> — Dibangun di atas Laravel yang memiliki fitur keamanan bawaan (CSRF, SQL injection protection, dll) dan mudah di-scale</div>
+      </li>
+      <li>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>SEO-Friendly</strong> — Server-side rendering untuk indexing optimal di mesin pencari</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HALAMAN 4: PREVIEW UI/UX -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-label">
+      <span class="section-number">4</span>
+      Preview Desain
+    </div>
+    <h2 class="section-title">Preview UI/UX yang Sudah Dibuat</h2>
+    <p class="section-desc">Berikut adalah tampilan halaman-halaman yang sudah kami desain untuk Sekolahku. Seluruh desain dapat dilihat secara live melalui file preview yang telah kami sediakan.</p>
+
+    <div class="ui-grid">
+      <a href="project sekolahku/ui/public/index.html" class="ui-card ui-card-full" style="text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(3,172,14,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div class="ui-card-preview" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); min-height: 180px; flex-direction: column; gap: 8px;">
+          <span class="material-symbols-outlined" style="font-size: 40px; color: var(--accent); font-variation-settings: 'FILL' 1;">school</span>
+          <span style="font-size: 18px; font-weight: 800; color: var(--accent-dark); font-family: 'Plus Jakarta Sans', sans-serif;">BERANDA PORTAL SEKOLAH</span>
+        </div>
+        <div class="ui-card-info">
+          <h4>Beranda — index.html <span style="font-size:10px; color: var(--accent);"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle;">link</span> Klik</span></h4>
+        </div>
+      </a>
+      <a href="project sekolahku/ui/public/kategori.html" class="ui-card" style="text-decoration: none; color: inherit;">
+        <div class="ui-card-preview" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);">
+          <span class="material-symbols-outlined" style="font-size: 48px; color: #2563eb;">category</span>
+        </div>
+        <div class="ui-card-info"><h4>Kategori — kategori.html</h4></div>
+      </a>
+      <a href="project sekolahku/ui/public/detail.html" class="ui-card" style="text-decoration: none; color: inherit;">
+        <div class="ui-card-preview" style="background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);">
+          <span class="material-symbols-outlined" style="font-size: 48px; color: #ca8a04;">article</span>
+        </div>
+        <div class="ui-card-info"><h4>Baca Berita — detail.html</h4></div>
+      </a>
+      <a href="project sekolahku/ui/public/galeri.html" class="ui-card" style="text-decoration: none; color: inherit;">
+        <div class="ui-card-preview" style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);">
+          <span class="material-symbols-outlined" style="font-size: 48px; color: #ec4899;">photo_library</span>
+        </div>
+        <div class="ui-card-info"><h4>Galeri — galeri.html</h4></div>
+      </a>
+      <a href="project sekolahku/ui/public/osis.html" class="ui-card" style="text-decoration: none; color: inherit;">
+        <div class="ui-card-preview" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);">
+          <span class="material-symbols-outlined" style="font-size: 48px; color: #16a34a;">groups</span>
+        </div>
+        <div class="ui-card-info"><h4>Struktur OSIS — osis.html</h4></div>
+      </a>
+    </div>
+
+    <!-- DASHBOARD CMS -->
+    <h3 style="margin-top: 28px; margin-bottom: 12px; font-size: 15px; color: var(--dark); font-weight: 700;"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle;">desktop_windows</span>? Dashboard Admin / Backend</h3>
+    <div class="ui-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <a href="project sekolahku/ui/admin/dashboard.html" class="ui-card" style="text-decoration: none; color: inherit;">
+        <div class="ui-card-preview" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+          <span class="material-symbols-outlined" style="font-size: 48px; color: #4ade80;">admin_panel_settings</span>
+        </div>
+        <div class="ui-card-info"><h4>Dashboard — dashboard.html</h4></div>
+      </a>
+      <a href="project sekolahku/ui/admin/editor.html" class="ui-card" style="text-decoration: none; color: inherit;">
+        <div class="ui-card-preview" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+          <span class="material-symbols-outlined" style="font-size: 48px; color: #60a5fa;">edit_document</span>
+        </div>
+        <div class="ui-card-info"><h4>CMS Editor — editor.html</h4></div>
+      </a>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HALAMAN 5: RINCIAN BIAYA + TIMELINE -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-content">
+
+    <!-- RINCIAN BIAYA -->
+    <div class="section-label">
+      <span class="section-number">5</span>
+      Investasi
+    </div>
+    <h2 class="section-title">Rincian Biaya</h2>
+    <p class="section-desc">Berikut rincian biaya transparan untuk seluruh pekerjaan yang akan dikerjakan. Tidak ada biaya tersembunyi.</p>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th style="width: 40px;">No</th>
+          <th>Deskripsi Pekerjaan / Paket</th>
+          <th>Biaya</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; font-weight: 700; color: var(--accent);">1</td>
+          <td>
+            <div class="item-title">Paket Source Code Saja (Stack Laravel)</div>
+            <div class="item-desc">Penyerahan penuh <em>source code</em> Portal SekolahNews berbasis Laravel tanpa layanan cloud backend server / domain. Deploy dilakukan mandiri oleh pihak sekolah.</div>
+          </td>
+          <td style="font-size: 15px; font-weight: 700;">Rp 500.000</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700; color: var(--accent);">2</td>
+          <td>
+            <div class="item-title">Paket Komplit (Stack Next.js + Hosting & Domain)</div>
+            <div class="item-desc">Pengembangan full website berbasis Next.js modern, setup cloud <strong>Hosting VPS</strong>, dan pembelian nama domain (contoh: <em>sekolahnews.sch.id</em>) bergaransi berjalan live tanpa repot.</div>
+          </td>
+          <td style="font-size: 15px; font-weight: 700; color: #028a0b;">Rp 1.200.000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="text-align: center; margin: 12px 0 0; font-size: 12px; color: #64748b; font-style: italic;">* Harga bersifat negotiable — bisa didiskusikan lebih lanjut</div>
+
+    <div class="highlight-box">
+      <p><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #eab308;">payments</span> <strong>Skema Pembayaran:</strong> 50% di muka (DP dari paket yang dipilih) untuk memulai pengerjaan, dan 50% sisanya setelah project selesai dan disetujui. Pembayaran melalui transfer bank.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- TIMELINE -->
+    <div class="section-label">
+      <span class="section-number">6</span>
+      Timeline
+    </div>
+    <h2 class="section-title">Jadwal Pengerjaan</h2>
+    <p class="section-desc">Project akan diselesaikan dalam <strong>3 hari kerja</strong> sejak pembayaran DP diterima dan brief disetujui.</p>
+
+    <div style="margin-top: 8px;">
+      <div class="timeline-item">
+        <div class="timeline-dot"><span>1</span></div>
+        <div class="timeline-content">
+          <div class="timeline-day">Fase Persiapan</div>
+          <div class="timeline-title">Setup Environment & Sinkronisasi Source Code</div>
+          <div class="timeline-desc">Konfigurasi awal database, pemilihan varian tech stack (Laravel/Next.js) dan instalasi struktur dasar prototipe portal sekolah.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><span>2</span></div>
+        <div class="timeline-content">
+          <div class="timeline-day">Fase Pengembangan Inti</div>
+          <div class="timeline-title">Implementasi CMS dan Fitur Konten</div>
+          <div class="timeline-desc">Pemasangan fungsi berita (CRUD Editor), sistem Galeri Masonry, dan integrasi struktur Kesiswaan (OSIS). (Maksimal Hari ke-2).</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><span>3</span></div>
+        <div class="timeline-content">
+          <div class="timeline-day">Fase Final (Maks. Hari ke-3)</div>
+          <div class="timeline-title">Pengujian, Hosting & Penyerahan</div>
+          <div class="timeline-desc">Apabila memilih paket komplit, sistem dipindahkan live ke Hosting, konfigurasi server name Domain, checking error & loading speed, serta serah terima kepada pihak manajemen sekolah.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HALAMAN 6: SYARAT & KETENTUAN + PENUTUP -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-content">
+
+    <!-- SYARAT & KETENTUAN -->
+    <div class="section-label">
+      <span class="section-number">7</span>
+      Ketentuan
+    </div>
+    <h2 class="section-title">Syarat & Ketentuan</h2>
+    <p class="section-desc">Ketentuan yang berlaku selama dan setelah pengerjaan project.</p>
+
+    <ol class="terms-list">
+      <li><span>Proposal ini berlaku selama <strong>30 hari</strong> sejak tanggal dikeluarkan (hingga 26 April 2026). Setelah masa berlaku habis, harga dan ketentuan dapat berubah.</span></li>
+      <li><span>Pembayaran dilakukan dalam <strong>2 tahap</strong>: 50% sebagai DP sebelum pengerjaan dimulai, dan 50% setelah project selesai dan disetujui.</span></li>
+      <li><span>Pembeli Paket Komplit (Next.js) akan mendapatkan hak pemeliharaan server ringan dan pembaruan lisensi domain gratis selama 1 tahun pertama.</span></li>
+      <li><span>Klien akan mendapatkan <strong>prioritas bantuan konsultasi bug</strong> apabila portal mengalami error saat digunakan setelah serah terima tanpa biaya tambahan (Garansi Live Berjalan 30 hari).</span></li>
+      <li><span>Proses pengerjaan sistem aplikasi memiliki tenggat waktu (SLA) <strong>maksimal 3 hari kerja</strong> terhitung saat DP diterima.</span></li>
+      <li><span>Deliverables berupa hak penuh akses admin login. Akses file codebase <em>(Source Code)</em> dikirimkan menggunakan Github / ZIP sesuai preferensi pihak yayasan sekolah.</span></li>
+      <li><span>Seluruh data konten bawaan yang kami upload bersifat uji coba (Dummy data). Data valid akan dikelola langsung oleh administrator sekolah.</span></li>
+      <li><span>BuildyWeb × DigiNetAll berhak menampilkan project ini sebagai portfolio, kecuali klien merasa keberatan, silakan sampaikan di awal.</span></li>
+    </ol>
+
+    <div class="divider"></div>
+
+    <!-- PENUTUP -->
+    <div class="section-label">
+      <span class="section-number">8</span>
+      Penutup
+    </div>
+    <h2 class="section-title">Penutup</h2>
+
+    <div class="info-box" style="background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 100%); border-color: rgba(3,172,14,0.15);">
+      <p style="font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 16px;">
+        Terima kasih atas kepercayaan dan kesempatan yang diberikan kepada <strong>BuildyWeb × DigiNetAll</strong> untuk menyampaikan proposal ini. Kami sangat antusias untuk bekerja sama dengan tim <strong>Sekolahku</strong> dalam mewujudkan platform marketplace yang profesional dan berkualitas.
+      </p>
+      <p style="font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 16px;">
+        Dengan pengalaman dan dedikasi kami di bidang pengembangan web, kami yakin dapat memberikan hasil yang <strong>melampaui ekspektasi</strong> — sebuah website yang tidak hanya indah secara visual, tetapi juga efektif dalam menarik dan mempertahankan pengguna.
+      </p>
+      <p style="font-size: 14px; color: var(--text); line-height: 1.8;">
+        Kami terbuka untuk diskusi lebih lanjut dan siap menjawab setiap pertanyaan yang mungkin timbul. Mari wujudkan Portal Sekolahku bersama! <span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle;">rocket_launch</span>
+      </p>
+    </div>
+
+    <!-- TANDA TANGAN -->
+    <div class="signature-grid">
+      <!-- CLIENT -->
+      <div class="signature-box" style="position: relative;" id="sigBoxClient">
+        <div class="signature-label">Pihak Pertama (Klien)</div>
+        
+        <!-- Status badge -->
+        <div id="statusClient" style="margin-bottom: 12px;">
+          <span class="sig-status sig-status-pending">? Belum ditandatangani</span>
+        </div>
+
+        <!-- Canvas (draw mode) -->
+        <div id="drawAreaClient">
+          <div style="position: relative; margin-bottom: 12px;">
+            <canvas id="sigClient" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; background: #fafafa;"></canvas>
+            <button onclick="clearSig('sigClient')" class="sig-clear-btn no-print" title="Hapus tanda tangan"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #ef4444;">close</span></button>
+          </div>
+          <div class="signature-line"></div>
+          <input type="text" id="nameClient" placeholder="Ketik nama lengkap..." class="sig-name-input" value="">
+          <button onclick="submitSignature('client')" class="sig-submit-btn no-print"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #10b981;">done</span> Tanda Tangani</button>
+        </div>
+
+        <!-- Saved signature (view mode) -->
+        <div id="savedAreaClient" style="display: none;">
+          <div style="margin-bottom: 12px;">
+            <img id="savedSigClient" style="width: 280px; height: 120px; display: block; margin: 0 auto; border-radius: 8px; border: 2px solid #e2e8f0;" alt="Tanda tangan klien"/>
+          </div>
+          <div class="signature-line"></div>
+          <div class="signature-name" id="savedNameClient"></div>
+          <div style="font-size: 10px; color: #94a3b8; margin-top: 4px;" id="savedTimeClient"></div>
+        </div>
+
+        <div class="signature-role">Sekolahku</div>
+      </div>
+
+      <!-- DEVELOPER -->
+      <div class="signature-box" style="position: relative;" id="sigBoxDev">
+        <div class="signature-label">Pihak Kedua (Developer)</div>
+
+        <!-- Status badge -->
+        <div id="statusDev" style="margin-bottom: 12px;">
+          <span class="sig-status sig-status-pending">? Belum ditandatangani</span>
+        </div>
+
+        <!-- Canvas (draw mode) -->
+        <div id="drawAreaDev">
+          <div style="position: relative; margin-bottom: 12px;">
+            <canvas id="sigDev" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; background: #fafafa;"></canvas>
+            <button onclick="clearSig('sigDev')" class="sig-clear-btn no-print" title="Hapus tanda tangan"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #ef4444;">close</span></button>
+          </div>
+          <div class="signature-line"></div>
+          <input type="text" id="nameDev" placeholder="Ketik nama lengkap..." class="sig-name-input" value="">
+          <button onclick="submitSignature('developer')" class="sig-submit-btn no-print"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #10b981;">done</span> Tanda Tangani</button>
+        </div>
+
+        <!-- Saved signature (view mode) -->
+        <div id="savedAreaDev" style="display: none;">
+          <div style="margin-bottom: 12px;">
+            <img id="savedSigDev" style="width: 280px; height: 120px; display: block; margin: 0 auto; border-radius: 8px; border: 2px solid #e2e8f0;" alt="Tanda tangan developer"/>
+          </div>
+          <div class="signature-line"></div>
+          <div class="signature-name" id="savedNameDev"></div>
+          <div style="font-size: 10px; color: #94a3b8; margin-top: 4px;" id="savedTimeDev"></div>
+        </div>
+
+        <div class="signature-role">BuildyWeb × DigiNetAll</div>
+      </div>
+    </div>
+
+    <!-- TOMBOL AKSI -->
+    <div class="no-print" style="display: flex; gap: 12px; justify-content: center; margin-top: 36px; flex-wrap: wrap;">
+      <button onclick="savePDF()" style="display: inline-flex; align-items: center; gap: 8px; background: #03AC0E; color: white; font-weight: 700; font-size: 14px; border: none; padding: 14px 32px; border-radius: 14px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.2s; box-shadow: 0 4px 12px rgba(3,172,14,0.3);" onmouseover="this.style.background='#028a0b'" onmouseout="this.style.background='#03AC0E'">
+        <span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle;">description</span> Save as PDF
+      </button>
+      <button onclick="resetAll()" style="display: inline-flex; align-items: center; gap: 8px; background: white; color: #ef4444; font-weight: 600; font-size: 14px; border: 2px solid #fecaca; padding: 14px 24px; border-radius: 14px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.2s;" onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='white'">
+        <span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle;">sync</span> Reset Tanda Tangan
+      </button>
+    </div>
+
+    <!-- Live indicator -->
+    <div class="no-print" style="text-align: center; margin-top: 20px;">
+      <span id="liveIndicator" style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #94a3b8;">
+        <span style="width: 6px; height: 6px; background: #22c55e; border-radius: 50; display: inline-block; animation: pulse-live 2s infinite;"></span>
+        Live — auto-refresh setiap 5 detik
+      </span>
+    </div>
+
+    <div style="text-align: center; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border);">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 12px;">
+        <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 36px; opacity: 0.7;"/>
+        <span style="color: var(--text3); font-size: 12px;">×</span>
+        <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 38px; border-radius: 6px; opacity: 0.7;"/>
+      </div>
+      <p style="font-size: 12px; color: var(--text3);">© 2026 BuildyWeb × DigiNetAll — Dokumen ini bersifat rahasia dan hanya diperuntukkan bagi pihak yang dituju.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+
+<!-- Scripts -->
+<script>
+// ===== SIGNATURE PAD SYSTEM =====
+class SignaturePad {
+  constructor(canvasId) {
+    this.canvas = document.getElementById(canvasId);
+    this.ctx = this.canvas.getContext('2d');
+    this.drawing = false;
+    this.lastX = 0;
+    this.lastY = 0;
+    this.isEmpty = true;
+
+    this.ctx.strokeStyle = '#1a1a2e';
+    this.ctx.lineWidth = 2.5;
+    this.ctx.lineCap = 'round';
+    this.ctx.lineJoin = 'round';
+
+    this.canvas.addEventListener('mousedown', (e) => this.startDraw(e));
+    this.canvas.addEventListener('mousemove', (e) => this.draw(e));
+    this.canvas.addEventListener('mouseup', () => this.stopDraw());
+    this.canvas.addEventListener('mouseleave', () => this.stopDraw());
+    this.canvas.addEventListener('touchstart', (e) => { e.preventDefault(); this.startDraw(e.touches[0]); });
+    this.canvas.addEventListener('touchmove', (e) => { e.preventDefault(); this.draw(e.touches[0]); });
+    this.canvas.addEventListener('touchend', () => this.stopDraw());
+  }
+
+  getPos(e) {
+    const rect = this.canvas.getBoundingClientRect();
+    return {
+      x: (e.clientX - rect.left) * (this.canvas.width / rect.width),
+      y: (e.clientY - rect.top) * (this.canvas.height / rect.height)
+    };
+  }
+
+  startDraw(e) {
+    this.drawing = true;
+    this.isEmpty = false;
+    const pos = this.getPos(e);
+    this.lastX = pos.x;
+    this.lastY = pos.y;
+  }
+
+  draw(e) {
+    if (!this.drawing) return;
+    const pos = this.getPos(e);
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.lastX, this.lastY);
+    this.ctx.lineTo(pos.x, pos.y);
+    this.ctx.stroke();
+    this.lastX = pos.x;
+    this.lastY = pos.y;
+  }
+
+  stopDraw() { this.drawing = false; }
+
+  clear() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.isEmpty = true;
+  }
+
+  toDataURL() { return this.canvas.toDataURL('image/png'); }
+}
+
+// Init pads
+const padClient = new SignaturePad('sigClient');
+const padDev = new SignaturePad('sigDev');
+
+function clearSig(id) {
+  if (id === 'sigClient') padClient.clear();
+  if (id === 'sigDev') padDev.clear();
+}
+
+// ===== API FUNCTIONS =====
+async function loadSignatures() {
+  try {
+    const res = await fetch('/api/signatures');
+    const data = await res.json();
+    
+    if (data.client) showSavedSignature('client', data.client);
+    if (data.developer) showSavedSignature('developer', data.developer);
+  } catch (e) {
+    // Server not running or offline — silently ignore, keep local mode
+    console.log('API offline — mode lokal');
+  }
+}
+
+function showSavedSignature(role, data) {
+  const suffix = role === 'client' ? 'Client' : 'Dev';
+  
+  // Hide draw area, show saved
+  document.getElementById('drawArea' + suffix).style.display = 'none';
+  document.getElementById('savedArea' + suffix).style.display = 'block';
+  
+  // Set image & name
+  document.getElementById('savedSig' + suffix).src = data.signature_data;
+  document.getElementById('savedName' + suffix).textContent = data.name;
+  document.getElementById('savedTime' + suffix).textContent = '<span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #10b981;">done</span> Ditandatangani pada ' + data.signed_at;
+  
+  // Update status badge
+  document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed"><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #10b981;">check_circle</span> Sudah ditandatangani</span>';
+  
+  // Highlight box
+  document.getElementById('sigBox' + suffix).classList.add('sig-box-signed');
+}
+
+async function submitSignature(role) {
+  const suffix = role === 'client' ? 'Client' : 'Dev';
+  const pad = role === 'client' ? padClient : padDev;
+  const nameInput = document.getElementById('name' + suffix);
+  const name = nameInput.value.trim();
+  
+  if (pad.isEmpty) {
+    alert('Silahkan tanda tangan terlebih dahulu!');
+    return;
+  }
+  if (!name) {
+    alert('Silahkan isi nama lengkap!');
+    nameInput.focus();
+    return;
+  }
+  
+  const btn = document.querySelector('#drawArea' + suffix + ' .sig-submit-btn');
+  btn.disabled = true;
+  btn.textContent = '? Menyimpan...';
+  
+  try {
+    const res = await fetch('/api/signatures', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        role: role,
+        name: name,
+        signature_data: pad.toDataURL()
+      })
+    });
+    
+    const result = await res.json();
+    
+    if (result.success) {
+      showSavedSignature(role, {
+        name: name,
+        signature_data: pad.toDataURL(),
+        signed_at: result.signed_at
+      });
+    } else {
+      alert('Error: ' + (result.error || 'Gagal menyimpan'));
+      btn.disabled = false;
+      btn.textContent = '<span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #10b981;">done</span> Tanda Tangani';
+    }
+  } catch (e) {
+    alert('Server tidak terhubung. Pastikan server.py sedang berjalan.');
+    btn.disabled = false;
+    btn.textContent = '<span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #10b981;">done</span> Tanda Tangani';
+  }
+}
+
+async function resetAll() {
+  if (!confirm('Reset semua tanda tangan? Kedua pihak harus tanda tangan ulang.')) return;
+  
+  try {
+    await fetch('/api/signatures/reset', { method: 'POST' });
+    location.reload();
+  } catch (e) {
+    alert('Server tidak terhubung.');
+  }
+}
+
+// ===== AUTO REFRESH (poll setiap 5 detik) =====
+setInterval(loadSignatures, 5000);
+
+// ===== SAVE AS PDF (html2canvas + jsPDF) =====
+async function savePDF() {
+  if (!window.jspdf || !window.html2canvas) {
+    alert('Library PDF belum selesai di-load. Coba refresh halaman dulu (Ctrl+Shift+R), terus tunggu beberapa detik.');
+    return;
+  }
+
+  const btn = event.target;
+  const origText = btn.innerHTML;
+  btn.innerHTML = '? Generating PDF...';
+  btn.disabled = true;
+
+  try {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfW = 210;
+    const pdfH = 297;
+    const pages = document.querySelectorAll('.page');
+    let firstPage = true;
+
+    // Hide no-print elements
+    const noPrint = document.querySelectorAll('.no-print');
+    noPrint.forEach(el => el.style.display = 'none');
+
+    for (const page of pages) {
+      const canvas = await html2canvas(page, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: page.classList.contains('cover') ? '#0f172a' : '#ffffff',
+        logging: false,
+        windowWidth: 800,
+      });
+
+      const imgData = canvas.toDataURL('image/jpeg', 0.95);
+
+      if (!firstPage) pdf.addPage();
+      firstPage = false;
+
+      // Hitung ratio — scale agar muat 1 halaman A4
+      const canvasRatio = canvas.height / canvas.width;
+      const a4Ratio = pdfH / pdfW;
+
+      let imgW, imgH;
+      if (canvasRatio <= a4Ratio) {
+        // Konten lebih pendek/pas dari A4 → fit width
+        imgW = pdfW;
+        imgH = pdfW * canvasRatio;
+      } else {
+        // Konten lebih tinggi dari A4 → fit height (scale down)
+        imgH = pdfH;
+        imgW = pdfH / canvasRatio;
+      }
+
+      // Center horizontally
+      const offsetX = (pdfW - imgW) / 2;
+      pdf.addImage(imgData, 'JPEG', offsetX, 0, imgW, imgH);
+    }
+
+    // Restore no-print
+    noPrint.forEach(el => el.style.display = '');
+
+    pdf.save('Proposal-Sekolahku-BuildyWeb.pdf');
+  } catch (e) {
+    console.error('PDF Error:', e);
+    alert('Gagal generate PDF: ' + e.message);
+  }
+
+  btn.innerHTML = origText;
+  btn.disabled = false;
+}
+
+// ===== LOAD ON START =====
+document.addEventListener('DOMContentLoaded', loadSignatures);
+</script>
+
+</body>
+</html>
