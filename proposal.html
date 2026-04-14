@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Proposal Sistem Ticketing Digital - Hidden Mini Zoo Bali | BuildyWeb</title>
+<title>Proposal Sistem Ticketing Digital - Hidden Mini Zoo Bali | BuildyWeb × DigiNetAll</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
@@ -353,6 +353,14 @@
     line-height: 1.5;
   }
 
+  .price-total-row td {
+    background: var(--accent-light) !important;
+    font-weight: 800 !important;
+    font-size: 16px !important;
+    color: var(--accent-dark) !important;
+    border-bottom: none !important;
+  }
+
   /* ===== TIMELINE ===== */
   .timeline-item {
     display: flex;
@@ -425,56 +433,61 @@
     line-height: 1.6;
   }
 
-  /* ===== UI PREVIEW ===== */
-  .ui-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+  /* ===== FLOW DIAGRAM SYSTEM ===== */
+  .flow-container {
+    padding: 24px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
     margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
   }
 
-  .ui-card {
+  .flow-step {
+    width: 100%;
+    max-width: 400px;
+    background: var(--white);
     border: 1px solid var(--border);
     border-radius: 12px;
-    overflow: hidden;
-    background: var(--white);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
   }
 
-  .ui-card-preview {
-    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-    padding: 32px 20px;
+  .flow-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 140px;
-    position: relative;
+    flex-shrink: 0;
   }
 
-  .ui-card-preview .material-symbols-outlined {
-    font-size: 48px;
-    color: var(--accent);
-  }
-
-  .ui-card-info {
-    padding: 16px;
-    border-top: 1px solid var(--border);
-  }
-
-  .ui-card-info h4 {
-    font-size: 13px;
+  .flow-content h4 {
+    font-size: 14px;
     font-weight: 700;
-    color: var(--text);
-    font-family: 'Plus Jakarta Sans', sans-serif;
     margin-bottom: 2px;
   }
 
-  .ui-card-info p {
-    font-size: 11px;
+  .flow-content p {
+    font-size: 12px;
     color: var(--text2);
+    line-height: 1.4;
   }
 
-  .ui-card-full {
-    grid-column: 1 / -1;
+  .flow-arrow {
+    color: var(--text3);
+    font-size: 20px;
+    line-height: 1;
   }
 
   /* ===== FEATURE LIST ===== */
@@ -592,7 +605,6 @@
     font-size: 12px;
   }
 
-  /* ===== SIGNATURE STATUS ===== */
   .sig-status {
     display: inline-flex;
     align-items: center;
@@ -735,65 +747,16 @@
       page-break-after: always;
       break-after: page;
     }
-    .page:last-of-type {
-      page-break-after: auto;
-      break-after: auto;
-    }
 
     .page-content {
       padding: 24px 16px !important;
       overflow: visible !important;
     }
 
-    /* Cover fixes */
-    .cover {
-      min-height: auto !important;
-      height: auto !important;
-      display: block !important;
-      overflow: visible !important;
-    }
-    .cover-bg {
-      position: absolute !important;
-      inset: 0 !important;
-      background: #0f172a !important;
-      z-index: 0 !important;
-    }
-    .cover-bg::before, .cover-bg::after {
-      display: none !important;
-    }
-    .cover-content {
-      position: relative !important;
-      z-index: 1 !important;
-      padding: 32px 24px !important;
-      display: block !important;
-    }
-    .cover-title { color: white !important; }
-    .cover-subtitle { color: #cbd5e1 !important; }
-    .cover-badge { color: #4ade80 !important; }
-    .cover-meta-label { color: #94a3b8 !important; }
-    .cover-meta-value { color: white !important; }
-    .cover-footer { color: #94a3b8 !important; }
-
-    /* Content text colors */
-    .section-title { color: #1e293b !important; }
-    .section-subtitle { color: #64748b !important; }
-    h1, h2, h3, h4, h5, h6 { color: #1e293b !important; }
-    p { color: #1e293b !important; }
-    li { color: #1e293b !important; }
-    td, th { color: #1e293b !important; }
-
-    /* Hide interactive/non-print */
     .no-print { display: none !important; }
     .sig-name-input { border: none !important; -webkit-appearance: none; }
     canvas { display: none !important; }
     .sig-print-img { display: block !important; }
-
-    /* Tables */
-    table { page-break-inside: avoid; }
-    tr { page-break-inside: avoid; }
-
-    /* Images */
-    img { max-width: 100% !important; page-break-inside: avoid; }
   }
 
   @media (max-width: 640px) {
@@ -802,10 +765,8 @@
     .cover-title { font-size: 28px; }
     .section-title { font-size: 22px; }
     .cover-meta { grid-template-columns: 1fr; }
-    .ui-grid { grid-template-columns: 1fr; }
     .signature-grid { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: 1fr; }
-    .cover-header { flex-direction: column; gap: 16px; }
   }
 
   .material-symbols-outlined {
@@ -824,6 +785,8 @@
     <div class="cover-header">
       <div style="display: flex; align-items: center; gap: 20px;">
         <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 48px; background: white; padding: 6px 12px; border-radius: 8px;"/>
+        <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.15);"></div>
+        <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 48px; border-radius: 8px;"/>
       </div>
       <div style="text-align: right;">
         <div style="font-size: 11px; color: #64748b; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;">Dokumen Resmi</div>
@@ -840,7 +803,7 @@
         Sistem Ticketing Digital<br><span>Hidden Mini Zoo Bali</span>
       </h1>
       <p class="cover-subtitle">
-        Proposal penawaran jasa pengembangan sistem reservasi tiket online dan manajemen pengunjung digital. Platform ini akan mengintegrasikan alur booking tanggal, pembayaran otomatis, dan validasi tiket di lokasi.
+        Proposal penawaran jasa pengembangan sistem reservasi tiket online dan manajemen pengunjung digital. Platform ini mengintegrasikan alur booking tanggal, pembayaran otomatis, dan validasi tiket di lokasi.
       </p>
 
       <div class="cover-meta">
@@ -850,7 +813,7 @@
         </div>
         <div class="cover-meta-item">
           <span class="cover-meta-label">Dipersiapkan Oleh</span>
-          <span class="cover-meta-value">BuildyWeb</span>
+          <span class="cover-meta-value">BuildyWeb × DigiNetAll (Partner)</span>
         </div>
         <div class="cover-meta-item">
           <span class="cover-meta-label">Tanggal Proposal</span>
@@ -864,7 +827,7 @@
     </div>
 
     <div class="cover-footer">
-      <div class="cover-footer-text">© 2026 BuildyWeb. Dokumen ini bersifat rahasia.</div>
+      <div class="cover-footer-text">© 2026 BuildyWeb × DigiNetAll. Dokumen ini bersifat rahasia.</div>
       <div class="cover-footer-text">Halaman 1</div>
     </div>
   </div>
@@ -876,7 +839,6 @@
 <div class="page">
   <div class="page-content">
 
-    <!-- DAFTAR ISI -->
     <div class="section-label">
       <span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">menu_book</span>
       Daftar Isi
@@ -887,12 +849,12 @@
     <div>
       <div class="toc-item">
         <div class="toc-num">1</div>
-        <div class="toc-text">Tentang BuildyWeb</div>
+        <div class="toc-text">Tentang Kami (BuildyWeb × DigiNetAll)</div>
         <div class="toc-page">Hal. 2</div>
       </div>
       <div class="toc-item">
         <div class="toc-num">2</div>
-        <div class="toc-text">Analisis & Pemahaman Project</div>
+        <div class="toc-text">Latar Belakang & Pemahaman Project</div>
         <div class="toc-page">Hal. 3</div>
       </div>
       <div class="toc-item">
@@ -902,7 +864,7 @@
       </div>
       <div class="toc-item">
         <div class="toc-num">4</div>
-        <div class="toc-text">Alur & Preview Sistem</div>
+        <div class="toc-text">Visual Alur Sistem (Flow Diagram)</div>
         <div class="toc-page">Hal. 4</div>
       </div>
       <div class="toc-item">
@@ -929,13 +891,12 @@
 
     <div class="divider"></div>
 
-    <!-- TENTANG KAMI -->
     <div class="section-label">
       <span class="section-number">1</span>
       Tentang Kami
     </div>
-    <h2 class="section-title">BuildyWeb</h2>
-    <p class="section-desc">Mitra digital terpercaya untuk membangun kehadiran online bisnis Anda.</p>
+    <h2 class="section-title">Mitra Strategis Digital</h2>
+    <p class="section-desc">Kombinasi keahlian untuk menghadirkan solusi digital zoo terbaik.</p>
 
     <div style="display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap;">
       <div class="info-box" style="flex: 1; min-width: 280px;">
@@ -943,31 +904,16 @@
           <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 42px;"/>
         </div>
         <p style="font-size: 13px; color: var(--text2); line-height: 1.7;">
-          <strong style="color: var(--text);">BuildyWeb</strong> — <em>"From Zero to Online"</em>. Kami adalah tim pengembang web profesional yang berfokus pada pembuatan website modern, responsif, dan berorientasi pada konversi. Kami spesialis dalam integrasi sistem e-commerce dan reservasi menggunakan ekosistem WordPress.
+          <strong style="color: var(--text);">BuildyWeb</strong> — Fokus pada pembuatan website modern dan sistem reservasi berorientasi konversi. Kami memastikan pengalaman pengguna (UX) yang mulus bagi pengunjung zoo.
         </p>
       </div>
       <div class="info-box" style="flex: 1; min-width: 280px;">
-          <h4 class="font-heading" style="font-size: 14px; margin-bottom: 8px;">Spesialisasi Kami</h4>
-          <ul class="feature-list" style="font-size: 12px;">
-              <li><span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> Ticketing & Booking System</li>
-              <li><span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> Payment Gateway Integration</li>
-              <li><span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> Custom WordPress Development</li>
-          </ul>
-      </div>
-    </div>
-
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="stat-value">50+</div>
-        <div class="stat-label">Project Selesai</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">98%</div>
-        <div class="stat-label">Klien Puas</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">24/7</div>
-        <div class="stat-label">Support</div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 44px; border-radius: 6px;"/>
+        </div>
+        <p style="font-size: 13px; color: var(--text2); line-height: 1.7;">
+          <strong style="color: var(--text);">DigiNetAll</strong> — Partner strategis dalam pengembangan solusi teknis dan integrasi sistem backend. Menjamin stabilitas infrastruktur data pengunjung zoo.
+        </p>
       </div>
     </div>
   </div>
@@ -979,7 +925,6 @@
 <div class="page">
   <div class="page-content">
 
-    <!-- LATAR BELAKANG -->
     <div class="section-label">
       <span class="section-number">2</span>
       Analisis Project
@@ -991,118 +936,124 @@
       <p style="font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 16px;">
         <strong>Hidden Mini Zoo Bali</strong> memerlukan sistem yang mampu menangani alur pemesanan tiket secara otomatis layaknya <em>jungle-cart.com</em>. Tantangan utama adalah membatasi jumlah pengunjung per hari (kuota) serta memvalidasi tiket di lapangan secara cepat dan akurat.</p>
       <p style="font-size: 14px; color: var(--text); line-height: 1.8;">
-        Kami mengusulkan penggunaan ekosistem <strong>WordPress + WooCommerce</strong> yang dikombinasikan dengan sistem ticketing premium (FooEvents/sejenis). Pendekatan ini memastikan sistem <strong>stabil, teruji, dan mudah dikelola</strong> tanpa harus membangun dari nol, namun tetap memiliki fleksibilitas tinggi untuk integrasi pembayaran lokal seperti <strong>Midtrans atau Xendit</strong>.
+        Kami mengusulkan penggunaan ekosistem <strong>WordPress + WooCommerce</strong> yang dikombinasikan dengan sistem ticketing premium. Pendekatan ini memastikan sistem <strong>stabil dan teruji</strong> tanpa harus membangun dari nol, namun tetap fleksibel untuk integrasi pembayaran lokal seperti <strong>Midtrans atau Xendit</strong>.
       </p>
-    </div>
-
-    <div class="highlight-box">
-      <p><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle; color: #eab308;">lightbulb</span> <strong>Keunggulan Solusi:</strong> Sistem akan berjalan secara otomatis 24/7. Pengunjung membayar, menerima QR tiket via email, dan staf Anda hanya perlu melakukan scan di pintu masuk.</p>
     </div>
 
     <div class="divider"></div>
 
-    <!-- RUANG LINGKUP -->
     <div class="section-label">
       <span class="section-number">3</span>
       Ruang Lingkup
     </div>
     <h2 class="section-title">Cakupan Pekerjaan</h2>
-    <p class="section-desc">Detail modul dan fitur yang akan diimplementasikan.</p>
+    <p class="section-desc">Detail layanan dan fitur yang akan diimplementasikan.</p>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
-      <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
-          <div style="font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 8px;">Modul Pengunjung</div>
-          <ul class="feature-list" style="font-size: 12px;">
-              <li><span class="material-symbols-outlined" style="font-size: 14px;">check</span> Pilih tanggal kunjungan</li>
-              <li><span class="material-symbols-outlined" style="font-size: 14px;">check</span> Pilihan Paket (Regular/Full)</li>
-              <li><span class="material-symbols-outlined" style="font-size: 14px;">check</span> Pembayaran Online (QRIS/VA)</li>
-              <li><span class="material-symbols-outlined" style="font-size: 14px;">check</span> Download E-Ticket (PDF/QR)</li>
-          </ul>
-      </div>
-      <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
-          <div style="font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 8px;">Modul Admin & Staf</div>
-          <ul class="feature-list" style="font-size: 12px;">
-              <li><span class="material-symbols-outlined" style="font-size: 14px;">check</span> Scan QR Validasi di Pintu</li>
-              <li><span class="material-symbols-outlined" style="font-size: 14px;">check</span> Monitoring Transaksi Real-time</li>
-              <li><span class="material-symbols-outlined" style="font-size: 14px;">check</span> Pengaturan Kuota Per Hari</li>
-              <li><span class="material-symbols-outlined" style="font-size: 14px;">check</span> Laporan Used/Unused Ticket</li>
-          </ul>
-      </div>
-    </div>
-
-    <h3 class="font-heading" style="font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 16px;">Tech Stack & Requirement</h3>
     <ul class="feature-list">
       <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span>
-        <div><strong>WordPress & WooCommerce</strong> — Basis sistem yang stabil dan mudah dikelola manajemen zoo</div>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>Sistem Booking Tiket</strong> — Pemilihan tanggal kunjungan dengan sinkronisasi kalender real-time.</div>
       </li>
       <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
-        <div><strong>Payment Gateway (Midtrans/Xendit)</strong> — Mendukung QRIS, VA Bank, dan E-wallet secara instan</div>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>Multiple Ticket Type</strong> — Pengaturan paket tiket (Regular, Full Package, Anak, dll).</div>
       </li>
       <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
-        <div><strong>QR Logic System</strong> — Engine untuk generate dan validasi status tiket secara unik</div>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>Integrasi Payment Gateway</strong> — Mendukung QRIS, Virtual Account, dan E-wallet secara otomatis.</div>
+      </li>
+      <li>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>Generate E-Ticket</strong> — Pengiriman tiket PDF dengan QR Code unik ke email pelanggan setelah pembayaran sukses.</div>
+      </li>
+      <li>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>Sistem Scan QR Validation</strong> — Dashboard staf pintu masuk untuk memvalidasi tiket dan mencegah penggunaan ganda.</div>
+      </li>
+      <li>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>Admin Dashboard</strong> — Monitoring transaksi, data pengunjung harian, dan laporan status tiket (Used/Unused).</div>
+      </li>
+      <li>
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <div><strong>Manajemen Kuota</strong> — Pengaturan pembatasan jumlah pengunjung harian otomatis oleh sistem.</div>
       </li>
     </ul>
   </div>
 </div>
 
 <!-- ============================================================ -->
-<!-- HALAMAN 4: PREVIEW UI/UX -->
+<!-- HALAMAN 4: VISUAL ALUR SISTEM (FLOW DIAGRAM) -->
 <!-- ============================================================ -->
 <div class="page">
   <div class="page-content">
     <div class="section-label">
       <span class="section-number">4</span>
-      Alur & Preview
+      Visual Alur
     </div>
-    <h2 class="section-title">Konsep Alur Sistem</h2>
-    <p class="section-desc">Gambaran visual alur pemesanan tiket yang akan kami bangun.</p>
+    <h2 class="section-title">Alur Sistem Web WordPress</h2>
+    <p class="section-desc">Diagram visual proses reservasi digital Hidden Mini Zoo Bali.</p>
 
-    <div class="ui-grid">
-      <div class="ui-card ui-card-full">
-        <div class="ui-card-preview" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); min-height: 180px; flex-direction: column; gap: 8px;">
-          <span class="material-symbols-outlined" style="font-size: 40px; color: var(--accent); font-variation-settings: 'FILL' 1;">calendar_month</span>
-          <span style="font-size: 18px; font-weight: 800; color: var(--accent-dark); font-family: 'Plus Jakarta Sans', sans-serif;">BOOKING CALENDAR</span>
-        </div>
-        <div class="ui-card-info">
-          <h4>Pilih Tanggal & Paket — reservasi.html</h4>
-          <p>Tampilan kalender interaktif untuk memilih tanggal kunjungan berdasarkan ketersediaan kuota.</p>
+    <div class="flow-container">
+      <div class="flow-step">
+        <div class="flow-icon"><span class="material-symbols-outlined">touch_app</span></div>
+        <div class="flow-content">
+          <h4>Pilih Paket & Tanggal</h4>
+          <p>Pengunjung memilih tipe tiket & tanggal pada kalender booking.</p>
         </div>
       </div>
-      <div class="ui-card">
-        <div class="ui-card-preview" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);">
-          <span class="material-symbols-outlined" style="font-size: 48px; color: #2563eb;">qr_code</span>
+      <div class="flow-arrow"><span class="material-symbols-outlined">arrow_downward</span></div>
+      <div class="flow-step">
+        <div class="flow-icon"><span class="material-symbols-outlined">database</span></div>
+        <div class="flow-content">
+          <h4>Cek Kuota Harian</h4>
+          <p>Sistem WordPress memvalidasi ketersediaan sisa kuota pengunjung.</p>
         </div>
-        <div class="ui-card-info"><h4>E-Ticket Generation</h4></div>
       </div>
-      <div class="ui-card">
-        <div class="ui-card-preview" style="background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);">
-          <span class="material-symbols-outlined" style="font-size: 48px; color: #ca8a04;">dashboard_customize</span>
+      <div class="flow-arrow"><span class="material-symbols-outlined">arrow_downward</span></div>
+      <div class="flow-step">
+        <div class="flow-icon"><span class="material-symbols-outlined">payments</span></div>
+        <div class="flow-content">
+          <h4>Checkout & Pembayaran</h4>
+          <p>Integrasi Midtrans/Xendit (QRIS, VA, E-Wallet).</p>
         </div>
-        <div class="ui-card-info"><h4>Admin Dashboard</h4></div>
+      </div>
+      <div class="flow-arrow"><span class="material-symbols-outlined">arrow_downward</span></div>
+      <div class="flow-step" style="border-color: var(--accent); background: var(--accent-light);">
+        <div class="flow-icon"><span class="material-symbols-outlined">outgoing_mail</span></div>
+        <div class="flow-content">
+          <h4>Generate & Kirim Tiket</h4>
+          <p>E-Ticket (PDF + QR Code) dikirim otomatis ke email pembeli.</p>
+        </div>
+      </div>
+      <div class="flow-arrow"><span class="material-symbols-outlined">arrow_downward</span></div>
+      <div class="flow-step">
+        <div class="flow-icon"><span class="material-symbols-outlined">qr_code_scanner</span></div>
+        <div class="flow-content">
+          <h4>Validasi di Lokasi</h4>
+          <p>Staf melakukan scan QR. Status tiket berubah menjadi "Used".</p>
+        </div>
       </div>
     </div>
 
     <div class="highlight-box">
-        <p><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle;">verified</span> <strong>Sistem Validasi:</strong> Staf pintu masuk akan diberikan akses ke dashboard khusus scanner untuk mengubah status tiket menjadi "Used" secara real-time.</p>
+      <p><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle;">verified</span> <strong>Catatan:</strong> Alur ini dirancang menggunakan WooCommerce Booking Engine yang menjamin kecepatan sinkronisasi data kuota dan status pembayaran.</p>
     </div>
+  </div>
 </div>
 
 <!-- ============================================================ -->
-<!-- HALAMAN 5: RINCIAN INVESTASI + TIMELINE -->
+<!-- HALAMAN 5: INVESTASI + TIMELINE -->
 <!-- ============================================================ -->
 <div class="page">
   <div class="page-content">
 
-    <!-- RINCIAN BIAYA -->
     <div class="section-label">
       <span class="section-number">5</span>
       Investasi
     </div>
-    <h2 class="section-title">Rincian Biaya</h2>
-    <p class="section-desc">Berikut estimasi biaya untuk pengembangan sistem ticketing lengkap.</p>
+    <h2 class="section-title">Rincian Investasi</h2>
+    <p class="section-desc">Berikut rincian anggaran pengembangan sistem ticketing lengkap.</p>
 
     <table class="price-table">
       <thead>
@@ -1116,40 +1067,37 @@
         <tr>
           <td style="text-align: center; font-weight: 700; color: var(--accent);">1</td>
           <td>
-            <div class="item-title">Core Ticketing Engine (WordPress)</div>
-            <div class="item-desc">Instalasi WP, WooCommerce, Setup Booking Logic, Multiple Ticket Types, dan Lisensi Ticketing Plugin.</div>
+            <div class="item-title">Ticketing Engine & Quota System</div>
+            <div class="item-desc">Setup WordPress, WooCommerce, Engine Booking, Multiple Ticket Types, dan Konfigurasi Manajemen Kuota Harian.</div>
           </td>
-          <td style="font-size: 15px; font-weight: 700;">Rp 4.500.000</td>
+          <td style="font-size: 15px; font-weight: 700;">Rp 3.500.000</td>
         </tr>
         <tr>
           <td style="text-align: center; font-weight: 700; color: var(--accent);">2</td>
           <td>
-            <div class="item-title">Integrasi Payment Gateway & QR Logic</div>
-            <div class="item-desc">Integrasi Midtrans/Xendit (QRIS, VA, E-Wallet), Auto-Generate PDF Ticket, dan Sistem Scan Validasi.</div>
+            <div class="item-title">Payment & QR Validation Integration</div>
+            <div class="item-desc">Integrasi Midtrans/Xendit, Engine Generate PDF Ticket, Dashboard Scanner Staf, dan Sistem Status Tiket (Used/Unused).</div>
           </td>
-          <td style="font-size: 15px; font-weight: 700;">Rp 4.500.000</td>
+          <td style="font-size: 15px; font-weight: 700;">Rp 3.500.000</td>
         </tr>
         <tr>
           <td style="text-align: center; font-weight: 700; color: var(--accent);">3</td>
           <td>
-            <div class="item-title">Hosting, Domain & Setup Server</div>
-            <div class="item-desc">Cloud Hosting VPS (1 Tahun), Domain .com/.id, dan SSL Certificate untuk keamanan transaksi.</div>
+            <div class="item-title">Server Infrastructure & Maintenance</div>
+            <div class="item-desc">VPS Hosting Singapore (1 Tahun), Domain .com, SSL, Setup Server Security, dan Garansi Bug 3 Bulan.</div>
           </td>
           <td style="font-size: 15px; font-weight: 700;">Rp 2.000.000</td>
         </tr>
         <tr class="price-total-row">
-            <td></td>
-            <td style="text-align: right; padding-right: 20px;">Total Investasi</td>
-            <td>Rp 11.000.000</td>
+          <td></td>
+          <td style="text-align: right; padding-right: 20px; font-weight: 800;">Total Investasi</td>
+          <td style="font-weight: 800; font-size: 18px;">Rp 9.000.000</td>
         </tr>
       </tbody>
     </table>
 
-    <div style="text-align: center; margin: 12px 0 0; font-size: 12px; color: #64748b; font-style: italic;">* Biaya sudah termasuk pelatihan operasional untuk staf zoo</div>
-
     <div class="divider"></div>
 
-    <!-- TIMELINE -->
     <div class="section-label">
       <span class="section-number">6</span>
       Timeline
@@ -1162,16 +1110,16 @@
         <div class="timeline-dot"><span>1</span></div>
         <div class="timeline-content">
           <div class="timeline-day">Fase 1 (Hari 1-4)</div>
-          <div class="timeline-title">Setup & UI Design</div>
-          <div class="timeline-desc">Setup server, instalasi engine, dan desain antarmuka reservasi tiket yang responsif.</div>
+          <div class="timeline-title">Setup Arsitektur & UI</div>
+          <div class="timeline-desc">Setup hosting, domain, instalasi core WordPress, dan desain interface booking ticket.</div>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"><span>2</span></div>
         <div class="timeline-content">
           <div class="timeline-day">Fase 2 (Hari 5-10)</div>
-          <div class="timeline-title">Logic & Payment Integration</div>
-          <div class="timeline-desc">Konfigurasi kuota, multiple ticket, integrasi payment gateway, dan sistem QR code.</div>
+          <div class="timeline-title">Logic Development & Payment</div>
+          <div class="timeline-desc">Konfigurasi kuota, tipe tiket, integrasi payment gateway, dan sistem QR Code.</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -1179,59 +1127,47 @@
         <div class="timeline-content">
           <div class="timeline-day">Fase 3 (Hari 11-14)</div>
           <div class="timeline-title">QA, Training & Launch</div>
-          <div class="timeline-desc">Pengujian transaksi, simulasi scan tiket, training staf, dan serah terima sistem.</div>
+          <div class="timeline-desc">Pengujian transaksi, simulasi scan tiket di lapangan, training staf zoo, dan penyerahan sistem.</div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </div>
 
 <!-- ============================================================ -->
-<!-- HALAMAN 6: SYARAT & KETENTUAN + PENUTUP -->
+<!-- HALAMAN 6: PENUTUP -->
 <!-- ============================================================ -->
 <div class="page">
   <div class="page-content">
 
-    <!-- SYARAT & KETENTUAN -->
     <div class="section-label">
       <span class="section-number">7</span>
       Ketentuan
     </div>
     <h2 class="section-title">Syarat & Ketentuan</h2>
-    <p class="section-desc">Ketentuan operasional pengembangan sistem.</p>
-
     <ol class="terms-list">
-      <li><span>Proposal berlaku selama <strong>30 hari</strong> sejak 14 April 2026.</span></li>
-      <li><span>Pembayaran dilakukan 2 tahap: 50% Down Payment (DP) dan 50% pelunasan setelah serah terima.</span></li>
-      <li><span>BuildyWeb memberikan garansi perbaikan bug/error selama 3 bulan pasca serah terima.</span></li>
-      <li><span>Pihak Hidden Mini Zoo Bali bertanggung jawab menyediakan data konten (foto zoo, detail paket, dan dokumen legal merchant pembayaran).</span></li>
-      <li><span>Maintenance server ringan gratis selama 1 tahun pertama.</span></li>
-      <li><span>Training operasional dashboard admin dan aplikasi scanner staf akan dilakukan secara intensif selama 1 sesi.</span></li>
+      <li><span>Pembayaran dilakukan 2 tahap: 50% DP untuk memulai pengerjaan, dan 50% pelunasan setelah serah terima sistem.</span></li>
+      <li><span>Biaya sudah termasuk lisensi plugin ticketing premium untuk tahun pertama.</span></li>
+      <li><span>Bantuan teknis 24/7 tersedia selama masa garansi (90 hari pasca launch).</span></li>
     </ol>
 
     <div class="divider"></div>
 
-    <!-- PENUTUP -->
     <div class="section-label">
       <span class="section-number">8</span>
       Penutup
     </div>
     <h2 class="section-title">Penutup</h2>
-
-    <div class="info-box" style="background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 100%); border-color: rgba(3,172,14,0.15);">
-      <p style="font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 16px;">
-        Terima kasih atas kesempatan yang diberikan kepada <strong>BuildyWeb</strong>. Kami sangat antusias membantu <strong>Hidden Mini Zoo Bali</strong> melakukan transformasi digital pada sistem ticketing untuk meningkatkan kenyamanan pengunjung.
-      </p>
+    <div class="info-box" style="background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 100%);">
       <p style="font-size: 14px; color: var(--text); line-height: 1.8;">
-        Kami yakin solusi yang kami tawarkan akan meminimalisir kendala operasional dan membantu Anda mengelola data pengunjung dengan lebih profesional. Mari wujudkan sistem ticketing terbaik untuk zoo Anda! <span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle;">rocket_launch</span>
+        Terima kasih atas kepercayaan Hidden Mini Zoo Bali kepada <strong>BuildyWeb × DigiNetAll</strong>. Kami berkomitmen menghadirkan sistem ticketing yang stabil, aman, dan mempermudah operasional kebun binatang Anda. Mari bertransformasi digital bersama kami!
       </p>
     </div>
 
     <!-- TANDA TANGAN -->
     <div class="signature-grid">
       <!-- CLIENT -->
-      <div class="signature-box" style="position: relative;" id="sigBoxClient">
+      <div class="signature-box" id="sigBoxClient">
         <div class="signature-label">Pihak Pertama (Klien)</div>
         <div id="statusClient" style="margin-bottom: 12px;">
           <span class="sig-status sig-status-pending">? Belum ditandatangani</span>
@@ -1239,10 +1175,10 @@
         <div id="drawAreaClient">
           <div style="position: relative; margin-bottom: 12px;">
             <canvas id="sigClient" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; background: #fafafa;"></canvas>
-            <button onclick="clearSig('sigClient')" class="sig-clear-btn no-print"><span class="material-symbols-outlined" style="font-size: 1.1em; color: #ef4444;">close</span></button>
+            <button onclick="clearSig('sigClient')" class="sig-clear-btn no-print"><span class="material-symbols-outlined" style="font-size: 14px; color: #ef4444;">close</span></button>
           </div>
           <div class="signature-line"></div>
-          <input type="text" id="nameClient" placeholder="Ketik nama lengkap..." class="sig-name-input">
+          <input type="text" id="nameClient" placeholder="Nama Lengkap..." class="sig-name-input">
           <button onclick="submitSignature('client')" class="sig-submit-btn no-print">Tanda Tangani</button>
         </div>
         <div id="savedAreaClient" style="display: none;">
@@ -1255,7 +1191,7 @@
       </div>
 
       <!-- DEVELOPER -->
-      <div class="signature-box" style="position: relative;" id="sigBoxDev">
+      <div class="signature-box" id="sigBoxDev">
         <div class="signature-label">Pihak Kedua (Developer)</div>
         <div id="statusDev" style="margin-bottom: 12px;">
           <span class="sig-status sig-status-pending">? Belum ditandatangani</span>
@@ -1263,10 +1199,10 @@
         <div id="drawAreaDev">
           <div style="position: relative; margin-bottom: 12px;">
             <canvas id="sigDev" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; background: #fafafa;"></canvas>
-            <button onclick="clearSig('sigDev')" class="sig-clear-btn no-print"><span class="material-symbols-outlined" style="font-size: 1.1em; color: #ef4444;">close</span></button>
+            <button onclick="clearSig('sigDev')" class="sig-clear-btn no-print"><span class="material-symbols-outlined" style="font-size: 14px; color: #ef4444;">close</span></button>
           </div>
           <div class="signature-line"></div>
-          <input type="text" id="nameDev" placeholder="Ketik nama lengkap..." class="sig-name-input">
+          <input type="text" id="nameDev" placeholder="Nama Lengkap..." class="sig-name-input">
           <button onclick="submitSignature('developer')" class="sig-submit-btn no-print">Tanda Tangani</button>
         </div>
         <div id="savedAreaDev" style="display: none;">
@@ -1275,13 +1211,13 @@
           <div class="signature-name" id="savedNameDev"></div>
           <div style="font-size: 10px; color: #94a3b8; margin-top: 4px;" id="savedTimeDev"></div>
         </div>
-        <div class="signature-role">BuildyWeb</div>
+        <div class="signature-role">BuildyWeb × DigiNetAll</div>
       </div>
     </div>
 
     <!-- TOMBOL AKSI -->
     <div class="no-print" style="display: flex; gap: 12px; justify-content: center; margin-top: 36px; flex-wrap: wrap;">
-      <button onclick="savePDF()" style="display: inline-flex; align-items: center; gap: 8px; background: #03AC0E; color: white; font-weight: 700; font-size: 14px; border: none; padding: 14px 32px; border-radius: 14px; cursor: pointer; box-shadow: 0 4px 12px rgba(3,172,14,0.3);">
+      <button onclick="savePDF()" style="display: inline-flex; align-items: center; gap: 8px; background: #03AC0E; color: white; font-weight: 700; font-size: 14px; border: none; padding: 14px 32px; border-radius: 14px; cursor: pointer;">
         <span class="material-symbols-outlined">description</span> Save as PDF
       </button>
       <button onclick="resetAll()" style="display: inline-flex; align-items: center; gap: 8px; background: white; color: #ef4444; font-weight: 600; font-size: 14px; border: 2px solid #fecaca; padding: 14px 24px; border-radius: 14px; cursor: pointer;">
@@ -1292,8 +1228,10 @@
     <div style="text-align: center; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border);">
       <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 12px;">
         <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 36px; opacity: 0.7;"/>
+        <span style="color: var(--text3); font-size: 12px;">×</span>
+        <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 38px; border-radius: 6px; opacity: 0.7;"/>
       </div>
-      <p style="font-size: 12px; color: var(--text3);">© 2026 BuildyWeb — Dokumen ini bersifat rahasia dan hanya diperuntukkan bagi pihak yang dituju.</p>
+      <p style="font-size: 12px; color: var(--text3);">© 2026 BuildyWeb × DigiNetAll — Dokumen ini bersifat rahasia.</p>
     </div>
   </div>
 </div>
@@ -1302,16 +1240,13 @@
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
 
-<!-- Scripts -->
 <script>
-// Logic Signature & PDF sama persis dengan template asli
+// Logic Signature & PDF (Dipertahankan dari Template Asli)
 class SignaturePad {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas.getContext('2d');
     this.drawing = false;
-    this.lastX = 0;
-    this.lastY = 0;
     this.isEmpty = true;
     this.ctx.strokeStyle = '#1a1a2e';
     this.ctx.lineWidth = 2.5;
@@ -1411,6 +1346,5 @@ async function savePDF() {
 
 document.addEventListener('DOMContentLoaded', loadSignatures);
 </script>
-
 </body>
 </html>
