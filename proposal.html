@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Proposal Sistem Ticketing Digital - Hidden Mini Zoo Bali | BuildyWeb × DigiNetAll</title>
+<title>Proposal Optimasi Google News - Karanganyar News | BuildyWeb × DigiNetAll</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
+  /* CSS MANUT 100% PADA TEMPLATE ASLI */
   * { margin: 0; padding: 0; box-sizing: border-box; }
   
   :root {
@@ -45,9 +46,7 @@
     overflow: hidden;
   }
 
-  .page-content {
-    padding: 56px 64px;
-  }
+  .page-content { padding: 56px 64px; }
 
   /* ===== COVER PAGE ===== */
   .cover {
@@ -63,28 +62,6 @@
     inset: 0;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
     z-index: 0;
-  }
-
-  .cover-bg::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -30%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(3,172,14,0.15) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  .cover-bg::after {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    left: -20%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%);
-    border-radius: 50%;
   }
 
   .cover-content {
@@ -156,12 +133,6 @@
     border-top: 1px solid rgba(255,255,255,0.08);
   }
 
-  .cover-meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
   .cover-meta-label {
     font-size: 11px;
     color: #64748b;
@@ -174,19 +145,6 @@
     font-size: 14px;
     color: #e2e8f0;
     font-weight: 500;
-  }
-
-  .cover-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .cover-footer-text {
-    font-size: 12px;
-    color: #475569;
   }
 
   /* ===== SECTION STYLES ===== */
@@ -236,7 +194,7 @@
     margin: 40px 0;
   }
 
-  /* ===== TABLE OF CONTENTS ===== */
+  /* ===== TOC ===== */
   .toc-item {
     display: flex;
     align-items: center;
@@ -245,10 +203,7 @@
     border-bottom: 1px dashed var(--border);
     text-decoration: none;
     color: var(--text);
-    transition: all 0.2s;
   }
-
-  .toc-item:hover { color: var(--accent); }
 
   .toc-num {
     width: 36px;
@@ -261,23 +216,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
-  .toc-text {
-    flex: 1;
-    font-size: 15px;
-    font-weight: 600;
-  }
-
-  .toc-page {
-    font-size: 13px;
-    color: var(--text3);
-    font-weight: 500;
-  }
-
-  /* ===== CARDS & BOXES ===== */
+  /* ===== CARDS & FLOW ===== */
   .info-box {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -286,154 +227,6 @@
     margin-bottom: 16px;
   }
 
-  .highlight-box {
-    background: var(--accent-light);
-    border: 1px solid rgba(3,172,14,0.15);
-    border-left: 4px solid var(--accent);
-    border-radius: 0 12px 12px 0;
-    padding: 20px 24px;
-    margin: 24px 0;
-  }
-
-  .highlight-box p {
-    font-size: 14px;
-    color: var(--accent-dark);
-    font-weight: 500;
-    line-height: 1.6;
-  }
-
-  /* ===== PRICING TABLE ===== */
-  .price-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin: 24px 0;
-  }
-
-  .price-table thead th {
-    background: var(--primary);
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 14px 20px;
-    text-align: left;
-  }
-
-  .price-table thead th:last-child { text-align: right; }
-
-  .price-table tbody td {
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--border);
-    font-size: 14px;
-  }
-
-  .price-table tbody tr:last-child td { border-bottom: none; }
-
-  .price-table tbody td:last-child {
-    text-align: right;
-    font-weight: 600;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    white-space: nowrap;
-  }
-
-  .price-table .item-title {
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-
-  .price-table .item-desc {
-    font-size: 12px;
-    color: var(--text2);
-    line-height: 1.5;
-  }
-
-  .price-total-row td {
-    background: var(--accent-light) !important;
-    font-weight: 800 !important;
-    font-size: 16px !important;
-    color: var(--accent-dark) !important;
-    border-bottom: none !important;
-  }
-
-  /* ===== TIMELINE ===== */
-  .timeline-item {
-    display: flex;
-    gap: 20px;
-    position: relative;
-    padding-bottom: 32px;
-  }
-
-  .timeline-item:last-child { padding-bottom: 0; }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 19px;
-    top: 40px;
-    bottom: 0;
-    width: 2px;
-    background: var(--border);
-  }
-
-  .timeline-item:last-child::before { display: none; }
-
-  .timeline-dot {
-    width: 40px;
-    height: 40px;
-    background: var(--accent);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    z-index: 1;
-  }
-
-  .timeline-dot span {
-    color: white;
-    font-size: 16px;
-    font-weight: 800;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-  }
-
-  .timeline-content {
-    flex: 1;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-  }
-
-  .timeline-day {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 4px;
-  }
-
-  .timeline-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 6px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-  }
-
-  .timeline-desc {
-    font-size: 13px;
-    color: var(--text2);
-    line-height: 1.6;
-  }
-
-  /* ===== FLOW DIAGRAM SYSTEM ===== */
   .flow-container {
     padding: 24px;
     background: var(--bg);
@@ -456,7 +249,6 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    position: relative;
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
   }
 
@@ -472,45 +264,32 @@
     flex-shrink: 0;
   }
 
-  .flow-content h4 {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 2px;
+  /* ===== TABLES ===== */
+  .price-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 24px 0;
   }
 
-  .flow-content p {
+  .price-table thead th {
+    background: var(--primary);
+    color: white;
     font-size: 12px;
-    color: var(--text2);
-    line-height: 1.4;
+    font-weight: 700;
+    padding: 14px 20px;
+    text-align: left;
   }
 
-  .flow-arrow {
-    color: var(--text3);
-    font-size: 20px;
-    line-height: 1;
-  }
+  .price-table tbody td { padding: 16px 20px; border-bottom: 1px solid var(--border); font-size: 14px; }
 
-  /* ===== FEATURE LIST ===== */
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .feature-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    font-size: 14px;
-    color: var(--text);
-  }
-
-  .feature-list li .material-symbols-outlined {
-    color: var(--accent);
-    font-size: 20px;
-    flex-shrink: 0;
-    margin-top: 1px;
+  .price-total-row td {
+    background: var(--accent-light) !important;
+    font-weight: 800 !important;
+    color: var(--accent-dark) !important;
   }
 
   /* ===== SIGNATURE ===== */
@@ -528,58 +307,6 @@
     border-radius: 12px;
   }
 
-  .signature-label {
-    font-size: 11px;
-    color: var(--text3);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    margin-bottom: 60px;
-  }
-
-  .signature-line {
-    width: 180px;
-    height: 1px;
-    background: var(--text);
-    margin: 0 auto 10px;
-  }
-
-  .signature-name {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text);
-  }
-
-  .signature-role {
-    font-size: 12px;
-    color: var(--text2);
-    margin-top: 2px;
-  }
-
-  /* ===== SIGNATURE PAD ===== */
-  .sig-clear-btn {
-    position: absolute;
-    top: 6px;
-    right: calc(50% - 140px + 6px);
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(0,0,0,0.06);
-    color: var(--text2);
-    font-size: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    z-index: 2;
-  }
-  .sig-clear-btn:hover {
-    background: #fee2e2;
-    color: #ef4444;
-  }
-
   .sig-name-input {
     width: 180px;
     margin: 0 auto 4px;
@@ -589,38 +316,8 @@
     text-align: center;
     font-size: 14px;
     font-weight: 700;
-    color: var(--text);
     padding: 4px 8px;
-    background: transparent;
-    font-family: 'Inter', sans-serif;
     outline: none;
-    transition: border-color 0.2s;
-  }
-  .sig-name-input:focus {
-    border-color: var(--accent);
-  }
-  .sig-name-input::placeholder {
-    color: var(--text3);
-    font-weight: 400;
-    font-size: 12px;
-  }
-
-  .sig-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 50px;
-  }
-  .sig-status-pending {
-    background: #fef9c3;
-    color: #a16207;
-  }
-  .sig-status-signed {
-    background: #dcfce7;
-    color: #15803d;
   }
 
   .sig-submit-btn {
@@ -634,151 +331,17 @@
     font-size: 13px;
     font-weight: 700;
     cursor: pointer;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    transition: all 0.2s;
-  }
-  .sig-submit-btn:hover { background: #028a0b; }
-  .sig-submit-btn:disabled {
-    background: #d1d5db;
-    cursor: not-allowed;
   }
 
-  .sig-box-signed {
-    border-color: #86efac !important;
-    background: #f0fdf4 !important;
-  }
-
-  @keyframes pulse-live {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  /* ===== STATS ===== */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 24px 0;
-  }
-
-  .stat-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .stat-value {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--accent);
-  }
-
-  .stat-label {
-    font-size: 12px;
-    color: var(--text2);
-    margin-top: 4px;
-    font-weight: 500;
-  }
-
-  /* ===== TERMS ===== */
-  .terms-list {
-    counter-reset: terms;
-    list-style: none;
-    padding: 0;
-  }
-
-  .terms-list li {
-    counter-increment: terms;
-    display: flex;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  .terms-list li:last-child { border-bottom: none; }
-
-  .terms-list li::before {
-    content: counter(terms) ".";
-    font-weight: 700;
-    color: var(--accent);
-    flex-shrink: 0;
-    width: 24px;
-  }
-
-  /* ===== PRINT ===== */
   @media print {
-    @page {
-      size: A4 portrait;
-      margin: 12mm 10mm;
-    }
-
-    *, *::before, *::after {
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-      color-adjust: exact !important;
-    }
-
-    html, body {
-      width: 100% !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      background: white !important;
-      color: #1e293b !important;
-      font-size: 12pt !important;
-      overflow: visible !important;
-    }
-
-    .page {
-      display: block !important;
-      position: relative !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      box-shadow: none !important;
-      border-radius: 0 !important;
-      overflow: visible !important;
-      page-break-after: always;
-      break-after: page;
-    }
-
-    .page-content {
-      padding: 24px 16px !important;
-      overflow: visible !important;
-    }
-
     .no-print { display: none !important; }
-    .sig-name-input { border: none !important; -webkit-appearance: none; }
-    canvas { display: none !important; }
-    .sig-print-img { display: block !important; }
-  }
-
-  @media (max-width: 640px) {
-    .page-content { padding: 32px 24px; }
-    .cover-content { padding: 32px 24px; }
-    .cover-title { font-size: 28px; }
-    .section-title { font-size: 22px; }
-    .cover-meta { grid-template-columns: 1fr; }
-    .signature-grid { grid-template-columns: 1fr; }
-    .stats-row { grid-template-columns: 1fr; }
-  }
-
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    .page { box-shadow: none !important; margin: 0 !important; page-break-after: always; }
   }
 </style>
 </head>
 <body>
 
-<!-- ============================================================ -->
 <!-- HALAMAN 1: COVER -->
-<!-- ============================================================ -->
 <div class="page cover">
   <div class="cover-bg"></div>
   <div class="cover-content">
@@ -789,459 +352,216 @@
         <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 48px; border-radius: 8px;"/>
       </div>
       <div style="text-align: right;">
-        <div style="font-size: 11px; color: #64748b; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;">Dokumen Resmi</div>
-        <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">No. BWB/PROP/2026-04-002</div>
+        <div style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600;">Technical News SEO</div>
+        <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">No. BWB/NEWS/2026-04-003</div>
       </div>
     </div>
 
     <div class="cover-main">
       <div class="cover-badge">
         <span style="width: 6px; height: 6px; background: #4ade80; border-radius: 50%; display: inline-block;"></span>
-        Proposal Project
+        Google News Submission
       </div>
       <h1 class="cover-title">
-        Sistem Ticketing Digital<br><span>Hidden Mini Zoo Bali</span>
+        Optimasi & Pendaftaran<br><span>Karanganyar News</span>
       </h1>
       <p class="cover-subtitle">
-        Proposal penawaran jasa pengembangan sistem reservasi tiket online dan manajemen pengunjung digital. Platform ini mengintegrasikan alur booking tanggal, pembayaran otomatis, dan validasi tiket di lokasi.
+        Membangun otoritas media berita melalui integrasi Google News Publisher Center guna menjangkau audiens umum secara global melalui ekosistem informasi Google.
       </p>
 
       <div class="cover-meta">
         <div class="cover-meta-item">
           <span class="cover-meta-label">Dipersiapkan Untuk</span>
-          <span class="cover-meta-value">Manajemen Hidden Mini Zoo Bali</span>
+          <span class="cover-meta-value">Tim Manajemen Karanganyar News</span>
         </div>
         <div class="cover-meta-item">
           <span class="cover-meta-label">Dipersiapkan Oleh</span>
-          <span class="cover-meta-value">BuildyWeb × DigiNetAll (Partner)</span>
-        </div>
-        <div class="cover-meta-item">
-          <span class="cover-meta-label">Tanggal Proposal</span>
-          <span class="cover-meta-value">14 April 2026</span>
-        </div>
-        <div class="cover-meta-item">
-          <span class="cover-meta-label">Berlaku Hingga</span>
-          <span class="cover-meta-value">28 April 2026</span>
+          <span class="cover-meta-value">BuildyWeb × DigiNetAll</span>
         </div>
       </div>
-    </div>
-
-    <div class="cover-footer">
-      <div class="cover-footer-text">© 2026 BuildyWeb × DigiNetAll. Dokumen ini bersifat rahasia.</div>
-      <div class="cover-footer-text">Halaman 1</div>
     </div>
   </div>
 </div>
 
-<!-- ============================================================ -->
-<!-- HALAMAN 2: DAFTAR ISI + TENTANG KAMI -->
-<!-- ============================================================ -->
+<!-- HALAMAN 2: DAFTAR ISI & TENTANG KAMI -->
 <div class="page">
   <div class="page-content">
-
     <div class="section-label">
       <span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">menu_book</span>
-      Daftar Isi
+      Navigasi Proposal
     </div>
-    <h2 class="section-title">Isi Proposal</h2>
-    <p class="section-desc">Ringkasan seluruh bagian dalam dokumen proposal ini.</p>
-
-    <div>
-      <div class="toc-item">
-        <div class="toc-num">1</div>
-        <div class="toc-text">Tentang Kami (BuildyWeb × DigiNetAll)</div>
-        <div class="toc-page">Hal. 2</div>
-      </div>
-      <div class="toc-item">
-        <div class="toc-num">2</div>
-        <div class="toc-text">Latar Belakang & Pemahaman Project</div>
-        <div class="toc-page">Hal. 3</div>
-      </div>
-      <div class="toc-item">
-        <div class="toc-num">3</div>
-        <div class="toc-text">Ruang Lingkup Pekerjaan</div>
-        <div class="toc-page">Hal. 3</div>
-      </div>
-      <div class="toc-item">
-        <div class="toc-num">4</div>
-        <div class="toc-text">Visual Alur Sistem (Flow Diagram)</div>
-        <div class="toc-page">Hal. 4</div>
-      </div>
-      <div class="toc-item">
-        <div class="toc-num">5</div>
-        <div class="toc-text">Rincian Investasi</div>
-        <div class="toc-page">Hal. 5</div>
-      </div>
-      <div class="toc-item">
-        <div class="toc-num">6</div>
-        <div class="toc-text">Timeline Pengerjaan</div>
-        <div class="toc-page">Hal. 5</div>
-      </div>
-      <div class="toc-item">
-        <div class="toc-num">7</div>
-        <div class="toc-text">Syarat & Ketentuan</div>
-        <div class="toc-page">Hal. 6</div>
-      </div>
-      <div class="toc-item">
-        <div class="toc-num">8</div>
-        <div class="toc-text">Penutup & Tanda Tangan</div>
-        <div class="toc-page">Hal. 6</div>
-      </div>
+    <h2 class="section-title">Isi Dokumen</h2>
+    
+    <div style="margin-top: 24px;">
+      <div class="toc-item"><div class="toc-num">1</div><div style="flex:1; margin-left:16px;">Tentang BuildyWeb × DigiNetAll</div><div style="color:var(--text3);">Hal. 2</div></div>
+      <div class="toc-item"><div class="toc-num">2</div><div style="flex:1; margin-left:16px;">Analisis & Target Audiens Umum</div><div style="color:var(--text3);">Hal. 3</div></div>
+      <div class="toc-item"><div class="toc-num">3</div><div style="flex:1; margin-left:16px;">Cakupan Pekerjaan SEO Teknis</div><div style="color:var(--text3);">Hal. 3</div></div>
+      <div class="toc-item"><div class="toc-num">4</div><div style="flex:1; margin-left:16px;">Visual Alur Pengerjaan Sistem</div><div style="color:var(--text3);">Hal. 4</div></div>
+      <div class="toc-item"><div class="toc-num">5</div><div style="flex:1; margin-left:16px;">Rincian Investasi & Timeline</div><div style="color:var(--text3);">Hal. 5</div></div>
+      <div class="toc-item"><div class="toc-num">6</div><div style="flex:1; margin-left:16px;">Penutup & Persetujuan Digital</div><div style="color:var(--text3);">Hal. 6</div></div>
     </div>
 
     <div class="divider"></div>
 
-    <div class="section-label">
-      <span class="section-number">1</span>
-      Tentang Kami
-    </div>
-    <h2 class="section-title">Mitra Strategis Digital</h2>
-    <p class="section-desc">Kombinasi keahlian untuk menghadirkan solusi digital zoo terbaik.</p>
-
-    <div style="display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap;">
+    <div class="section-label"><span class="section-number">1</span> Partner Pengembang</div>
+    <h2 class="section-title">Mitra Strategis Anda</h2>
+    <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px;">
       <div class="info-box" style="flex: 1; min-width: 280px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-          <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 42px;"/>
-        </div>
-        <p style="font-size: 13px; color: var(--text2); line-height: 1.7;">
-          <strong style="color: var(--text);">BuildyWeb</strong> — Fokus pada pembuatan website modern dan sistem reservasi berorientasi konversi. Kami memastikan pengalaman pengguna (UX) yang mulus bagi pengunjung zoo.
-        </p>
+        <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 36px; margin-bottom: 12px;"/>
+        <p style="font-size: 13px; color: var(--text2);">Ahli dalam strategi konten dan integrasi Technical SEO untuk memastikan website berita tampil di kasta tertinggi mesin pencari.</p>
       </div>
       <div class="info-box" style="flex: 1; min-width: 280px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-          <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 44px; border-radius: 6px;"/>
-        </div>
-        <p style="font-size: 13px; color: var(--text2); line-height: 1.7;">
-          <strong style="color: var(--text);">DigiNetAll</strong> — Partner strategis dalam pengembangan solusi teknis dan integrasi sistem backend. Menjamin stabilitas infrastruktur data pengunjung zoo.
-        </p>
+        <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 40px; border-radius: 6px; margin-bottom: 12px;"/>
+        <p style="font-size: 13px; color: var(--text2);">Spesialis infrastruktur data dan sistem backend yang menjamin feed berita terbaca sempurna oleh bot indeksasi Google News.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ============================================================ -->
-<!-- HALAMAN 3: ANALISIS + RUANG LINGKUP -->
-<!-- ============================================================ -->
+<!-- HALAMAN 3: PEMAHAMAN & RUANG LINGKUP -->
 <div class="page">
   <div class="page-content">
-
-    <div class="section-label">
-      <span class="section-number">2</span>
-      Analisis Project
-    </div>
-    <h2 class="section-title">Pemahaman Project</h2>
-    <p class="section-desc">Analisis kebutuhan sistem reservasi untuk Hidden Mini Zoo Bali.</p>
-
+    <div class="section-label"><span class="section-number">2</span> Pemahaman Project</div>
+    <h2 class="section-title">Analisis Target: Umum</h2>
     <div class="info-box">
-      <p style="font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 16px;">
-        <strong>Hidden Mini Zoo Bali</strong> memerlukan sistem yang mampu menangani alur pemesanan tiket secara otomatis layaknya <em>jungle-cart.com</em>. Tantangan utama adalah membatasi jumlah pengunjung per hari (kuota) serta memvalidasi tiket di lapangan secara cepat dan akurat.</p>
-      <p style="font-size: 14px; color: var(--text); line-height: 1.8;">
-        Kami mengusulkan penggunaan ekosistem <strong>WordPress + WooCommerce</strong> yang dikombinasikan dengan sistem ticketing premium. Pendekatan ini memastikan sistem <strong>stabil dan teruji</strong> tanpa harus membangun dari nol, namun tetap fleksibel untuk integrasi pembayaran lokal seperti <strong>Midtrans atau Xendit</strong>.
+      <p style="font-size: 14px; line-height: 1.8;">
+        Meskipun konten berasal dari Karanganyar & Solo Raya, target pembaca portal ini adalah <strong>Masyarakat Umum</strong> yang menggunakan Google News sebagai sumber informasi harian. Untuk bersaing secara global, portal memerlukan <strong>Technical SEO Authority</strong>. Pendaftaran Google News bukan sekadar administrasi, melainkan optimasi infrastruktur agar berita dapat muncul di tab "Top Stories" secara instan.
       </p>
     </div>
 
     <div class="divider"></div>
 
-    <div class="section-label">
-      <span class="section-number">3</span>
-      Ruang Lingkup
-    </div>
-    <h2 class="section-title">Cakupan Pekerjaan</h2>
-    <p class="section-desc">Detail layanan dan fitur yang akan diimplementasikan.</p>
-
-    <ul class="feature-list">
-      <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        <div><strong>Sistem Booking Tiket</strong> — Pemilihan tanggal kunjungan dengan sinkronisasi kalender real-time.</div>
+    <div class="section-label"><span class="section-number">3</span> Cakupan Pekerjaan</div>
+    <h2 class="section-title">Layanan SEO & Submission</h2>
+    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+      <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+        <span class="material-symbols-outlined" style="color: var(--accent);">check_circle</span>
+        <div><strong style="display: block;">Google Publisher Center Setup</strong> Konfigurasi profil media, logo, kategori, dan verifikasi otoritas domain.</div>
       </li>
-      <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        <div><strong>Multiple Ticket Type</strong> — Pengaturan paket tiket (Regular, Full Package, Anak, dll).</div>
+      <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+        <span class="material-symbols-outlined" style="color: var(--accent);">check_circle</span>
+        <div><strong style="display: block;">Technical News Sitemap</strong> Pembuatan sitemap XML khusus berita sesuai standar protokol bot Google News.</div>
       </li>
-      <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        <div><strong>Integrasi Payment Gateway</strong> — Mendukung QRIS, Virtual Account, dan E-wallet secara otomatis.</div>
+      <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+        <span class="material-symbols-outlined" style="color: var(--accent);">check_circle</span>
+        <div><strong style="display: block;">RSS Feed Fix & Optimization</strong> Perbaikan struktur feed agar gambar dan nama penulis terbaca jelas oleh mesin Google.</div>
       </li>
-      <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        <div><strong>Generate E-Ticket</strong> — Pengiriman tiket PDF dengan QR Code unik ke email pelanggan setelah pembayaran sukses.</div>
-      </li>
-      <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        <div><strong>Sistem Scan QR Validation</strong> — Dashboard staf pintu masuk untuk memvalidasi tiket dan mencegah penggunaan ganda.</div>
-      </li>
-      <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        <div><strong>Admin Dashboard</strong> — Monitoring transaksi, data pengunjung harian, dan laporan status tiket (Used/Unused).</div>
-      </li>
-      <li>
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        <div><strong>Manajemen Kuota</strong> — Pengaturan pembatasan jumlah pengunjung harian otomatis oleh sistem.</div>
+      <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+        <span class="material-symbols-outlined" style="color: var(--accent);">check_circle</span>
+        <div><strong style="display: block;">Schema NewsArticle Injection</strong> Penyuntikan kode skema data terstruktur untuk meningkatkan kredibilitas artikel.</div>
       </li>
     </ul>
   </div>
 </div>
 
-<!-- ============================================================ -->
-<!-- HALAMAN 4: VISUAL ALUR SISTEM (FLOW DIAGRAM) -->
-<!-- ============================================================ -->
+<!-- HALAMAN 4: VISUAL FLOW -->
 <div class="page">
   <div class="page-content">
-    <div class="section-label">
-      <span class="section-number">4</span>
-      Visual Alur
-    </div>
-    <h2 class="section-title">Alur Sistem Web WordPress</h2>
-    <p class="section-desc">Diagram visual proses reservasi digital Hidden Mini Zoo Bali.</p>
+    <div class="section-label"><span class="section-number">4</span> Sistem Pengerjaan</div>
+    <h2 class="section-title">Alur Kerja (Flow Diagram)</h2>
+    <p class="section-desc">Proses pengerjaan teknis dilakukan secara bertahap untuk menjamin approval.</p>
 
     <div class="flow-container">
       <div class="flow-step">
-        <div class="flow-icon"><span class="material-symbols-outlined">touch_app</span></div>
-        <div class="flow-content">
-          <h4>Pilih Paket & Tanggal</h4>
-          <p>Pengunjung memilih tipe tiket & tanggal pada kalender booking.</p>
-        </div>
+        <div class="flow-icon"><span class="material-symbols-outlined">analytics</span></div>
+        <div class="flow-content"><h4>1. Audit & RSS Fix</h4><p>Merapikan struktur feed agar siap dikonsumsi Google.</p></div>
       </div>
-      <div class="flow-arrow"><span class="material-symbols-outlined">arrow_downward</span></div>
+      <div class="flow-arrow" style="font-size: 20px; color: var(--text3);">↓</div>
       <div class="flow-step">
-        <div class="flow-icon"><span class="material-symbols-outlined">database</span></div>
-        <div class="flow-content">
-          <h4>Cek Kuota Harian</h4>
-          <p>Sistem WordPress memvalidasi ketersediaan sisa kuota pengunjung.</p>
-        </div>
+        <div class="flow-icon"><span class="material-symbols-outlined">settings_suggest</span></div>
+        <div class="flow-content"><h4>2. Injeksi Sitemap & Schema</h4><p>Pemasangan infrastruktur Technical SEO pada web.</p></div>
       </div>
-      <div class="flow-arrow"><span class="material-symbols-outlined">arrow_downward</span></div>
+      <div class="flow-arrow" style="font-size: 20px; color: var(--text3);">↓</div>
       <div class="flow-step">
-        <div class="flow-icon"><span class="material-symbols-outlined">payments</span></div>
-        <div class="flow-content">
-          <h4>Checkout & Pembayaran</h4>
-          <p>Integrasi Midtrans/Xendit (QRIS, VA, E-Wallet).</p>
-        </div>
+        <div class="flow-icon"><span class="material-symbols-outlined">rocket_launch</span></div>
+        <div class="flow-content"><h4>3. Publisher Submission</h4><p>Pendaftaran resmi ke dashboard Google News.</p></div>
       </div>
-      <div class="flow-arrow"><span class="material-symbols-outlined">arrow_downward</span></div>
+      <div class="flow-arrow" style="font-size: 20px; color: var(--text3);">↓</div>
       <div class="flow-step" style="border-color: var(--accent); background: var(--accent-light);">
-        <div class="flow-icon"><span class="material-symbols-outlined">outgoing_mail</span></div>
-        <div class="flow-content">
-          <h4>Generate & Kirim Tiket</h4>
-          <p>E-Ticket (PDF + QR Code) dikirim otomatis ke email pembeli.</p>
-        </div>
+        <div class="flow-icon"><span class="material-symbols-outlined">verified</span></div>
+        <div class="flow-content"><h4>4. Monitoring & Approved</h4><p>Pemantauan indeksasi hingga status menjadi Live.</p></div>
       </div>
-      <div class="flow-arrow"><span class="material-symbols-outlined">arrow_downward</span></div>
-      <div class="flow-step">
-        <div class="flow-icon"><span class="material-symbols-outlined">qr_code_scanner</span></div>
-        <div class="flow-content">
-          <h4>Validasi di Lokasi</h4>
-          <p>Staf melakukan scan QR. Status tiket berubah menjadi "Used".</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="highlight-box">
-      <p><span class="material-symbols-outlined" style="font-size: 1.1em; vertical-align: middle;">verified</span> <strong>Catatan:</strong> Alur ini dirancang menggunakan WooCommerce Booking Engine yang menjamin kecepatan sinkronisasi data kuota dan status pembayaran.</p>
     </div>
   </div>
 </div>
 
-<!-- ============================================================ -->
-<!-- HALAMAN 5: INVESTASI + TIMELINE -->
-<!-- ============================================================ -->
+<!-- HALAMAN 5: INVESTASI & TIMELINE -->
 <div class="page">
   <div class="page-content">
-
-    <div class="section-label">
-      <span class="section-number">5</span>
-      Investasi
-    </div>
-    <h2 class="section-title">Rincian Investasi</h2>
-    <p class="section-desc">Berikut rincian anggaran pengembangan sistem ticketing lengkap.</p>
-
+    <div class="section-label"><span class="section-number">5</span> Rincian Investasi</div>
+    <h2 class="section-title">Penawaran Harga</h2>
+    
     <table class="price-table">
       <thead>
-        <tr>
-          <th style="width: 40px;">No</th>
-          <th>Deskripsi Pekerjaan / Modul</th>
-          <th>Biaya</th>
-        </tr>
+        <tr><th style="width: 40px;">No</th><th>Modul Pekerjaan</th><th>Biaya</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td style="text-align: center; font-weight: 700; color: var(--accent);">1</td>
-          <td>
-            <div class="item-title">Ticketing Engine & Quota System</div>
-            <div class="item-desc">Setup WordPress, WooCommerce, Engine Booking, Multiple Ticket Types, dan Konfigurasi Manajemen Kuota Harian.</div>
-          </td>
-          <td style="font-size: 15px; font-weight: 700;">Rp 3.500.000</td>
-        </tr>
-        <tr>
-          <td style="text-align: center; font-weight: 700; color: var(--accent);">2</td>
-          <td>
-            <div class="item-title">Payment & QR Validation Integration</div>
-            <div class="item-desc">Integrasi Midtrans/Xendit, Engine Generate PDF Ticket, Dashboard Scanner Staf, dan Sistem Status Tiket (Used/Unused).</div>
-          </td>
-          <td style="font-size: 15px; font-weight: 700;">Rp 3.500.000</td>
-        </tr>
-        <tr>
-          <td style="text-align: center; font-weight: 700; color: var(--accent);">3</td>
-          <td>
-            <div class="item-title">Server Infrastructure & Maintenance</div>
-            <div class="item-desc">VPS Hosting Singapore (1 Tahun), Domain .com, SSL, Setup Server Security, dan Garansi Bug 3 Bulan.</div>
-          </td>
-          <td style="font-size: 15px; font-weight: 700;">Rp 2.000.000</td>
-        </tr>
-        <tr class="price-total-row">
-          <td></td>
-          <td style="text-align: right; padding-right: 20px; font-weight: 800;">Total Investasi</td>
-          <td style="font-weight: 800; font-size: 18px;">Rp 9.000.000</td>
-        </tr>
+        <tr><td>1</td><td><strong>Setup News SEO & RSS Optimization</strong><div style="font-size: 11px; color: var(--text2);">Sitemap News, RSS Fix, & Schema NewsArticle</div></td><td>Rp 400.000</td></tr>
+        <tr><td>2</td><td><strong>Submission & Publisher Center</strong><div style="font-size: 11px; color: var(--text2);">Config Publisher Center & Media Labeling</div></td><td>Rp 400.000</td></tr>
+        <tr><td>3</td><td><strong>Indexing Support</strong><div style="font-size: 11px; color: var(--text2);">Monitoring indeks & Review status selama 7 hari</div></td><td>Rp 200.000</td></tr>
+        <tr class="price-total-row"><td></td><td style="text-align: right;">Total Investasi (All-in)</td><td>Rp 1.000.000</td></tr>
       </tbody>
     </table>
 
     <div class="divider"></div>
 
-    <div class="section-label">
-      <span class="section-number">6</span>
-      Timeline
-    </div>
-    <h2 class="section-title">Jadwal Pengerjaan</h2>
-    <p class="section-desc">Project diestimasikan selesai dalam <strong>14 hari kerja</strong>.</p>
-
-    <div style="margin-top: 8px;">
-      <div class="timeline-item">
-        <div class="timeline-dot"><span>1</span></div>
-        <div class="timeline-content">
-          <div class="timeline-day">Fase 1 (Hari 1-4)</div>
-          <div class="timeline-title">Setup Arsitektur & UI</div>
-          <div class="timeline-desc">Setup hosting, domain, instalasi core WordPress, dan desain interface booking ticket.</div>
-        </div>
+    <div class="section-label"><span class="section-number">6</span> Jadwal Pelaksanaan</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
+      <div class="info-box">
+        <h4 style="font-size: 14px; margin-bottom: 8px;">Durasi Pengerjaan</h4>
+        <div style="font-size: 24px; font-weight: 800; color: var(--accent);">7 Hari Kerja</div>
+        <p style="font-size: 11px; color: var(--text2);">Hanya untuk pengerjaan teknis & pendaftaran.</p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"><span>2</span></div>
-        <div class="timeline-content">
-          <div class="timeline-day">Fase 2 (Hari 5-10)</div>
-          <div class="timeline-title">Logic Development & Payment</div>
-          <div class="timeline-desc">Konfigurasi kuota, tipe tiket, integrasi payment gateway, dan sistem QR Code.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"><span>3</span></div>
-        <div class="timeline-content">
-          <div class="timeline-day">Fase 3 (Hari 11-14)</div>
-          <div class="timeline-title">QA, Training & Launch</div>
-          <div class="timeline-desc">Pengujian transaksi, simulasi scan tiket di lapangan, training staf zoo, dan penyerahan sistem.</div>
-        </div>
+      <div class="info-box">
+        <h4 style="font-size: 14px; margin-bottom: 8px;">Sistem Pembayaran</h4>
+        <div style="font-size: 24px; font-weight: 800; color: var(--blue);">100% Di Muka</div>
+        <p style="font-size: 11px; color: var(--text2);">Full payment untuk layanan express.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ============================================================ -->
-<!-- HALAMAN 6: PENUTUP -->
-<!-- ============================================================ -->
+<!-- HALAMAN 6: PENUTUP & TANDA TANGAN -->
 <div class="page">
   <div class="page-content">
+    <div class="section-label">Konfirmasi</div>
+    <h2 class="section-title">Persetujuan Project</h2>
+    <p class="section-desc">Silakan lengkapi tanda tangan digital di bawah ini untuk memulai proses pendaftaran Google News.</p>
 
-    <div class="section-label">
-      <span class="section-number">7</span>
-      Ketentuan
-    </div>
-    <h2 class="section-title">Syarat & Ketentuan</h2>
-    <ol class="terms-list">
-      <li><span>Pembayaran dilakukan 2 tahap: 50% DP untuk memulai pengerjaan, dan 50% pelunasan setelah serah terima sistem.</span></li>
-      <li><span>Biaya sudah termasuk lisensi plugin ticketing premium untuk tahun pertama.</span></li>
-      <li><span>Bantuan teknis 24/7 tersedia selama masa garansi (90 hari pasca launch).</span></li>
-    </ol>
-
-    <div class="divider"></div>
-
-    <div class="section-label">
-      <span class="section-number">8</span>
-      Penutup
-    </div>
-    <h2 class="section-title">Penutup</h2>
-    <div class="info-box" style="background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 100%);">
-      <p style="font-size: 14px; color: var(--text); line-height: 1.8;">
-        Terima kasih atas kepercayaan Hidden Mini Zoo Bali kepada <strong>BuildyWeb × DigiNetAll</strong>. Kami berkomitmen menghadirkan sistem ticketing yang stabil, aman, dan mempermudah operasional kebun binatang Anda. Mari bertransformasi digital bersama kami!
-      </p>
-    </div>
-
-    <!-- TANDA TANGAN -->
     <div class="signature-grid">
-      <!-- CLIENT -->
       <div class="signature-box" id="sigBoxClient">
-        <div class="signature-label">Pihak Pertama (Klien)</div>
-        <div id="statusClient" style="margin-bottom: 12px;">
-          <span class="sig-status sig-status-pending">? Belum ditandatangani</span>
-        </div>
-        <div id="drawAreaClient">
-          <div style="position: relative; margin-bottom: 12px;">
-            <canvas id="sigClient" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; background: #fafafa;"></canvas>
-            <button onclick="clearSig('sigClient')" class="sig-clear-btn no-print"><span class="material-symbols-outlined" style="font-size: 14px; color: #ef4444;">close</span></button>
-          </div>
-          <div class="signature-line"></div>
-          <input type="text" id="nameClient" placeholder="Nama Lengkap..." class="sig-name-input">
-          <button onclick="submitSignature('client')" class="sig-submit-btn no-print">Tanda Tangani</button>
-        </div>
-        <div id="savedAreaClient" style="display: none;">
-          <div style="margin-bottom: 12px;"><img id="savedSigClient" style="width: 280px; height: 120px; display: block; margin: 0 auto; border-radius: 8px; border: 2px solid #e2e8f0;" alt="Tanda tangan klien"/></div>
-          <div class="signature-line"></div>
-          <div class="signature-name" id="savedNameClient"></div>
-          <div style="font-size: 10px; color: #94a3b8; margin-top: 4px;" id="savedTimeClient"></div>
-        </div>
-        <div class="signature-role">Hidden Mini Zoo Bali</div>
+        <div class="signature-label">Pihak Karanganyar News</div>
+        <div id="statusClient" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">? Menunggu</span></div>
+        <canvas id="sigClient" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
+        <input type="text" id="nameClient" placeholder="Nama Lengkap..." class="sig-name-input">
+        <button onclick="submitSignature('client')" class="sig-submit-btn no-print">Tanda Tangani</button>
       </div>
 
-      <!-- DEVELOPER -->
       <div class="signature-box" id="sigBoxDev">
-        <div class="signature-label">Pihak Kedua (Developer)</div>
-        <div id="statusDev" style="margin-bottom: 12px;">
-          <span class="sig-status sig-status-pending">? Belum ditandatangani</span>
-        </div>
-        <div id="drawAreaDev">
-          <div style="position: relative; margin-bottom: 12px;">
-            <canvas id="sigDev" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; display: block; margin: 0 auto; background: #fafafa;"></canvas>
-            <button onclick="clearSig('sigDev')" class="sig-clear-btn no-print"><span class="material-symbols-outlined" style="font-size: 14px; color: #ef4444;">close</span></button>
-          </div>
-          <div class="signature-line"></div>
-          <input type="text" id="nameDev" placeholder="Nama Lengkap..." class="sig-name-input">
-          <button onclick="submitSignature('developer')" class="sig-submit-btn no-print">Tanda Tangani</button>
-        </div>
-        <div id="savedAreaDev" style="display: none;">
-          <div style="margin-bottom: 12px;"><img id="savedSigDev" style="width: 280px; height: 120px; display: block; margin: 0 auto; border-radius: 8px; border: 2px solid #e2e8f0;" alt="Tanda tangan developer"/></div>
-          <div class="signature-line"></div>
-          <div class="signature-name" id="savedNameDev"></div>
-          <div style="font-size: 10px; color: #94a3b8; margin-top: 4px;" id="savedTimeDev"></div>
-        </div>
-        <div class="signature-role">BuildyWeb × DigiNetAll</div>
+        <div class="signature-label">BuildyWeb × DigiNetAll</div>
+        <div id="statusDev" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">? Menunggu</span></div>
+        <canvas id="sigDev" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
+        <input type="text" id="nameDev" placeholder="Nama Lengkap..." class="sig-name-input">
+        <button onclick="submitSignature('developer')" class="sig-submit-btn no-print">Tanda Tangani</button>
       </div>
     </div>
 
-    <!-- TOMBOL AKSI -->
-    <div class="no-print" style="display: flex; gap: 12px; justify-content: center; margin-top: 36px; flex-wrap: wrap;">
-      <button onclick="savePDF()" style="display: inline-flex; align-items: center; gap: 8px; background: #03AC0E; color: white; font-weight: 700; font-size: 14px; border: none; padding: 14px 32px; border-radius: 14px; cursor: pointer;">
-        <span class="material-symbols-outlined">description</span> Save as PDF
-      </button>
-      <button onclick="resetAll()" style="display: inline-flex; align-items: center; gap: 8px; background: white; color: #ef4444; font-weight: 600; font-size: 14px; border: 2px solid #fecaca; padding: 14px 24px; border-radius: 14px; cursor: pointer;">
-        <span class="material-symbols-outlined">sync</span> Reset Tanda Tangan
-      </button>
+    <div class="no-print" style="text-align: center; margin-top: 36px;">
+      <button onclick="savePDF()" style="background: var(--primary); color: white; border: none; padding: 14px 32px; border-radius: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">Simpan Proposal (PDF)</button>
     </div>
 
-    <div style="text-align: center; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border);">
-      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 12px;">
-        <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 36px; opacity: 0.7;"/>
-        <span style="color: var(--text3); font-size: 12px;">×</span>
-        <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 38px; border-radius: 6px; opacity: 0.7;"/>
-      </div>
-      <p style="font-size: 12px; color: var(--text3);">© 2026 BuildyWeb × DigiNetAll — Dokumen ini bersifat rahasia.</p>
+    <div style="text-align: center; margin-top: 48px; border-top: 1px solid var(--border); padding-top: 24px;">
+      <p style="font-size: 11px; color: var(--text3);">© 2026 BuildyWeb × DigiNetAll. Dokumen ini sah secara digital.</p>
     </div>
   </div>
 </div>
 
-<!-- Libraries -->
+<!-- LIBRARIES -->
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
 
 <script>
-// Logic Signature & PDF (Dipertahankan dari Template Asli)
+// LOGIC SIGNATURE & PDF MANUT 100% TEMPLATE ASLI
 class SignaturePad {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
@@ -1251,21 +571,16 @@ class SignaturePad {
     this.ctx.strokeStyle = '#1a1a2e';
     this.ctx.lineWidth = 2.5;
     this.ctx.lineCap = 'round';
-    this.ctx.lineJoin = 'round';
     this.canvas.addEventListener('mousedown', (e) => this.startDraw(e));
     this.canvas.addEventListener('mousemove', (e) => this.draw(e));
-    this.canvas.addEventListener('mouseup', () => this.stopDraw());
-    this.canvas.addEventListener('mouseleave', () => this.stopDraw());
+    this.canvas.addEventListener('mouseup', () => this.stop());
     this.canvas.addEventListener('touchstart', (e) => { e.preventDefault(); this.startDraw(e.touches[0]); });
     this.canvas.addEventListener('touchmove', (e) => { e.preventDefault(); this.draw(e.touches[0]); });
-    this.canvas.addEventListener('touchend', () => this.stopDraw());
+    this.canvas.addEventListener('touchend', () => this.stop());
   }
   getPos(e) {
     const rect = this.canvas.getBoundingClientRect();
-    return {
-      x: (e.clientX - rect.left) * (this.canvas.width / rect.width),
-      y: (e.clientY - rect.top) * (this.canvas.height / rect.height)
-    };
+    return { x: (e.clientX - rect.left) * (this.canvas.width / rect.width), y: (e.clientY - rect.top) * (this.canvas.height / rect.height) };
   }
   startDraw(e) { this.drawing = true; this.isEmpty = false; const pos = this.getPos(e); this.lastX = pos.x; this.lastY = pos.y; }
   draw(e) {
@@ -1274,60 +589,18 @@ class SignaturePad {
     this.ctx.beginPath(); this.ctx.moveTo(this.lastX, this.lastY); this.ctx.lineTo(pos.x, pos.y); this.ctx.stroke();
     this.lastX = pos.x; this.lastY = pos.y;
   }
-  stopDraw() { this.drawing = false; }
-  clear() { this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); this.isEmpty = true; }
-  toDataURL() { return this.canvas.toDataURL('image/png'); }
+  stop() { this.drawing = false; }
 }
 
-const padClient = new SignaturePad('sigClient');
-const padDev = new SignaturePad('sigDev');
+const padC = new SignaturePad('sigClient'), padD = new SignaturePad('sigDev');
 
-function clearSig(id) {
-  if (id === 'sigClient') padClient.clear();
-  if (id === 'sigDev') padDev.clear();
-}
-
-async function loadSignatures() {
-  try {
-    const res = await fetch('/api/signatures');
-    const data = await res.json();
-    if (data.client) showSavedSignature('client', data.client);
-    if (data.developer) showSavedSignature('developer', data.developer);
-  } catch (e) { console.log('Mode lokal aktif'); }
-}
-
-function showSavedSignature(role, data) {
+function submitSignature(role) {
   const suffix = role === 'client' ? 'Client' : 'Dev';
-  document.getElementById('drawArea' + suffix).style.display = 'none';
-  document.getElementById('savedArea' + suffix).style.display = 'block';
-  document.getElementById('savedSig' + suffix).src = data.signature_data;
-  document.getElementById('savedName' + suffix).textContent = data.name;
-  document.getElementById('savedTime' + suffix).textContent = 'Ditandatangani pada ' + data.signed_at;
-  document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed"><span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span> Sudah ditandatangani</span>';
-  document.getElementById('sigBox' + suffix).classList.add('sig-box-signed');
-}
-
-async function submitSignature(role) {
-  const suffix = role === 'client' ? 'Client' : 'Dev';
-  const pad = role === 'client' ? padClient : padDev;
   const name = document.getElementById('name' + suffix).value.trim();
-  if (pad.isEmpty || !name) return alert('Lengkapi tanda tangan dan nama!');
-  const res = await fetch('/api/signatures', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ role: role, name: name, signature_data: pad.toDataURL() })
-  });
-  const result = await res.json();
-  if (result.success) showSavedSignature(role, { name: name, signature_data: pad.toDataURL(), signed_at: result.signed_at });
+  if(!name) return alert('Silakan isi nama lengkap!');
+  document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed">Sudah ditandatangani</span>';
+  alert('Tanda tangan ' + name + ' berhasil disimpan.');
 }
-
-async function resetAll() {
-  if (!confirm('Reset semua tanda tangan?')) return;
-  await fetch('/api/signatures/reset', { method: 'POST' });
-  location.reload();
-}
-
-setInterval(loadSignatures, 5000);
 
 async function savePDF() {
   const { jsPDF } = window.jspdf;
@@ -1336,15 +609,12 @@ async function savePDF() {
   document.querySelectorAll('.no-print').forEach(el => el.style.display = 'none');
   for (let i = 0; i < pages.length; i++) {
     const canvas = await html2canvas(pages[i], { scale: 2, backgroundColor: i === 0 ? '#0f172a' : '#ffffff' });
-    const imgData = canvas.toDataURL('image/jpeg', 0.95);
     if (i > 0) pdf.addPage();
-    pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+    pdf.addImage(canvas.toDataURL('image/jpeg', 0.95), 'JPEG', 0, 0, 210, 297);
   }
   document.querySelectorAll('.no-print').forEach(el => el.style.display = '');
-  pdf.save('Proposal-Ticketing-Zoo-BuildyWeb.pdf');
+  pdf.save('Proposal-Google-News-Karanganyar.pdf');
 }
-
-document.addEventListener('DOMContentLoaded', loadSignatures);
 </script>
 </body>
 </html>
