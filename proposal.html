@@ -60,7 +60,7 @@
   .cover-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    background: #0f172a;
     z-index: 0;
   }
 
@@ -99,7 +99,6 @@
     font-weight: 700;
     padding: 6px 16px;
     border-radius: 50px;
-    letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 28px;
     border: 1px solid rgba(3,172,14,0.2);
@@ -182,19 +181,9 @@
     margin-bottom: 8px;
   }
 
-  .section-desc {
-    font-size: 15px;
-    color: var(--text2);
-    margin-bottom: 32px;
-  }
+  .divider { height: 1px; background: var(--border); margin: 40px 0; }
 
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 40px 0;
-  }
-
-  /* ===== TOC ===== */
+  /* ===== TABLE OF CONTENTS ===== */
   .toc-item {
     display: flex;
     align-items: center;
@@ -216,17 +205,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
 
-  /* ===== CARDS & FLOW ===== */
-  .info-box {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 16px;
-  }
-
+  /* ===== FLOW DIAGRAM ===== */
   .flow-container {
     padding: 24px;
     background: var(--bg);
@@ -264,7 +246,7 @@
     flex-shrink: 0;
   }
 
-  /* ===== TABLES ===== */
+  /* ===== PRICING TABLE ===== */
   .price-table {
     width: 100%;
     border-collapse: separate;
@@ -285,6 +267,7 @@
   }
 
   .price-table tbody td { padding: 16px 20px; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .price-table tbody td:last-child { text-align: right; font-weight: 600; }
 
   .price-total-row td {
     background: var(--accent-light) !important;
@@ -316,9 +299,20 @@
     text-align: center;
     font-size: 14px;
     font-weight: 700;
-    padding: 4px 8px;
     outline: none;
   }
+
+  .sig-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 50px;
+  }
+  .sig-status-pending { background: #fef9c3; color: #a16207; }
+  .sig-status-signed { background: #dcfce7; color: #15803d; }
 
   .sig-submit-btn {
     display: block;
@@ -331,6 +325,14 @@
     font-size: 13px;
     font-weight: 700;
     cursor: pointer;
+  }
+
+  .info-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
   }
 
   @media print {
@@ -352,7 +354,7 @@
         <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 48px; border-radius: 8px;"/>
       </div>
       <div style="text-align: right;">
-        <div style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600;">Technical News SEO</div>
+        <div style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600;">SEO & Visibility</div>
         <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">No. BWB/NEWS/2026-04-003</div>
       </div>
     </div>
@@ -363,10 +365,10 @@
         Google News Submission
       </div>
       <h1 class="cover-title">
-        Optimasi & Pendaftaran<br><span>Karanganyar News</span>
+        Pendaftaran & Optimasi<br><span>Karanganyar News</span>
       </h1>
       <p class="cover-subtitle">
-        Membangun otoritas media berita melalui integrasi Google News Publisher Center guna menjangkau audiens umum secara global melalui ekosistem informasi Google.
+        Proposal strategis untuk mendaftarkan web berita ke Google News Publisher Center guna menjangkau audiens umum secara global melalui ekosistem informasi Google.
       </p>
 
       <div class="cover-meta">
@@ -388,151 +390,148 @@
   <div class="page-content">
     <div class="section-label">
       <span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">menu_book</span>
-      Navigasi Proposal
+      Daftar Isi
     </div>
-    <h2 class="section-title">Isi Dokumen</h2>
-    
+    <h2 class="section-title">Isi Proposal</h2>
     <div style="margin-top: 24px;">
-      <div class="toc-item"><div class="toc-num">1</div><div style="flex:1; margin-left:16px;">Tentang BuildyWeb × DigiNetAll</div><div style="color:var(--text3);">Hal. 2</div></div>
-      <div class="toc-item"><div class="toc-num">2</div><div style="flex:1; margin-left:16px;">Analisis & Target Audiens Umum</div><div style="color:var(--text3);">Hal. 3</div></div>
+      <div class="toc-item"><div class="toc-num">1</div><div style="flex:1; margin-left:16px;">Mitra Pengembang (BuildyWeb × DigiNetAll)</div><div style="color:var(--text3);">Hal. 2</div></div>
+      <div class="toc-item"><div class="toc-num">2</div><div style="flex:1; margin-left:16px;">Mekanisme Kerja Google News</div><div style="color:var(--text3);">Hal. 3</div></div>
       <div class="toc-item"><div class="toc-num">3</div><div style="flex:1; margin-left:16px;">Cakupan Pekerjaan SEO Teknis</div><div style="color:var(--text3);">Hal. 3</div></div>
-      <div class="toc-item"><div class="toc-num">4</div><div style="flex:1; margin-left:16px;">Visual Alur Pengerjaan Sistem</div><div style="color:var(--text3);">Hal. 4</div></div>
-      <div class="toc-item"><div class="toc-num">5</div><div style="flex:1; margin-left:16px;">Rincian Investasi & Timeline</div><div style="color:var(--text3);">Hal. 5</div></div>
-      <div class="toc-item"><div class="toc-num">6</div><div style="flex:1; margin-left:16px;">Penutup & Persetujuan Digital</div><div style="color:var(--text3);">Hal. 6</div></div>
+      <div class="toc-item"><div class="toc-num">4</div><div style="flex:1; margin-left:16px;">Visual Alur Pengerjaan (Flow Diagram)</div><div style="color:var(--text3);">Hal. 4</div></div>
+      <div class="toc-item"><div class="toc-num">5</div><div style="flex:1; margin-left:16px;">Rincian Investasi & Sistem Bayar</div><div style="color:var(--text3);">Hal. 5</div></div>
+      <div class="toc-item"><div class="toc-num">6</div><div style="flex:1; margin-left:16px;">Persetujuan & Tanda Tangan</div><div style="color:var(--text3);">Hal. 6</div></div>
     </div>
 
     <div class="divider"></div>
 
-    <div class="section-label"><span class="section-number">1</span> Partner Pengembang</div>
-    <h2 class="section-title">Mitra Strategis Anda</h2>
+    <div class="section-label"><span class="section-number">1</span> Tentang Kami</div>
+    <h2 class="section-title">Partner Strategis Digital</h2>
     <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px;">
       <div class="info-box" style="flex: 1; min-width: 280px;">
         <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 36px; margin-bottom: 12px;"/>
-        <p style="font-size: 13px; color: var(--text2);">Ahli dalam strategi konten dan integrasi Technical SEO untuk memastikan website berita tampil di kasta tertinggi mesin pencari.</p>
+        <p style="font-size: 13px; color: var(--text2);">Ahli dalam strategi konten dan integrasi Technical SEO guna menjamin artikel berita muncul di tab "Berita Utama" Google.</p>
       </div>
       <div class="info-box" style="flex: 1; min-width: 280px;">
         <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 40px; border-radius: 6px; margin-bottom: 12px;"/>
-        <p style="font-size: 13px; color: var(--text2);">Spesialis infrastruktur data dan sistem backend yang menjamin feed berita terbaca sempurna oleh bot indeksasi Google News.</p>
+        <p style="font-size: 13px; color: var(--text2);">Spesialis infrastruktur data yang memastikan sinkronisasi RSS Feed website berjalan 24/7 tanpa kendala teknis.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- HALAMAN 3: PEMAHAMAN & RUANG LINGKUP -->
+<!-- HALAMAN 3: MEKANISME GOOGLE NEWS -->
 <div class="page">
   <div class="page-content">
-    <div class="section-label"><span class="section-number">2</span> Pemahaman Project</div>
-    <h2 class="section-title">Analisis Target: Umum</h2>
+    <div class="section-label"><span class="section-number">2</span> Edukasi Sistem</div>
+    <h2 class="section-title">Bagaimana Google News Bekerja?</h2>
     <div class="info-box">
-      <p style="font-size: 14px; line-height: 1.8;">
-        Meskipun konten berasal dari Karanganyar & Solo Raya, target pembaca portal ini adalah <strong>Masyarakat Umum</strong> yang menggunakan Google News sebagai sumber informasi harian. Untuk bersaing secara global, portal memerlukan <strong>Technical SEO Authority</strong>. Pendaftaran Google News bukan sekadar administrasi, melainkan optimasi infrastruktur agar berita dapat muncul di tab "Top Stories" secara instan.
+      <p style="font-size: 14px; line-height: 1.8; margin-bottom: 12px;">
+        Google News bukanlah sebuah direktori manual, melainkan sistem indeksasi otomatis. Agar <strong>Karanganyar News</strong> dapat terdaftar dan muncul di hadapan audiens umum, Google memerlukan tiga hal utama:
       </p>
+      <ul style="list-style: none; font-size: 13px; color: var(--text2);">
+        <li style="margin-bottom: 8px; display: flex; gap: 8px;"><span class="material-symbols-outlined" style="color: var(--accent); font-size: 18px;">info</span> <strong>Identitas Media:</strong> Pendaftaran resmi di Publisher Center agar Google mengenali portal sebagai organisasi berita yang sah.</li>
+        <li style="margin-bottom: 8px; display: flex; gap: 8px;"><span class="material-symbols-outlined" style="color: var(--accent); font-size: 18px;">info</span> <strong>Technical Feed:</strong> Website harus memiliki jalur RSS Feed & Sitemap khusus berita agar bot Google bisa "mengambil" artikel baru dalam hitungan detik.</li>
+        <li style="margin-bottom: 8px; display: flex; gap: 8px;"><span class="material-symbols-outlined" style="color: var(--accent); font-size: 18px;">info</span> <strong>Skema Berita:</strong> Kode teknis (NewsArticle Schema) yang memberitahu bot Google bahwa konten tersebut adalah produk jurnalistik, bukan sekadar blog biasa.</li>
+      </ul>
     </div>
 
     <div class="divider"></div>
 
     <div class="section-label"><span class="section-number">3</span> Cakupan Pekerjaan</div>
-    <h2 class="section-title">Layanan SEO & Submission</h2>
-    <ul style="list-style: none; padding: 0; margin-top: 20px;">
-      <li style="display: flex; gap: 12px; margin-bottom: 16px;">
-        <span class="material-symbols-outlined" style="color: var(--accent);">check_circle</span>
-        <div><strong style="display: block;">Google Publisher Center Setup</strong> Konfigurasi profil media, logo, kategori, dan verifikasi otoritas domain.</div>
-      </li>
-      <li style="display: flex; gap: 12px; margin-bottom: 16px;">
-        <span class="material-symbols-outlined" style="color: var(--accent);">check_circle</span>
-        <div><strong style="display: block;">Technical News Sitemap</strong> Pembuatan sitemap XML khusus berita sesuai standar protokol bot Google News.</div>
-      </li>
-      <li style="display: flex; gap: 12px; margin-bottom: 16px;">
-        <span class="material-symbols-outlined" style="color: var(--accent);">check_circle</span>
-        <div><strong style="display: block;">RSS Feed Fix & Optimization</strong> Perbaikan struktur feed agar gambar dan nama penulis terbaca jelas oleh mesin Google.</div>
-      </li>
-      <li style="display: flex; gap: 12px; margin-bottom: 16px;">
-        <span class="material-symbols-outlined" style="color: var(--accent);">check_circle</span>
-        <div><strong style="display: block;">Schema NewsArticle Injection</strong> Penyuntikan kode skema data terstruktur untuk meningkatkan kredibilitas artikel.</div>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- HALAMAN 4: VISUAL FLOW -->
-<div class="page">
-  <div class="page-content">
-    <div class="section-label"><span class="section-number">4</span> Sistem Pengerjaan</div>
-    <h2 class="section-title">Alur Kerja (Flow Diagram)</h2>
-    <p class="section-desc">Proses pengerjaan teknis dilakukan secara bertahap untuk menjamin approval.</p>
-
-    <div class="flow-container">
-      <div class="flow-step">
-        <div class="flow-icon"><span class="material-symbols-outlined">analytics</span></div>
-        <div class="flow-content"><h4>1. Audit & RSS Fix</h4><p>Merapikan struktur feed agar siap dikonsumsi Google.</p></div>
+    <h2 class="section-title">Optimasi SEO Teknis</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px;">
+      <div style="font-size: 13px; color: var(--text2); padding: 16px; border: 1px solid var(--border); border-radius: 8px;">
+        <strong>Audit & RSS Fix</strong><br>Perbaikan struktur feed WordPress agar gambar dan metadata penulis terbaca sempurna oleh Google.
       </div>
-      <div class="flow-arrow" style="font-size: 20px; color: var(--text3);">↓</div>
-      <div class="flow-step">
-        <div class="flow-icon"><span class="material-symbols-outlined">settings_suggest</span></div>
-        <div class="flow-content"><h4>2. Injeksi Sitemap & Schema</h4><p>Pemasangan infrastruktur Technical SEO pada web.</p></div>
+      <div style="font-size: 13px; color: var(--text2); padding: 16px; border: 1px solid var(--border); border-radius: 8px;">
+        <strong>Sitemap News XML</strong><br>Pembuatan jalur khusus bot Google News agar artikel terindeks instan (kurang dari 5 menit).
       </div>
-      <div class="flow-arrow" style="font-size: 20px; color: var(--text3);">↓</div>
-      <div class="flow-step">
-        <div class="flow-icon"><span class="material-symbols-outlined">rocket_launch</span></div>
-        <div class="flow-content"><h4>3. Publisher Submission</h4><p>Pendaftaran resmi ke dashboard Google News.</p></div>
+      <div style="font-size: 13px; color: var(--text2); padding: 16px; border: 1px solid var(--border); border-radius: 8px;">
+        <strong>Publisher Center Config</strong><br>Pendaftaran media, setting logo, kategori berita, dan verifikasi Search Console.
       </div>
-      <div class="flow-arrow" style="font-size: 20px; color: var(--text3);">↓</div>
-      <div class="flow-step" style="border-color: var(--accent); background: var(--accent-light);">
-        <div class="flow-icon"><span class="material-symbols-outlined">verified</span></div>
-        <div class="flow-content"><h4>4. Monitoring & Approved</h4><p>Pemantauan indeksasi hingga status menjadi Live.</p></div>
+      <div style="font-size: 13px; color: var(--text2); padding: 16px; border: 1px solid var(--border); border-radius: 8px;">
+        <strong>Schema Injection</strong><br>Penyuntikan kode data terstruktur untuk meningkatkan otoritas artikel di mata algoritma.
       </div>
     </div>
   </div>
 </div>
 
-<!-- HALAMAN 5: INVESTASI & TIMELINE -->
+<!-- HALAMAN 4: FLOW DIAGRAM -->
 <div class="page">
   <div class="page-content">
-    <div class="section-label"><span class="section-number">5</span> Rincian Investasi</div>
-    <h2 class="section-title">Penawaran Harga</h2>
+    <div class="section-label"><span class="section-number">4</span> Sistem Pengerjaan</div>
+    <h2 class="section-title">Alur Kerja (Flow Diagram)</h2>
+    <p style="font-size: 14px; color: var(--text2); margin-bottom: 24px;">Proses dilakukan secara bertahap untuk memastikan status "Approved" dari Google.</p>
+
+    <div class="flow-container">
+      <div class="flow-step">
+        <div class="flow-icon"><span class="material-symbols-outlined">analytics</span></div>
+        <div class="flow-content"><h4>1. Audit SEO Teknis</h4><p>Pengecekan kelayakan website & perbaikan struktur RSS Feed.</p></div>
+      </div>
+      <div style="color: var(--text3); font-size: 20px;">↓</div>
+      <div class="flow-step">
+        <div class="flow-icon"><span class="material-symbols-outlined">settings_suggest</span></div>
+        <div class="flow-content"><h4>2. Injeksi Skema & Sitemap</h4><p>Pemasangan infrastruktur Technical SEO pada website berita.</p></div>
+      </div>
+      <div style="color: var(--text3); font-size: 20px;">↓</div>
+      <div class="flow-step">
+        <div class="flow-icon"><span class="material-symbols-outlined">rocket_launch</span></div>
+        <div class="flow-content"><h4>3. Publisher Submission</h4><p>Pendaftaran resmi ke dashboard Google News untuk direview.</p></div>
+      </div>
+      <div style="color: var(--text3); font-size: 20px;">↓</div>
+      <div class="flow-step" style="border-color: var(--accent); background: var(--accent-light);">
+        <div class="flow-icon"><span class="material-symbols-outlined">verified</span></div>
+        <div class="flow-content"><h4>4. Monitoring & Approval</h4><p>Pemantauan status review hingga website resmi terdaftar.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HALAMAN 5: INVESTASI & SISTEM BAYAR -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-label"><span class="section-number">5</span> Penawaran Harga</div>
+    <h2 class="section-title">Rincian Investasi</h2>
     
     <table class="price-table">
-      <thead>
-        <tr><th style="width: 40px;">No</th><th>Modul Pekerjaan</th><th>Biaya</th></tr>
-      </thead>
+      <thead><tr><th>Modul Pekerjaan</th><th>Status Pekerjaan</th><th>Biaya</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td><strong>Setup News SEO & RSS Optimization</strong><div style="font-size: 11px; color: var(--text2);">Sitemap News, RSS Fix, & Schema NewsArticle</div></td><td>Rp 400.000</td></tr>
-        <tr><td>2</td><td><strong>Submission & Publisher Center</strong><div style="font-size: 11px; color: var(--text2);">Config Publisher Center & Media Labeling</div></td><td>Rp 400.000</td></tr>
-        <tr><td>3</td><td><strong>Indexing Support</strong><div style="font-size: 11px; color: var(--text2);">Monitoring indeks & Review status selama 7 hari</div></td><td>Rp 200.000</td></tr>
-        <tr class="price-total-row"><td></td><td style="text-align: right;">Total Investasi (All-in)</td><td>Rp 1.000.000</td></tr>
+        <tr><td><strong>Setup News SEO & RSS Fix</strong><div style="font-size: 11px; color: var(--text2);">Sitemap XML, RSS Optimization, Schema News</div></td><td>Teknis Web</td><td>Rp 500.000</td></tr>
+        <tr><td><strong>Publisher Center & Submission</strong><div style="font-size: 11px; color: var(--text2);">Account Setup, Media Labeling, Review Monitoring</div></td><td>Pendaftaran</td><td>Rp 500.000</td></tr>
+        <tr class="price-total-row"><td>Total Investasi</td><td style="text-align: right;">Total All-in</td><td>Rp 1.000.000</td></tr>
       </tbody>
     </table>
 
     <div class="divider"></div>
 
-    <div class="section-label"><span class="section-number">6</span> Jadwal Pelaksanaan</div>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
-      <div class="info-box">
-        <h4 style="font-size: 14px; margin-bottom: 8px;">Durasi Pengerjaan</h4>
-        <div style="font-size: 24px; font-weight: 800; color: var(--accent);">7 Hari Kerja</div>
-        <p style="font-size: 11px; color: var(--text2);">Hanya untuk pengerjaan teknis & pendaftaran.</p>
+    <h3 class="font-heading" style="font-size: 18px; margin-bottom: 16px;">Sistem Pembayaran (Payment Terms)</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div class="info-box" style="text-align: center; border-color: var(--blue);">
+        <div style="font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase;">TAHAP 1 (DP 50%)</div>
+        <div style="font-size: 24px; font-weight: 800; color: var(--primary);">Rp 500.000</div>
+        <p style="font-size: 11px; color: var(--text2); margin-top: 4px;">Dibayarkan di awal untuk memulai optimasi teknis & pendaftaran.</p>
       </div>
-      <div class="info-box">
-        <h4 style="font-size: 14px; margin-bottom: 8px;">Sistem Pembayaran</h4>
-        <div style="font-size: 24px; font-weight: 800; color: var(--blue);">100% Di Muka</div>
-        <p style="font-size: 11px; color: var(--text2);">Full payment untuk layanan express.</p>
+      <div class="info-box" style="text-align: center; border-color: var(--accent);">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase;">TAHAP 2 (PELUNASAN)</div>
+        <div style="font-size: 24px; font-weight: 800; color: var(--primary);">Rp 500.000</div>
+        <p style="font-size: 11px; color: var(--text2); margin-top: 4px;">Dibayarkan setelah status Google News resmi <strong>APPROVED</strong>.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- HALAMAN 6: PENUTUP & TANDA TANGAN -->
+<!-- HALAMAN 6: TANDA TANGAN -->
 <div class="page">
   <div class="page-content">
     <div class="section-label">Konfirmasi</div>
     <h2 class="section-title">Persetujuan Project</h2>
-    <p class="section-desc">Silakan lengkapi tanda tangan digital di bawah ini untuk memulai proses pendaftaran Google News.</p>
+    <p style="font-size: 14px; color: var(--text2); margin-bottom: 32px;">Dengan menandatangani dokumen ini, kedua belah pihak setuju untuk memulai pendaftaran Google News sesuai rincian di atas.</p>
 
     <div class="signature-grid">
       <div class="signature-box" id="sigBoxClient">
         <div class="signature-label">Pihak Karanganyar News</div>
         <div id="statusClient" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">? Menunggu</span></div>
-        <canvas id="sigClient" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
+        <canvas id="sigClient" width="280" height="120" style="border: 1px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
         <input type="text" id="nameClient" placeholder="Nama Lengkap..." class="sig-name-input">
         <button onclick="submitSignature('client')" class="sig-submit-btn no-print">Tanda Tangani</button>
       </div>
@@ -540,41 +539,33 @@
       <div class="signature-box" id="sigBoxDev">
         <div class="signature-label">BuildyWeb × DigiNetAll</div>
         <div id="statusDev" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">? Menunggu</span></div>
-        <canvas id="sigDev" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
+        <canvas id="sigDev" width="280" height="120" style="border: 1px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
         <input type="text" id="nameDev" placeholder="Nama Lengkap..." class="sig-name-input">
         <button onclick="submitSignature('developer')" class="sig-submit-btn no-print">Tanda Tangani</button>
       </div>
     </div>
 
-    <div class="no-print" style="text-align: center; margin-top: 36px;">
-      <button onclick="savePDF()" style="background: var(--primary); color: white; border: none; padding: 14px 32px; border-radius: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">Simpan Proposal (PDF)</button>
-    </div>
-
-    <div style="text-align: center; margin-top: 48px; border-top: 1px solid var(--border); padding-top: 24px;">
-      <p style="font-size: 11px; color: var(--text3);">© 2026 BuildyWeb × DigiNetAll. Dokumen ini sah secara digital.</p>
+    <div class="no-print" style="text-align: center; margin-top: 40px;">
+      <button onclick="savePDF()" style="background: var(--primary); color: white; border: none; padding: 14px 32px; border-radius: 12px; font-weight: 700; cursor: pointer;">Save as PDF Document</button>
     </div>
   </div>
 </div>
 
-<!-- LIBRARIES -->
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
-
 <script>
-// LOGIC SIGNATURE & PDF MANUT 100% TEMPLATE ASLI
 class SignaturePad {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas.getContext('2d');
     this.drawing = false;
-    this.isEmpty = true;
     this.ctx.strokeStyle = '#1a1a2e';
     this.ctx.lineWidth = 2.5;
     this.ctx.lineCap = 'round';
-    this.canvas.addEventListener('mousedown', (e) => this.startDraw(e));
+    this.canvas.addEventListener('mousedown', (e) => this.start(e));
     this.canvas.addEventListener('mousemove', (e) => this.draw(e));
     this.canvas.addEventListener('mouseup', () => this.stop());
-    this.canvas.addEventListener('touchstart', (e) => { e.preventDefault(); this.startDraw(e.touches[0]); });
+    this.canvas.addEventListener('touchstart', (e) => { e.preventDefault(); this.start(e.touches[0]); });
     this.canvas.addEventListener('touchmove', (e) => { e.preventDefault(); this.draw(e.touches[0]); });
     this.canvas.addEventListener('touchend', () => this.stop());
   }
@@ -582,13 +573,8 @@ class SignaturePad {
     const rect = this.canvas.getBoundingClientRect();
     return { x: (e.clientX - rect.left) * (this.canvas.width / rect.width), y: (e.clientY - rect.top) * (this.canvas.height / rect.height) };
   }
-  startDraw(e) { this.drawing = true; this.isEmpty = false; const pos = this.getPos(e); this.lastX = pos.x; this.lastY = pos.y; }
-  draw(e) {
-    if (!this.drawing) return;
-    const pos = this.getPos(e);
-    this.ctx.beginPath(); this.ctx.moveTo(this.lastX, this.lastY); this.ctx.lineTo(pos.x, pos.y); this.ctx.stroke();
-    this.lastX = pos.x; this.lastY = pos.y;
-  }
+  start(e) { this.drawing = true; const pos = this.getPos(e); this.ctx.beginPath(); this.ctx.moveTo(pos.x, pos.y); }
+  draw(e) { if (!this.drawing) return; const pos = this.getPos(e); this.ctx.lineTo(pos.x, pos.y); this.ctx.stroke(); }
   stop() { this.drawing = false; }
 }
 
@@ -598,8 +584,8 @@ function submitSignature(role) {
   const suffix = role === 'client' ? 'Client' : 'Dev';
   const name = document.getElementById('name' + suffix).value.trim();
   if(!name) return alert('Silakan isi nama lengkap!');
-  document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed">Sudah ditandatangani</span>';
-  alert('Tanda tangan ' + name + ' berhasil disimpan.');
+  document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed">? Signed</span>';
+  alert('Tanda tangan ' + name + ' berhasil direkam.');
 }
 
 async function savePDF() {
@@ -608,7 +594,7 @@ async function savePDF() {
   const pages = document.querySelectorAll('.page');
   document.querySelectorAll('.no-print').forEach(el => el.style.display = 'none');
   for (let i = 0; i < pages.length; i++) {
-    const canvas = await html2canvas(pages[i], { scale: 2, backgroundColor: i === 0 ? '#0f172a' : '#ffffff' });
+    const canvas = await html2canvas(pages[i], { scale: 2 });
     if (i > 0) pdf.addPage();
     pdf.addImage(canvas.toDataURL('image/jpeg', 0.95), 'JPEG', 0, 0, 210, 297);
   }
