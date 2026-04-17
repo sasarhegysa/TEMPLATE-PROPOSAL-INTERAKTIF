@@ -245,21 +245,21 @@
     font-size: 13px;
   }
 
-  .bank-icon {
-    width: 44px;
+  .bank-logo-wrapper {
+    width: 48px;
     height: 32px;
     background: var(--white);
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
-    color: var(--primary);
     border: 1px solid var(--border);
-    font-size: 10px;
-    text-align: center;
-    line-height: 1;
-    overflow: hidden;
+    padding: 4px;
+  }
+
+  .bank-logo-wrapper svg {
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .footer-text {
@@ -308,7 +308,7 @@
         <h4>Detail Dokumen:</h4>
         <p>Tanggal Terbit: <strong>18 April 2026</strong></p>
         <p>Jatuh Tempo: <strong>21 April 2026</strong></p>
-        <p>Metode: <strong>Transfer Bank</strong></p>
+        <p>Metode: <strong>Transfer / E-Wallet</strong></p>
       </div>
     </div>
 
@@ -359,12 +359,8 @@
           <span>Subtotal</span>
           <span style="font-weight: 600;">Rp 2.500.000</span>
         </div>
-        <div class="summary-row">
-          <span>Pajak (0%)</span>
-          <span style="font-weight: 600;">Rp 0</span>
-        </div>
         <div class="summary-row total">
-          <span>Total</span>
+          <span>Total Tagihan</span>
           <span>Rp 2.500.000</span>
         </div>
       </div>
@@ -375,39 +371,72 @@
       <div class="payment-box">
         <h4>Informasi Pembayaran</h4>
         <div class="bank-details-container">
-          <!-- Mandiri Sasa -->
+          
+          <!-- Mandiri -->
           <div class="bank-detail">
-            <div class="bank-icon" style="color: #003d79;">Mandiri</div>
+            <div class="bank-logo-wrapper">
+              <!-- Logo Mandiri -->
+              <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 25c0-5 4-8 9-8s9 3 9 8-4 8-9 8-9-3-9-8zm11 0c0-2-1-3-3-3s-3 1-3 3 1 3 3 3 3-1 3-3z" fill="#003d79"/>
+                <rect x="35" y="10" width="40" height="5" rx="2" fill="#f59e0b"/>
+                <text x="35" y="30" font-family="Arial" font-weight="bold" font-size="14" fill="#003d79">mandiri</text>
+              </svg>
+            </div>
             <div>
               <p style="font-weight: 700; color: var(--primary);">1430034923340</p>
               <p style="color: var(--text2); font-size: 11px;">a.n Rhegysa Alvyanthi Ju</p>
             </div>
           </div>
-          <!-- SeaBank Kiky -->
+
+          <!-- SeaBank -->
           <div class="bank-detail">
-            <div class="bank-icon" style="color: #ff5722;">SeaBank</div>
+            <div class="bank-logo-wrapper">
+              <!-- Logo SeaBank (S style) -->
+              <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="8" fill="#ff5722"/>
+                <text x="20" y="28" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="white">S</text>
+              </svg>
+            </div>
             <div>
               <p style="font-weight: 700; color: var(--primary);">901484943984</p>
-              <p style="color: var(--text2); font-size: 11px;">a.n Kiky Restu</p>
+              <p style="color: var(--text2); font-size: 11px;">a.n Kiky Restu Noviansyah</p>
             </div>
           </div>
+
+          <!-- Gopay -->
+          <div class="bank-detail">
+            <div class="bank-logo-wrapper">
+              <!-- Logo GoPay -->
+              <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="18" fill="#00aade"/>
+                <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8z" fill="white" opacity="0.3"/>
+                <circle cx="20" cy="20" r="6" fill="white"/>
+              </svg>
+            </div>
+            <div>
+              <p style="font-weight: 700; color: var(--primary);">085806140244</p>
+              <p style="color: var(--text2); font-size: 11px;">a.n Kiky Restu Noviansyah</p>
+            </div>
+          </div>
+
         </div>
         <p style="font-size: 10px; color: var(--text3); margin-top: 16px; font-style: italic;">
           *Harap lampirkan bukti transfer melalui WhatsApp setelah melakukan pembayaran DP.
         </p>
       </div>
+      
       <div style="text-align: right;">
         <h4 style="font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Otorisasi BuildyWeb</h4>
         <div style="margin-bottom: 12px;">
             <img src="logo-buildyweb.png" style="height: 30px; opacity: 0.5;"/>
         </div>
         <p style="font-size: 14px; font-weight: 800; color: var(--primary);">BuildyWeb Team</p>
-        <p style="font-size: 12px; color: var(--text2);">Founder & Lead Dev</p>
+        <p style="font-size: 12px; color: var(--text2);">Official Invoice</p>
       </div>
     </div>
 
     <footer class="footer-text">
-      Terima kasih telah mempercayakan pengembangan digital Anda kepada BuildyWeb × DigiNetAll.
+      Terima kasih telah bekerja sama dengan BuildyWeb × DigiNetAll.
     </footer>
 
     <div class="no-print" style="margin-top: 40px; text-align: center;">
