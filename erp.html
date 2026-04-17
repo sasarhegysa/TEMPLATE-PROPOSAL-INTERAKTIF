@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Proposal Pengembangan Fitur & Audit ERP - BuildyWeb × DigiNetAll</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  /* MENGGUNAKAN STYLING ASLI TEMPLATE BUILDYWEB (KAK KIKY STYLE) */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --primary: #1a1a2e;
+    --accent: #03AC0E;
+    --accent-dark: #028a0b;
+    --accent-light: #e8f5e9;
+    --blue: #2563eb;
+    --blue-light: #eff6ff;
+    --orange: #f59e0b;
+    --text: #1e293b;
+    --text2: #64748b;
+    --text3: #94a3b8;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+  
+  .page {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    background: var(--white);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 30px rgba(0,0,0,0.04);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .page-content { padding: 56px 64px; }
+
+  /* ===== COVER PAGE ===== */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    z-index: 0;
+  }
+
+  .cover-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(3,172,14,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover-content {
+    position: relative;
+    z-index: 1;
+    padding: 56px 64px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cover-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cover-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(3,172,14,0.15);
+    color: #4ade80;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    border: 1px solid rgba(3,172,14,0.2);
+    width: fit-content;
+  }
+
+  .cover-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .cover-title span { color: #4ade80; }
+
+  .cover-subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+    max-width: 550px;
+    line-height: 1.6;
+  }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cover-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .cover-meta-label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+  .cover-meta-value { font-size: 14px; color: #e2e8f0; font-weight: 500; }
+
+  /* ===== SECTION STYLES ===== */
+  .section-label { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+  .section-number { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--accent); color: white; font-size: 12px; font-weight: 800; border-radius: 6px; }
+  .section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: var(--primary); line-height: 1.25; margin-bottom: 8px; }
+  .section-desc { font-size: 15px; color: var(--text2); margin-bottom: 32px; }
+  .divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+  /* ===== CARDS & BOXES ===== */
+  .info-box { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+  .highlight-box { background: var(--accent-light); border: 1px solid rgba(3,172,14,0.15); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 24px 0; }
+
+  /* ===== PRICING TABLE ===== */
+  .price-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 24px 0; }
+  .price-table thead th { background: var(--primary); color: white; font-size: 12px; font-weight: 700; text-transform: uppercase; padding: 14px 20px; text-align: left; }
+  .price-table tbody td { padding: 16px 20px; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .price-total-row td { background: var(--accent-light) !important; font-weight: 800 !important; font-size: 16px !important; color: var(--accent-dark) !important; }
+
+  /* ===== TIMELINE ===== */
+  .timeline-item { display: flex; gap: 20px; position: relative; padding-bottom: 32px; }
+  .timeline-item::before { content: ''; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: var(--border); }
+  .timeline-dot { width: 40px; height: 40px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; z-index: 1; color: white; font-weight: 800; }
+  .timeline-content { flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+
+  /* ===== SIGNATURE ===== */
+  .signature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
+  .signature-box { text-align: center; padding: 32px 20px; border: 1px solid var(--border); border-radius: 12px; position: relative; }
+  .signature-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 60px; }
+  .signature-line { width: 180px; height: 1px; background: var(--text); margin: 0 auto 10px; }
+  .sig-name-input { width: 180px; margin: 0 auto 4px; display: block; border: none; border-bottom: 1.5px solid var(--border); text-align: center; font-size: 14px; font-weight: 700; padding: 4px; outline: none; background: transparent; }
+  .sig-submit-btn { background: #03AC0E; color: white; border: none; padding: 8px 24px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; margin-top: 12px; }
+
+  @media print {
+    .no-print { display: none !important; }
+    .page { box-shadow: none !important; margin: 0 !important; width: 100% !important; max-width: 100% !important; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HALAMAN 1: COVER -->
+<div class="page cover">
+  <div class="cover-bg"></div>
+  <div class="cover-content">
+    <div class="cover-header">
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 48px; background: white; padding: 6px 12px; border-radius: 8px;"/>
+        <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.15);"></div>
+        <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 48px; border-radius: 8px;"/>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 11px; color: #64748b; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;">DOKUMEN RESMI</div>
+        <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">No. BWB/PROP/ERP/2026-04-002</div>
+      </div>
+    </div>
+
+    <div class="cover-main">
+      <div class="cover-badge">
+        <span style="width: 6px; height: 6px; background: #4ade80; border-radius: 50%; display: inline-block;"></span>
+        Smart ERP Optimization
+      </div>
+      <h1 class="cover-title">
+        Integrasi Inteligensi AI &<br><span>Modernisasi Onboarding ERP</span>
+      </h1>
+      <p class="cover-subtitle">
+        Transformasi sistem ERP konvensional menjadi platform cerdas dengan fitur <i>Automated Insight</i>, Panduan Interaktif per Modul, dan Audit Kepatuhan Laporan Akuntansi sesuai standar PSAK.
+      </p>
+
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Dipersiapkan Untuk</span>
+          <span class="cover-meta-value">Manajemen Sistem ERP Partner</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Dipersiapkan Oleh</span>
+          <span class="cover-meta-value">BuildyWeb × DigiNetAll</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Tanggal Proposal</span>
+          <span class="cover-meta-value">18 April 2026</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Durasi Pengerjaan</span>
+          <span class="cover-meta-value">10 Hari Kerja</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HALAMAN 2: ANALISIS & ALUR SISTEM -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-label"><span class="section-number">1</span> Latar Belakang</div>
+    <h2 class="section-title">Pemahaman & Analisis Masalah</h2>
+    <p class="section-desc">Mengapa sistem ERP Anda memerlukan sentuhan BuildyWeb?</p>
+    
+    <div class="info-box">
+      <p style="margin-bottom: 12px; font-size: 14px;">Masalah utama pada sistem ERP yang kompleks adalah <strong>tingginya kurva pembelajaran pengguna</strong> (user learning curve) dan <strong>sulitnya menarik kesimpulan data</strong> secara cepat bagi pihak manajemen. Pengguna seringkali merasa bingung dengan fitur yang terlalu banyak, sementara manajemen sulit melihat kondisi kas secara riil tanpa harus membuka banyak laporan.</p>
+      <p style="font-size: 14px;">BuildyWeb hadir untuk memberikan <strong>Layer Inteligensi</strong> di atas kode yang sudah ada. Kami tidak mengubah database Anda, melainkan menyempurnakan interaksi pengguna dan akurasi laporan finansial agar selaras dengan standar akuntansi di Indonesia.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Arsitektur Alur</div>
+    <h2 class="section-title">Gambaran Alur Kerja Fitur Update</h2>
+    
+    <div style="margin-top: 24px;">
+        <div class="info-box" style="border-left: 4px solid var(--blue);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <span class="material-symbols-outlined" style="color: var(--blue);">info</span>
+                <strong style="font-size: 15px;">Tahap 1: Smart Onboarding Overlay</strong>
+            </div>
+            <p style="font-size: 13px; color: var(--text2);">Sistem mendeteksi saat pengguna masuk ke modul tertentu. Sebuah <i>overlay guide</i> akan muncul otomatis, memandu langkah demi langkah (Step-by-Step) dengan tombol Next/Previous. Pengguna juga dapat memutar video tutorial pendek langsung di dalam pop-up tersebut.</p>
+        </div>
+
+        <div class="info-box" style="border-left: 4px solid var(--accent);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <span class="material-symbols-outlined" style="color: var(--accent);">psychology</span>
+                <strong style="font-size: 15px;">Tahap 2: AI Financial Summary (Chatbot Style)</strong>
+            </div>
+            <p style="font-size: 13px; color: var(--text2);">Algoritma AI akan memproses data <i>Cash Flow</i>, Hutang, dan Piutang di latar belakang. Pada dashboard, akan muncul teks ringkasan cerdas: <i>"Bulan ini piutang Anda tertunggak Rp20jt, namun kondisi kas tetap aman dengan surplus 15% dibanding bulan lalu."</i></p>
+        </div>
+
+        <div class="info-box" style="border-left: 4px solid var(--orange);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <span class="material-symbols-outlined" style="color: var(--orange);">verified</span>
+                <strong style="font-size: 15px;">Tahap 3: PSAK Compliance Audit</strong>
+            </div>
+            <p style="font-size: 13px; color: var(--text2);">Validasi otomatis pada setiap jurnal umum dan laporan neraca. Sistem akan memberi peringatan jika terdapat ketidaksinkronan data yang tidak sesuai dengan standar Akuntansi Keuangan di Indonesia (PSAK).</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- HALAMAN 3: INVESTASI & TEKNIS -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-label"><span class="section-number">2</span> Investasi</div>
+    <h2 class="section-title">Rincian Biaya & Komponen</h2>
+    
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th style="width: 70%;">Deskripsi Pekerjaan / Fitur</th>
+          <th style="text-align: right;">Biaya (IDR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div style="font-weight: 700;">Interactive Onboarding System</div>
+            <div style="font-size: 12px; color: var(--text2);">Pemasangan library panduan interaktif, pembuatan konten pop-up per fitur, dan integrasi video tutorial di dalam modul.</div>
+          </td>
+          <td style="text-align: right; font-weight: 600;">Rp 750.000</td>
+        </tr>
+        <tr>
+          <td>
+            <div style="font-weight: 700;">Smart Dashboard Summary (AI)</div>
+            <div style="font-size: 12px; color: var(--text2);">Pengembangan logika pemrosesan data (NLG) untuk merangkum laporan keuangan menjadi teks bahasa manusia melalui chatbot.</div>
+          </td>
+          <td style="text-align: right; font-weight: 600;">Rp 1.000.000</td>
+        </tr>
+        <tr>
+          <td>
+            <div style="font-weight: 700;">ERP & Accounting Audit (PSAK)</div>
+            <div style="font-size: 12px; color: var(--text2);">Review kode akuntansi, perbaikan alur jurnal umum, dan sinkronisasi laporan neraca agar sesuai standar resmi.</div>
+          </td>
+          <td style="text-align: right; font-weight: 600;">Rp 500.000</td>
+        </tr>
+        <tr>
+          <td>
+            <div style="font-weight: 700;">Quality Assurance & Documentation</div>
+            <div style="font-size: 12px; color: var(--text2);">Pengecekan Bug, optimasi performa backend, dan penyerahan video panduan admin.</div>
+          </td>
+          <td style="text-align: right; font-weight: 600;">Rp 250.000</td>
+        </tr>
+        <tr class="price-total-row">
+          <td style="font-weight: 800;">TOTAL INVESTASI PROYEK</td>
+          <td style="text-align: right;">Rp 2.500.000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="divider"></div>
+
+    <div class="section-label"><span class="section-number">3</span> Jadwal Kerja</div>
+    <h2 class="section-title">Timeline Pengerjaan (10 Hari Kerja)</h2>
+    <div style="margin-top: 24px;">
+      <div class="timeline-item">
+        <div class="timeline-dot">01</div>
+        <div class="timeline-content">
+          <div style="font-weight: 700; color: var(--primary);">Fase 1: Audit & Analisis (Hari 1-3)</div>
+          <p style="font-size: 13px; color: var(--text2);">Pembongkaran kode ERP (Legacy Code), audit modul akuntansi, dan pemetaan alur panduan onboarding.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">02</div>
+        <div class="timeline-content">
+          <div style="font-weight: 700; color: var(--primary);">Fase 2: Development & AI (Hari 4-8)</div>
+          <p style="font-size: 13px; color: var(--text2);">Coding integrasi AI Summary, pembuatan overlay tutorial, dan perbaikan logika akuntansi PSAK.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">03</div>
+        <div class="timeline-content">
+          <div style="font-weight: 700; color: var(--primary);">Fase 3: QA & Handover (Hari 9-10)</div>
+          <p style="font-size: 13px; color: var(--text2);">Testing final (Security & Bug Check), pembuatan video tutorial, dan serah terima hasil update.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HALAMAN 4: KETENTUAN & TANDA TANGAN -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-label"><span class="section-number">4</span> Syarat & Ketentuan</div>
+    <h2 class="section-title">Kebijakan Garansi & Pemeliharaan</h2>
+    
+    <div class="info-box" style="border-left: 4px solid var(--orange);">
+      <ul style="padding-left: 20px; font-size: 13px; color: var(--text);">
+        <li style="margin-bottom: 12px;"><strong>Garansi Bug (30 Hari):</strong> BuildyWeb memberikan garansi perbaikan bug secara GRATIS selama 30 hari kalender terhitung sejak project dinyatakan selesai/serah terima.</li>
+        <li style="margin-bottom: 12px;"><strong>Batasan Tanggung Jawab:</strong> Garansi HANYA berlaku untuk bug/error yang muncul pada <u>komponen sistem hasil pengerjaan BuildyWeb</u>. Segala bentuk bug atau malfungsi yang berasal dari kode bawaan asli (Legacy Code) buatan developer sebelumnya tidak menjadi tanggung jawab kami.</li>
+        <li style="margin-bottom: 12px;"><strong>Pasca Garansi:</strong> Jika periode 30 hari telah berakhir dan ditemukan bug, perbaikan akan dikenakan biaya (Service Fee) yang tarifnya disesuaikan dengan tingkat kesulitan pengerjaan.</li>
+        <li><strong>Data Rahasia:</strong> BuildyWeb berkomitmen menjaga kerahasiaan seluruh data finansial klien selama proses audit dan integrasi berlangsung.</li>
+      </ul>
+    </div>
+
+    <div class="signature-grid">
+      <div class="signature-box" id="sigBoxClient">
+        <div class="signature-label">Pihak Pertama (Klien)</div>
+        <div id="statusClient" style="margin-bottom: 12px;"><span style="background: #fef9c3; color: #a16207; font-size: 10px; padding: 4px 12px; border-radius: 50px; font-weight: 700;">MENUNGGU PERSETUJUAN</span></div>
+        <canvas id="sigClient" width="280" height="100" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa; margin: 0 auto; display: block;"></canvas>
+        <div class="signature-line" style="margin-top: 15px;"></div>
+        <input type="text" id="nameClient" placeholder="Ketik Nama Lengkap..." class="sig-name-input">
+        <button onclick="submitSignature()" class="sig-submit-btn no-print">Tanda Tangani Proposal</button>
+      </div>
+
+      <div class="signature-box">
+        <div class="signature-label">Pihak Kedua (BuildyWeb)</div>
+        <div style="margin-bottom: 12px;"><span style="background: #dcfce7; color: #15803d; font-size: 10px; padding: 4px 12px; border-radius: 50px; font-weight: 700;">VERIFIED DEVELOPER</span></div>
+        <div style="height: 100px; display: flex; align-items: center; justify-content: center;">
+            <img src="logo-buildyweb.png" style="height: 40px; opacity: 0.6;"/>
+        </div>
+        <div class="signature-line"></div>
+        <div style="font-size: 14px; font-weight: 700;">BuildyWeb × DigiNetAll</div>
+        <div style="font-size: 11px; color: var(--text3); margin-top: 4px;">Kiky Restu Noviansyah</div>
+      </div>
+    </div>
+
+    <div class="no-print" style="margin-top: 48px; text-align: center;">
+      <button onclick="window.print()" style="background: var(--primary); color: white; border: none; padding: 12px 36px; border-radius: 12px; font-weight: 700; cursor: pointer; font-family: 'Plus Jakarta Sans'; font-size: 14px;">Simpan Proposal (PDF)</button>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; font-size: 12px; color: var(--text3);">
+        © 2026 BuildyWeb × DigiNetAll — <i>"Empowering ERP with Intelligence"</i>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== LOGIKA TANDA TANGAN (SESUAI SERVER.PY KAK KIKY) =====
+const canvas = document.getElementById('sigClient');
+const ctx = canvas.getContext('2d');
+let drawing = false;
+
+canvas.addEventListener('mousedown', () => drawing = true);
+canvas.addEventListener('mouseup', () => drawing = false);
+canvas.addEventListener('mousemove', draw);
+
+function draw(e) {
+  if (!drawing) return;
+  const rect = canvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+  const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+  ctx.lineWidth = 2;
+  ctx.lineCap = 'round';
+  ctx.lineTo(x, y);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+}
+
+async function submitSignature() {
+  const name = document.getElementById('nameClient').value;
+  if(!name) return alert('Silakan isi nama lengkap klien!');
+  
+  const signature_data = canvas.toDataURL('image/png');
+  
+  try {
+    const res = await fetch('/api/signatures', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        role: 'client',
+        name: name,
+        signature_data: signature_data
+      })
+    });
+    
+    const result = await res.json();
+    if (result.success) {
+      document.getElementById('statusClient').innerHTML = '<span style="background: #dcfce7; color: #15803d; font-size: 10px; padding: 4px 12px; border-radius: 50px; font-weight: 700;">DITANDATANGANI</span>';
+      document.querySelector('#sigBoxClient button').style.display = 'none';
+      alert('Proposal Berhasil Ditandatangani! Terima kasih atas kepercayaannya.');
+    }
+  } catch(e) {
+    alert('Server tidak terhubung. Pastikan server.py sedang berjalan.');
+  }
+}
+
+// Cek status tanda tangan saat halaman dimuat (Auto-Polling)
+async function checkStatus() {
+    try {
+        const res = await fetch('/api/signatures');
+        const data = await res.json();
+        if(data.client) {
+            document.getElementById('statusClient').innerHTML = '<span style="background: #dcfce7; color: #15803d; font-size: 10px; padding: 4px 12px; border-radius: 50px; font-weight: 700;">DITANDATANGANI</span>';
+            document.querySelector('#sigBoxClient button').style.display = 'none';
+            document.getElementById('nameClient').value = data.client.name;
+            document.getElementById('nameClient').readOnly = true;
+        }
+    } catch(e) {}
+}
+
+window.onload = checkStatus;
+setInterval(checkStatus, 5000); // Poll setiap 5 detik
+</script>
+
+</body>
+</html>
