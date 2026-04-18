@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Proposal Pengembangan Sistem Airwood | BuildyWeb × DigiNetAll</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  /* CSS TETAP MANUT 100% PADA TEMPLATE ASLI */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --primary: #1a1a2e;
+    --accent: #03AC0E;
+    --accent-dark: #028a0b;
+    --accent-light: #e8f5e9;
+    --blue: #2563eb;
+    --blue-light: #eff6ff;
+    --orange: #f59e0b;
+    --text: #1e293b;
+    --text2: #64748b;
+    --text3: #94a3b8;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+  
+  /* ===== PAGE SYSTEM ===== */
+  .page {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    background: var(--white);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 30px rgba(0,0,0,0.04);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .page-content { padding: 56px 64px; }
+
+  /* ===== COVER PAGE ===== */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background: #0f172a;
+    z-index: 0;
+  }
+
+  .cover-content {
+    position: relative;
+    z-index: 1;
+    padding: 56px 64px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cover-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cover-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0;
+  }
+
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(3,172,14,0.15);
+    color: #4ade80;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    border: 1px solid rgba(3,172,14,0.2);
+    width: fit-content;
+  }
+
+  .cover-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .cover-title span { color: #4ade80; }
+
+  .cover-subtitle {
+    font-size: 17px;
+    color: #94a3b8;
+    max-width: 500px;
+    line-height: 1.7;
+  }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cover-meta-label {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+
+  .cover-meta-value {
+    font-size: 14px;
+    color: #e2e8f0;
+    font-weight: 500;
+  }
+
+  /* ===== SECTION STYLES ===== */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    border-radius: 6px;
+  }
+
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+  /* ===== TOC ===== */
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px dashed var(--border);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .toc-num {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 800;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ===== FLOW DIAGRAM ===== */
+  .flow-container {
+    padding: 24px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .flow-step {
+    width: 100%;
+    max-width: 400px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  }
+
+  .flow-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ===== TABLES ===== */
+  .price-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  .price-table thead th {
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 14px 20px;
+    text-align: left;
+  }
+
+  .price-table tbody td { padding: 16px 20px; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .price-table tbody td:last-child { text-align: right; font-weight: 600; }
+
+  .price-total-row td {
+    background: var(--accent-light) !important;
+    font-weight: 800 !important;
+    color: var(--accent-dark) !important;
+  }
+
+  /* ===== SIGNATURE ===== */
+  .signature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 40px;
+  }
+
+  .signature-box {
+    text-align: center;
+    padding: 32px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .sig-name-input {
+    width: 180px;
+    margin: 0 auto 4px;
+    display: block;
+    border: none;
+    border-bottom: 1.5px solid var(--border);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    outline: none;
+  }
+
+  .sig-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 50px;
+  }
+  .sig-status-pending { background: #fef9c3; color: #a16207; }
+  .sig-status-signed { background: #dcfce7; color: #15803d; }
+
+  .sig-submit-btn {
+    display: block;
+    margin: 12px auto 0;
+    background: #03AC0E;
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .info-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  @media print {
+    .no-print { display: none !important; }
+    .page { box-shadow: none !important; margin: 0 !important; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page cover">
+  <div class="cover-bg"></div>
+  <div class="cover-content">
+    <div class="cover-header">
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <img src="logo-buildyweb.png" alt="BuildyWeb" style="height: 48px; background: white; padding: 6px 12px; border-radius: 8px;"/>
+        <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.15);"></div>
+        <img src="DigiNetAll-logo.jpeg" alt="DigiNetAll" style="height: 48px; border-radius: 8px;"/>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600;">Proposal Penawaran</div>
+        <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">No. BWB/APP/2026-04-OJ01</div>
+      </div>
+    </div>
+
+    <div class="cover-main">
+      <div class="cover-badge">
+        <span style="width: 6px; height: 6px; background: #4ade80; border-radius: 50%; display: inline-block;"></span>
+        Otomasi & AI Chatbot
+      </div>
+      <h1 class="cover-title">
+        Sistem Chatbot Multi-Platform<br><span>Ojek Online (WA, IG, FB, Telegram)</span>
+      </h1>
+      <p class="cover-subtitle">
+        Proposal pengembangan sistem otomasi pesan multi-platform dengan AI terintegrasi untuk kalkulasi ongkir dan geo-routing kurir.
+      </p>
+
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Ditujukan Kepada</span>
+          <span class="cover-meta-value">gentatechnology@gmail.com</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Dipersiapkan Oleh</span>
+          <span class="cover-meta-value">BuildyWeb × DigiNetAll</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 1: Latar Belakang & Ruang Lingkup -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-label"><span class="section-number">1</span> Pendahuluan</div>
+    <h2 class="section-title">Latar Belakang</h2>
+    <div class="info-box" style="margin-bottom: 30px;">
+      <p style="font-size: 14px; line-height: 1.8;">
+        Usaha ojek online saat ini mengandalkan proses pemesanan secara manual melalui WhatsApp, yang rentan terhadap kesalahan manusia, lambat, dan tidak scalable seiring pertumbuhan volume order. Dengan meningkatnya kebutuhan pelanggan akan respons cepat dan pengalaman pesan yang seamless, diperlukan sebuah sistem otomasi berbasis AI yang mampu menangani order secara real-time di berbagai platform sekaligus.
+      </p>
+      <p style="font-size: 14px; line-height: 1.8; margin-top: 10px;">
+        Buildy Web menawarkan solusi pengembangan sistem chatbot AI terintegrasi yang dapat beroperasi di WhatsApp, Instagram, Facebook, dan Telegram — dilengkapi dengan kalkulasi ongkir otomatis berbasis lokasi dan sistem penerusan order ke kurir terdekat.
+      </p>
+    </div>
+
+    <div class="section-label"><span class="section-number">2</span> Scope of Work</div>
+    <h2 class="section-title">Ruang Lingkup Pekerjaan</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+      <div class="info-box">
+        <h4 style="margin-bottom: 10px;">2.1 Chatbot AI Multi-Platform</h4>
+        <ul style="list-style: none; font-size: 13px; color: var(--text2);">
+          <li>• Auto-reply berdasarkan keyword & format pesan</li>
+          <li>• Integrasi: WhatsApp, Instagram, Facebook, Telegram</li>
+          <li>• Alur percakapan otomatis pesan ojek</li>
+          <li>• Penanganan pesan masuk paralel di semua platform</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4 style="margin-bottom: 10px;">2.2 Kalkulasi Jarak & Ongkir</h4>
+        <ul style="list-style: none; font-size: 13px; color: var(--text2);">
+          <li>• Integrasi Google Maps Distance Matrix API</li>
+          <li>• Kalkulasi jarak otomatis penjemputan-tujuan</li>
+          <li>• Penghitungan ongkir real-time sesuai tarif</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4 style="margin-bottom: 10px;">2.3 Penerusan Order Kurir Terdekat</h4>
+        <ul style="list-style: none; font-size: 13px; color: var(--text2);">
+          <li>• Sistem geo-routing untuk deteksi kurir terdekat</li>
+          <li>• Notifikasi otomatis ke kurir ditunjuk</li>
+          <li>• Konfirmasi otomatis ke pelanggan</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4 style="margin-bottom: 10px;">2.4 Setup & Deployment</h4>
+        <ul style="list-style: none; font-size: 13px; color: var(--text2);">
+          <li>• Instalasi n8n di VPS klien & SSL (HTTPS)</li>
+          <li>• Konfigurasi systemd service otomasi berjalan</li>
+          <li>• Testing menyeluruh sebelum serah terima</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: Teknologi & Rincian Biaya -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-label"><span class="section-number">3</span> Technical Specs</div>
+    <h2 class="section-title">Teknologi yang Digunakan</h2>
+    <table class="proposal-table" style="margin-bottom: 30px; width: 100%; border-collapse: collapse; font-size: 14px;">
+      <thead style="background: rgba(3,172,14,0.05); color: var(--accent-dark); text-align: left;">
+        <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 40%">Komponen</th><th style="padding: 12px; border-bottom: 2px solid var(--accent);">Teknologi</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Workflow Automation</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">n8n (self-hosted)</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">WhatsApp</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">WhatsApp Business API / Fonnte / Wablas</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Instagram & Facebook</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Meta Messenger API</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Telegram</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Telegram Bot API</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Kalkulasi Jarak & Ongkir</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Google Maps Distance Matrix API</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">AI / Language Model</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">OpenAI GPT atau sejenisnya</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Server</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">VPS Linux (disediakan klien)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label"><span class="section-number">4</span> Rincian Investasi</div>
+    <h2 class="section-title">Rincian Biaya Pengembangan</h2>
+    <table class="proposal-table" style="margin-bottom: 15px; width: 100%; border-collapse: collapse; font-size: 14px;">
+      <thead style="background: rgba(3,172,14,0.05); color: var(--accent-dark); text-align: left;">
+        <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 60%">Item Pekerjaan</th><th style="padding: 12px; border-bottom: 2px solid var(--accent);">Biaya</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Setup & konfigurasi n8n</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 1.500.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Integrasi WA + IG + FB (Meta API)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 3.500.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Integrasi Telegram Bot API</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 1.500.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Sistem kalkulasi ongkir (Google Maps)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 2.000.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Geo-routing kurir terdekat</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 2.500.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Instalasi & konfigurasi VPS</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 500.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Testing & deployment</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 1.000.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Maintenance 3 bulan</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 2.500.000</td></tr>
+        <tr style="font-weight: bold; background: #f8fafc;"><td style="padding: 12px;">TOTAL</td><td style="padding: 12px;">Rp 15.000.000</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 13px; color: var(--text3); font-style: italic; margin-bottom: 30px;">* Harga di atas merupakan biaya pengembangan sistem (one-time). Biaya operasional bulanan ditanggung klien.</p>
+
+    <h2 class="section-title">Estimasi Biaya Operasional Bulanan</h2>
+    <table class="proposal-table" style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 15px;">
+      <thead style="background: rgba(3,172,14,0.05); color: var(--accent-dark); text-align: left;">
+        <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 30%">Layanan</th><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 40%">Keterangan</th><th style="padding: 12px; border-bottom: 2px solid var(--accent);">Estimasi/Bulan</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">WA Business API</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Via Fonnte / Wablas</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 100K - 300K</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Google Maps API</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Tergantung volume order</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 80K - 300K</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">AI / LLM API</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Tergantung jumlah pesan (OpenAI)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 150K - 500K</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Server / VPS</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Min 4 vCPU, 8GB (Contabo dsb)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 130K - 250K</td></tr>
+        <tr style="font-weight: bold; background: #f8fafc;"><td colspan="2" style="padding: 12px; border-bottom: 1px solid var(--border);">Total Estimasi Operasional (Skala UKM)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 460K - 1.350Juta</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 13px; color: var(--text3); font-style: italic;">* Biaya operasional bersifat estimasi. Google Maps API memberikan kredit gratis /bulan (user baru).</p>
+  </div>
+</div>
+
+<!-- PAGE 3: Add-On, Timeline & T&C -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-label"><span class="section-number">5</span> Opsional / Layanan Ekstra</div>
+    <h2 class="section-title">Add-On: Dashboard Web Admin</h2>
+    <div class="info-box" style="margin-bottom: 15px;">
+      <p style="font-size: 14px; margin-bottom: 10px;">Layanan tambahan berupa Dashboard Web Admin yang memungkinkan pemilik usaha memantau dan mengelola operasional secara real-time. (Opsional dan dikenakan biaya terpisah).</p>
+      <ul style="list-style: none; font-size: 13px; color: var(--text2);">
+        <li>• Pantau order real-time dari semua platform (WA, IG, FB, Telegram)</li>
+        <li>• Manajemen kurir (tambah, edit, hapus, atur zona wilayah)</li>
+        <li>• Pengaturan tarif ongkir per km/zona via dashboard</li>
+        <li>• Laporan harian/bulanan + fitur Export (Excel/PDF)</li>
+        <li>• Live tracking posisi kurir di peta secara real-time</li>
+      </ul>
+    </div>
+    
+    <table class="proposal-table" style="margin-bottom: 15px; width: 100%; border-collapse: collapse; font-size: 14px;">
+      <thead style="background: rgba(3,172,14,0.05); color: var(--accent-dark); text-align: left;">
+        <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 60%">Item Pekerjaan (Add-On)</th><th style="padding: 12px; border-bottom: 2px solid var(--accent);">Biaya</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Desain & development UI dashboard</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 1.500.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Manajemen order & kurir</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 1.000.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Fitur laporan & export data</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 750.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Pengaturan tarif ongkir</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 500.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Live tracking kurir (Maps real-time)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 1.250.000</td></tr>
+        <tr style="font-weight: bold; background: #e8f5e9; color: var(--accent-dark);"><td style="padding: 12px;">TOTAL ADD-ON</td><td style="padding: 12px;">Rp 5.000.000</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 13px; color: var(--text3); font-style: italic; margin-bottom: 30px;">* Jika dikombinasikan dengan paket utama (Rp 15.000.000), total investasi menjadi Rp 20.000.000.</p>
+
+    <div class="section-label"><span class="section-number">6</span> Proses & Waktu</div>
+    <h2 class="section-title">Timeline Pengerjaan (4 Minggu)</h2>
+    <div style="font-size: 14px; margin-bottom: 30px;">
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--border);"><strong>Minggu 1:</strong> Setup environment n8n di VPS + integrasi Meta API (WA, IG, FB) + Telegram</div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--border);"><strong>Minggu 2:</strong> Integrasi Google Maps API + logika kalkulasi ongkir + geo-routing kurir</div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--border);"><strong>Minggu 3:</strong> Testing menyeluruh + fine-tuning AI prompt + perbaikan bug</div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--border);"><strong>Minggu 4:</strong> Deployment final + pelatihan penggunaan + serah terima sistem</div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- PAGE 4: Syarat Ketentuan & Tanda Tangan -->
+<div class="page">
+  <div class="page-content">
+    <div class="section-label"><span class="section-number">7</span> Financial</div>
+    <h2 class="section-title">Ketentuan Pembayaran</h2>
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 30px;">
+      <thead style="background: rgba(3,172,14,0.05);">
+        <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); text-align: left;">Tahap</th><th style="padding: 12px; border-bottom: 2px solid var(--accent); text-align: left;">Waktu</th><th style="padding: 12px; border-bottom: 2px solid var(--accent); text-align: left;">Jumlah</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">DP (50%)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Sebelum pengerjaan dimulai</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 7.500.000</td></tr>
+        <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Pelunasan (50%)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Setelah serah terima sistem</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 7.500.000</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label"><span class="section-number">8</span> Syarat Tambahan</div>
+    <h2 class="section-title">Batasan & Ketentuan & Support</h2>
+    <div class="info-box" style="font-size: 13px; line-height: 1.6; margin-bottom: 30px;">
+      <strong>8.1 After Sales & Maintenance (3 Bulan)</strong><br>
+      Garansi bug fixing selama 3 bulan sejak serah terima. Response time maksimal 1x24 jam (hari kerja). Revisi minor (teks pesan/keyword) tidak dikenakan biaya tambahan. Penambahan fitur baru di luar ruang lingkup (serta update karena perubahan/penangguhan kebijakan API pihak ketiga) tidak termasuk dan akan dikenakan fee tambahan.<br><br>
+
+      <strong>8.2 Biaya API & Server</strong><br>
+      Biaya pembuatan aplikasi hanya 1 kali. Namun biaya sewa VPS bulanan, perpanjangan domain, dan penggunaan layanan API (Meta/WhatsApp, Google Maps, OpenAI) sepenuhnya menjadi tanggung jawab klien setelah di-setup.<br><br>
+      
+      <strong>8.3 Penyesuaian Platform</strong><br>
+      TikTok API messaging tidak dibuka umum secara utuh. Oleh karenanya platform TikTok DITIADAKAN, dan hanya direkomendasikan opsi WA, IG, FB & Telegram yg ekosistem API-nya resmi & matang.<br><br>
+
+      <strong>8.4 Prompt & Konten AI</strong><br>
+      Kami menyiapkan prompt AI & alur chat (flow) awal. Pembaruan dan penyesuaian di masa depan bisa dilakukan mandiri oleh klien atau mengambil opsi support lanjutan setelah garansi habis.
+    </div>
+
+    <!-- Tanda Tangan Section -->
+    <div class="section-label"><span class="section-number">9</span> Finalisasi</div>
+    <h2 class="section-title">Kesepakatan Kolaborasi</h2>
+    <p style="font-size: 14px; margin-bottom: 30px; color: var(--text2);">
+      Kami berkomitmen untuk menghadirkan solusi terbaik yang sesuai dengan kebutuhan bisnis ojek online Anda. Proposal ini bersifat terbuka untuk diskusi lebih lanjut, dan kami siap untuk melakukan pertemuan guna membahas detail teknis maupun bisnis secara lebih mendalam.<br><br>
+      Apabila proposal ini disetujui, mohon tandatangan di bawah ini.
+    </p>
+
+    <!-- Canvas TTD tetap dipertahankan -->
+    <div style="display: flex; gap: 40px; justify-content: space-between;">
+      <div style="flex: 1; text-align: center;">
+        <div style="font-weight: 600; font-size: 14px; color: var(--primary); margin-bottom: 12px;">Pihak Client Ojol</div>
+        <div style="height: 120px; border-bottom: 1px solid var(--border); display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">
+          <button onclick="document.getElementById('sig-modal').style.display='flex'; document.getElementById('signerName').value='Client';" style="font-size:12px; padding:6px 12px; background:var(--blue); color:white; border:none; border-radius:4px; cursor:pointer;" class="no-print">Tandatangan Digital</button>
+          <img id="sig-Client-img" style="display:none; max-height:80px; max-width:180px;"/>
+        </div>
+        <div style="margin-top: 12px; font-weight: 500; font-size: 14px;">( Manajemen Ojek Online )</div>
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <div style="font-weight: 600; font-size: 14px; color: var(--primary); margin-bottom: 12px;">Tim Developer</div>
+        <div style="height: 120px; border-bottom: 1px solid var(--border); display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">
+          <button onclick="document.getElementById('sig-modal').style.display='flex'; document.getElementById('signerName').value='Developer';" style="font-size:12px; padding:6px 12px; background:var(--blue); color:white; border:none; border-radius:4px; cursor:pointer;" class="no-print">Tandatangan Digital</button>
+          <img id="sig-Developer-img" style="display:none; max-height:80px; max-width:180px;"/>
+        </div>
+        <div style="margin-top: 12px; font-weight: 500; font-size: 14px;">BuildyWeb & DigiNetAll</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal TTD -->
+<div id="sig-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:white; padding:24px; border-radius:8px; width:400px; max-width:90%;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:16px;">
+            <h3 style="margin:0; font-size:16px;">Tanda Tangan - <span id="modalTitle"></span></h3>
+            <button onclick="document.getElementById('sig-modal').style.display='none'" style="border:none; background:none; cursor:pointer; font-size:18px;">&times;</button>
+        </div>
+        <input type="hidden" id="signerName" value="">
+        <canvas id="sig-canvas" width="350" height="200" style="border:1px solid #ccc; border-radius:4px; width:100%; touch-action:none;"></canvas>
+        <div style="display:flex; gap:12px; margin-top:16px;">
+            <button onclick="clearCanvas()" style="flex:1; padding:10px; border:1px solid #ccc; background:white; cursor:pointer; border-radius:4px;">Ulangi</button>
+            <button onclick="saveSignature()" style="flex:1; padding:10px; border:none; background:var(--accent); color:white; cursor:pointer; border-radius:4px;">Simpan</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Logic Signature JS - Tidak Berubah
+const canvas = document.getElementById('sig-canvas');
+const ctx = canvas.getContext('2d');
+let isDrawing = false;
+let lastX = 0; let lastY = 0;
+
+function resizeCanvas() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+ctx.strokeStyle = '#000000';
+ctx.lineWidth = 2;
+ctx.lineCap = 'round';
+ctx.lineJoin = 'round';
+
+function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+    return {
+        x: clientX - rect.left,
+        y: clientY - rect.top
+    };
+}
+function startDrawing(e) {
+    isDrawing = true;
+    const pos = getPos(e);
+    lastX = pos.x; lastY = pos.y;
+}
+function draw(e) {
+    if (!isDrawing) return;
+    e.preventDefault();
+    const pos = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    lastX = pos.x; lastY = pos.y;
+}
+function stopDrawing() { isDrawing = false; }
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mouseout', stopDrawing);
+canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchmove', draw, {passive: false});
+canvas.addEventListener('touchend', stopDrawing);
+
+function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); }
+
+async function saveSignature() {
+    const signer = document.getElementById('signerName').value;
+    const documentName = "Proposal-Ojol";
+    const base64Data = canvas.toDataURL('image/png');
+
+    try {
+        const res = await fetch('http://localhost:5000/api/signatures', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ document: documentName, role: signer, signature: base64Data })
+        });
+        const data = await res.json();
+        
+        const imgEl = document.getElementById('sig-' + signer + '-img');
+        imgEl.src = base64Data;
+        imgEl.style.display = 'block';
+        imgEl.previousElementSibling.style.display = 'none';
+
+        document.getElementById('sig-modal').style.display = 'none';
+        clearCanvas();
+        alert('Tanda tangan ' + signer + ' berhasil disimpan!');
+    } catch (e) {
+        console.error(e);
+        alert('Gagal menyimpan signature ke server.');
+    }
+}
+</script>
+</body>
+</html>
