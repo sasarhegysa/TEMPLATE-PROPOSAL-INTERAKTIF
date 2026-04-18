@@ -339,6 +339,59 @@
     .no-print { display: none !important; }
     .page { box-shadow: none !important; margin: 0 !important; page-break-after: always; }
   }
+
+  /* FITUR ANTI POTONG (Print / PDF) */
+  .section-label, .section-title, .info-box, table, .signature-grid {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* GLOBAL FIX UNTUK TABEL & CANVAS */
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .signature-box canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  img { max-width: 100%; height: auto; }
+
+  /* RESPONSIVE MOBILE */
+  @media (max-width: 768px) {
+    body { padding: 0; background: var(--white); }
+    .page { width: 100%; border-radius: 0; margin-bottom: 0; box-shadow: none; border-bottom: 8px solid var(--bg); }
+    .page-content { padding: 32px 20px; }
+    .cover-content { padding: 40px 20px; }
+    .cover-title { font-size: 26px; line-height: 1.35; margin-bottom: 15px; }
+    .cover-subtitle { font-size: 14px; line-height: 1.6; }
+    .section-title { font-size: 22px; }
+    
+    /* Layout grid yang sebelumnya 2 kolom dijadikan 1 kolom */
+    div[style*="display: grid; grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    
+    .signature-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    
+    /* Fix Tabel untuk layar kecil */
+    table { width: 100%; min-width: 500px; font-size: 13px !important; }
+    
+    /* Cover Header & Meta */
+    .cover-header { flex-direction: column; align-items: flex-start !important; gap: 20px; padding-bottom: 24px; }
+    .cover-header > div:last-child { text-align: left !important; }
+    .cover-meta { display: flex !important; flex-direction: column; gap: 15px; margin-top: 32px; padding-top: 24px; }
+    
+    /* Info box padding di mobile */
+    .info-box { padding: 16px; margin-bottom: 12px; }
+
+    /* Button wrapper mobile */
+    .btn-container button { width: 100%; }
+  }
 </style>
 </head>
 <body>
@@ -444,7 +497,7 @@
   <div class="page-content">
     <div class="section-label"><span class="section-number">3</span> Technical Specs</div>
     <h2 class="section-title">Teknologi yang Digunakan</h2>
-    <table class="proposal-table" style="margin-bottom: 30px; width: 100%; border-collapse: collapse; font-size: 14px;">
+    <div class='table-container'><table class="proposal-table" style="margin-bottom: 30px; width: 100%; border-collapse: collapse; font-size: 14px;">
       <thead style="background: rgba(3,172,14,0.05); color: var(--accent-dark); text-align: left;">
         <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 40%">Komponen</th><th style="padding: 12px; border-bottom: 2px solid var(--accent);">Teknologi</th></tr>
       </thead>
@@ -457,11 +510,11 @@
         <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">AI / Language Model</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">OpenAI GPT atau sejenisnya</td></tr>
         <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Server</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">VPS Linux (disediakan klien)</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <div class="section-label"><span class="section-number">4</span> Rincian Investasi</div>
     <h2 class="section-title">Rincian Biaya Pengembangan</h2>
-    <table class="proposal-table" style="margin-bottom: 15px; width: 100%; border-collapse: collapse; font-size: 14px;">
+    <div class='table-container'><table class="proposal-table" style="margin-bottom: 15px; width: 100%; border-collapse: collapse; font-size: 14px;">
       <thead style="background: rgba(3,172,14,0.05); color: var(--accent-dark); text-align: left;">
         <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 60%">Item Pekerjaan</th><th style="padding: 12px; border-bottom: 2px solid var(--accent);">Biaya</th></tr>
       </thead>
@@ -476,11 +529,11 @@
         <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Maintenance 3 bulan</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 2.500.000</td></tr>
         <tr style="font-weight: bold; background: #f8fafc;"><td style="padding: 12px;">TOTAL</td><td style="padding: 12px;">Rp 15.000.000</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p style="font-size: 13px; color: var(--text3); font-style: italic; margin-bottom: 30px;">* Harga di atas merupakan biaya pengembangan sistem (one-time). Biaya operasional bulanan ditanggung klien.</p>
 
     <h2 class="section-title">Estimasi Biaya Operasional Bulanan</h2>
-    <table class="proposal-table" style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 15px;">
+    <div class='table-container'><table class="proposal-table" style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 15px;">
       <thead style="background: rgba(3,172,14,0.05); color: var(--accent-dark); text-align: left;">
         <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 30%">Layanan</th><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 40%">Keterangan</th><th style="padding: 12px; border-bottom: 2px solid var(--accent);">Estimasi/Bulan</th></tr>
       </thead>
@@ -491,7 +544,7 @@
         <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Server / VPS</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Min 4 vCPU, 8GB (Contabo dsb)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 130K - 250K</td></tr>
         <tr style="font-weight: bold; background: #f8fafc;"><td colspan="2" style="padding: 12px; border-bottom: 1px solid var(--border);">Total Estimasi Operasional (Skala UKM)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 460K - 1.350Juta</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p style="font-size: 13px; color: var(--text3); font-style: italic;">* Biaya operasional bersifat estimasi. Google Maps API memberikan kredit gratis /bulan (user baru).</p>
   </div>
 </div>
@@ -512,7 +565,7 @@
       </ul>
     </div>
     
-    <table class="proposal-table" style="margin-bottom: 15px; width: 100%; border-collapse: collapse; font-size: 14px;">
+    <div class='table-container'><table class="proposal-table" style="margin-bottom: 15px; width: 100%; border-collapse: collapse; font-size: 14px;">
       <thead style="background: rgba(3,172,14,0.05); color: var(--accent-dark); text-align: left;">
         <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); width: 60%">Item Pekerjaan (Add-On)</th><th style="padding: 12px; border-bottom: 2px solid var(--accent);">Biaya</th></tr>
       </thead>
@@ -524,7 +577,7 @@
         <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Live tracking kurir (Maps real-time)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 1.250.000</td></tr>
         <tr style="font-weight: bold; background: #e8f5e9; color: var(--accent-dark);"><td style="padding: 12px;">TOTAL ADD-ON</td><td style="padding: 12px;">Rp 5.000.000</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p style="font-size: 13px; color: var(--text3); font-style: italic; margin-bottom: 30px;">* Jika dikombinasikan dengan paket utama (Rp 15.000.000), total investasi menjadi Rp 20.000.000.</p>
 
     <div class="section-label"><span class="section-number">6</span> Proses & Waktu</div>
@@ -544,7 +597,7 @@
   <div class="page-content">
     <div class="section-label"><span class="section-number">7</span> Financial</div>
     <h2 class="section-title">Ketentuan Pembayaran</h2>
-    <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 30px;">
+    <div class='table-container'><table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 30px;">
       <thead style="background: rgba(3,172,14,0.05);">
         <tr><th style="padding: 12px; border-bottom: 2px solid var(--accent); text-align: left;">Tahap</th><th style="padding: 12px; border-bottom: 2px solid var(--accent); text-align: left;">Waktu</th><th style="padding: 12px; border-bottom: 2px solid var(--accent); text-align: left;">Jumlah</th></tr>
       </thead>
@@ -552,7 +605,7 @@
         <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">DP (50%)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Sebelum pengerjaan dimulai</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 7.500.000</td></tr>
         <tr><td style="padding: 12px; border-bottom: 1px solid var(--border);">Pelunasan (50%)</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Setelah serah terima sistem</td><td style="padding: 12px; border-bottom: 1px solid var(--border);">Rp 7.500.000</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <div class="section-label"><span class="section-number">8</span> Syarat Tambahan</div>
     <h2 class="section-title">Batasan & Ketentuan & Support</h2>
@@ -582,7 +635,7 @@
     <div class="signature-grid">
       <div class="signature-box" id="sigBoxClient">
         <div class="signature-label">Manajemen Ojek Online</div>
-        <div id="statusClient" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">?? Menunggu</span></div>
+        <div id="statusClient" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">⏳ Menunggu</span></div>
         <canvas id="sigClient" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
         <input type="text" id="nameClient" placeholder="Nama Lengkap..." class="sig-name-input">
         <button onclick="submitSignature('client')" class="sig-submit-btn no-print">Tanda Tangani</button>
@@ -590,14 +643,14 @@
 
       <div class="signature-box" id="sigBoxDev">
         <div class="signature-label">BuildyWeb × DigiNetAll</div>
-        <div id="statusDev" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">?? Menunggu</span></div>
+        <div id="statusDev" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">⏳ Menunggu</span></div>
         <canvas id="sigDev" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
         <input type="text" id="nameDev" placeholder="Nama Lengkap..." class="sig-name-input">
         <button onclick="submitSignature('developer')" class="sig-submit-btn no-print">Tanda Tangani</button>
       </div>
     </div>
 
-    <div class="no-print" style="text-align: center; margin-top: 40px; display: flex; gap: 16px; justify-content: center;">
+    <div class="no-print btn-container" style="text-align: center; margin-top: 40px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
       <button onclick="savePDF()" style="background: var(--primary); color: white; border: none; padding: 14px 32px; border-radius: 12px; font-weight: 700; cursor: pointer;">Simpan Proposal sebagai PDF</button>
       <button onclick="resetSignatures()" style="background: white; color: var(--text3); border: 1px solid var(--border); padding: 14px 32px; border-radius: 12px; font-weight: 600; cursor: pointer;">Reset Tanda Tangan</button>
     </div>
@@ -665,9 +718,9 @@ function applySignature(role, data) {
   inputName.readOnly = true;
   
   // Update status & sembunyikan tombol
-  document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed">? Ditandatangani: ' + data.signed_at + '</span>';
+  document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed">✔ Ditandatangani: ' + data.signed_at + '</span>';
   
-  const btn = document.querySelector(#sigBox button);
+  const btn = document.querySelector('#sigBox' + suffix + ' button');
   if(btn) btn.style.display = 'none';
 }
 
@@ -694,9 +747,9 @@ async function submitSignature(role) {
     
     const result = await res.json();
     if(result.success) {
-      document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed">? Ditandatangani: ' + result.signed_at + '</span>';
+      document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed">✔ Ditandatangani: ' + result.signed_at + '</span>';
       document.getElementById('name' + suffix).readOnly = true;
-      document.querySelector(#sigBox button).style.display = 'none';
+      document.querySelector('#sigBox' + suffix + ' button').style.display = 'none';
       alert('Tanda tangan ' + name + ' berhasil direkam & disimpan ke database.');
     } else {
       alert('Gagal: ' + result.error);
@@ -730,17 +783,39 @@ window.addEventListener('DOMContentLoaded', loadSignatures);
 
 // SIMPAN SEBAGAI PDF
 async function savePDF() {
-  const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF('p', 'mm', 'a4');
-  const pages = document.querySelectorAll('.page');
-  document.querySelectorAll('.no-print').forEach(el => el.style.display = 'none');
-  for (let i = 0; i < pages.length; i++) {
-    const canvas = await html2canvas(pages[i], { scale: 2 });
-    if (i > 0) pdf.addPage();
-    pdf.addImage(canvas.toDataURL('image/jpeg', 0.95), 'JPEG', 0, 0, 210, 297);
+  const btn = document.querySelector('button[onclick="savePDF()"]');
+  if (btn) { btn.innerText = 'Memproses PDF...'; btn.disabled = true; }
+  
+  try {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pages = document.querySelectorAll('.page');
+    document.querySelectorAll('.no-print').forEach(el => el.style.display = 'none');
+    
+    for (let i = 0; i < pages.length; i++) {
+      const canvas = await html2canvas(pages[i], { 
+        scale: 2, 
+        useCORS: true, 
+        allowTaint: true,
+        windowWidth: 800 // Pastikan render PDF menggunakan layout desktop
+      });
+      if (i > 0) pdf.addPage();
+      
+      const imgData = canvas.toDataURL('image/jpeg', 0.95);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      
+      pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+    }
+    
+    pdf.save('Proposal-Aplikasi-Ojol.pdf');
+  } catch (err) {
+    console.error(err);
+    alert('Gagal membuat PDF: ' + err.message + '\n(Pastikan Anda membuka file ini dengan Local Server / Live Server)');
+  } finally {
+    document.querySelectorAll('.no-print').forEach(el => el.style.display = '');
+    if (btn) { btn.innerText = 'Simpan Proposal sebagai PDF'; btn.disabled = false; }
   }
-  document.querySelectorAll('.no-print').forEach(el => el.style.display = '');
-  pdf.save('Proposal-Aplikasi-Ojol.pdf');
 }
 </script>
 </body>
