@@ -578,123 +578,169 @@
       Apabila proposal ini disetujui, mohon tandatangan di bawah ini.
     </p>
 
-    <!-- Canvas TTD tetap dipertahankan -->
-    <div style="display: flex; gap: 40px; justify-content: space-between;">
-      <div style="flex: 1; text-align: center;">
-        <div style="font-weight: 600; font-size: 14px; color: var(--primary); margin-bottom: 12px;">Pihak Client Ojol</div>
-        <div style="height: 120px; border-bottom: 1px solid var(--border); display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">
-          <button onclick="document.getElementById('sig-modal').style.display='flex'; document.getElementById('signerName').value='Client';" style="font-size:12px; padding:6px 12px; background:var(--blue); color:white; border:none; border-radius:4px; cursor:pointer;" class="no-print">Tandatangan Digital</button>
-          <img id="sig-Client-img" style="display:none; max-height:80px; max-width:180px;"/>
-        </div>
-        <div style="margin-top: 12px; font-weight: 500; font-size: 14px;">( Manajemen Ojek Online )</div>
+    <!-- SIGNATURE SECTION -->
+    <div class="signature-grid">
+      <div class="signature-box" id="sigBoxClient">
+        <div class="signature-label">Manajemen Ojek Online</div>
+        <div id="statusClient" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">?? Menunggu</span></div>
+        <canvas id="sigClient" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
+        <input type="text" id="nameClient" placeholder="Nama Lengkap..." class="sig-name-input">
+        <button onclick="submitSignature('client')" class="sig-submit-btn no-print">Tanda Tangani</button>
       </div>
-      <div style="flex: 1; text-align: center;">
-        <div style="font-weight: 600; font-size: 14px; color: var(--primary); margin-bottom: 12px;">Tim Developer</div>
-        <div style="height: 120px; border-bottom: 1px solid var(--border); display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">
-          <button onclick="document.getElementById('sig-modal').style.display='flex'; document.getElementById('signerName').value='Developer';" style="font-size:12px; padding:6px 12px; background:var(--blue); color:white; border:none; border-radius:4px; cursor:pointer;" class="no-print">Tandatangan Digital</button>
-          <img id="sig-Developer-img" style="display:none; max-height:80px; max-width:180px;"/>
-        </div>
-        <div style="margin-top: 12px; font-weight: 500; font-size: 14px;">BuildyWeb & DigiNetAll</div>
+
+      <div class="signature-box" id="sigBoxDev">
+        <div class="signature-label">BuildyWeb × DigiNetAll</div>
+        <div id="statusDev" style="margin-bottom: 12px;"><span class="sig-status sig-status-pending">?? Menunggu</span></div>
+        <canvas id="sigDev" width="280" height="120" style="border: 2px dashed #e2e8f0; border-radius: 8px; cursor: crosshair; background: #fafafa;"></canvas>
+        <input type="text" id="nameDev" placeholder="Nama Lengkap..." class="sig-name-input">
+        <button onclick="submitSignature('developer')" class="sig-submit-btn no-print">Tanda Tangani</button>
       </div>
+    </div>
+
+    <div class="no-print" style="text-align: center; margin-top: 40px; display: flex; gap: 16px; justify-content: center;">
+      <button onclick="savePDF()" style="background: var(--primary); color: white; border: none; padding: 14px 32px; border-radius: 12px; font-weight: 700; cursor: pointer;">Simpan Proposal sebagai PDF</button>
+      <button onclick="resetSignatures()" style="background: white; color: var(--text3); border: 1px solid var(--border); padding: 14px 32px; border-radius: 12px; font-weight: 600; cursor: pointer;">Reset Tanda Tangan</button>
     </div>
   </div>
 </div>
 
-<!-- Modal TTD -->
-<div id="sig-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
-    <div style="background:white; padding:24px; border-radius:8px; width:400px; max-width:90%;">
-        <div style="display:flex; justify-content:space-between; margin-bottom:16px;">
-            <h3 style="margin:0; font-size:16px;">Tanda Tangan - <span id="modalTitle"></span></h3>
-            <button onclick="document.getElementById('sig-modal').style.display='none'" style="border:none; background:none; cursor:pointer; font-size:18px;">&times;</button>
-        </div>
-        <input type="hidden" id="signerName" value="">
-        <canvas id="sig-canvas" width="350" height="200" style="border:1px solid #ccc; border-radius:4px; width:100%; touch-action:none;"></canvas>
-        <div style="display:flex; gap:12px; margin-top:16px;">
-            <button onclick="clearCanvas()" style="flex:1; padding:10px; border:1px solid #ccc; background:white; cursor:pointer; border-radius:4px;">Ulangi</button>
-            <button onclick="saveSignature()" style="flex:1; padding:10px; border:none; background:var(--accent); color:white; cursor:pointer; border-radius:4px;">Simpan</button>
-        </div>
-    </div>
-</div>
-
+<!-- LIBRARIES -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
 <script>
-// Logic Signature JS - Tidak Berubah
-const canvas = document.getElementById('sig-canvas');
-const ctx = canvas.getContext('2d');
-let isDrawing = false;
-let lastX = 0; let lastY = 0;
-
-function resizeCanvas() {
-    const rect = canvas.parentElement.getBoundingClientRect();
-    canvas.width = rect.width;
+class SignaturePad {
+  constructor(canvasId) {
+    this.canvas = document.getElementById(canvasId);
+    this.ctx = this.canvas.getContext('2d');
+    this.drawing = false;
+    this.ctx.strokeStyle = '#1a1a2e';
+    this.ctx.lineWidth = 2.5;
+    this.ctx.lineCap = 'round';
+    this.canvas.addEventListener('mousedown', (e) => this.start(e));
+    this.canvas.addEventListener('mousemove', (e) => this.draw(e));
+    this.canvas.addEventListener('mouseup', () => this.stop());
+    this.canvas.addEventListener('touchstart', (e) => { e.preventDefault(); this.start(e.touches[0]); }, { passive: false });
+    this.canvas.addEventListener('touchmove', (e) => { e.preventDefault(); this.draw(e.touches[0]); }, { passive: false });
+    this.canvas.addEventListener('touchend', () => this.stop());
+  }
+  getPos(e) {
+    const rect = this.canvas.getBoundingClientRect();
+    return { x: (e.clientX - rect.left) * (this.canvas.width / rect.width), y: (e.clientY - rect.top) * (this.canvas.height / rect.height) };
+  }
+  start(e) { this.drawing = true; const pos = this.getPos(e); this.ctx.beginPath(); this.ctx.moveTo(pos.x, pos.y); }
+  draw(e) { if (!this.drawing) return; const pos = this.getPos(e); this.ctx.lineTo(pos.x, pos.y); this.ctx.stroke(); }
+  stop() { this.drawing = false; }
+  clear() { this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); }
 }
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
 
-ctx.strokeStyle = '#000000';
-ctx.lineWidth = 2;
-ctx.lineCap = 'round';
-ctx.lineJoin = 'round';
+const padC = new SignaturePad('sigClient');
+const padD = new SignaturePad('sigDev');
 
-function getPos(e) {
-    const rect = canvas.getBoundingClientRect();
-    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-    const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-    return {
-        x: clientX - rect.left,
-        y: clientY - rect.top
-    };
+// LOAD EXISTING SIGNATURES
+async function loadSignatures() {
+  try {
+    const res = await fetch('/api/signatures');
+    const data = await res.json();
+    
+    if (data.client && data.client.signature_data) applySignature('client', data.client);
+    if (data.developer && data.developer.signature_data) applySignature('developer', data.developer);
+  } catch (err) {
+    console.error("Gagal load signatures:", err);
+  }
 }
-function startDrawing(e) {
-    isDrawing = true;
-    const pos = getPos(e);
-    lastX = pos.x; lastY = pos.y;
+
+function applySignature(role, data) {
+  const suffix = role === 'client' ? 'Client' : 'Dev';
+  const canvas = document.getElementById('sig' + suffix);
+  const ctx = canvas.getContext('2d');
+  
+  // Tampilkan gambar tanda tangan
+  const img = new Image();
+  img.onload = () => ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  img.src = data.signature_data;
+  
+  // Isi input nama & kunci
+  const inputName = document.getElementById('name' + suffix);
+  inputName.value = data.name;
+  inputName.readOnly = true;
+  
+  // Update status & sembunyikan tombol
+  document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed">? Ditandatangani: ' + data.signed_at + '</span>';
+  
+  const btn = document.querySelector(#sigBox button);
+  if(btn) btn.style.display = 'none';
 }
-function draw(e) {
-    if (!isDrawing) return;
-    e.preventDefault();
-    const pos = getPos(e);
-    ctx.beginPath();
-    ctx.moveTo(lastX, lastY);
-    ctx.lineTo(pos.x, pos.y);
-    ctx.stroke();
-    lastX = pos.x; lastY = pos.y;
-}
-function stopDrawing() { isDrawing = false; }
-canvas.addEventListener('mousedown', startDrawing);
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mouseup', stopDrawing);
-canvas.addEventListener('mouseout', stopDrawing);
-canvas.addEventListener('touchstart', startDrawing);
-canvas.addEventListener('touchmove', draw, {passive: false});
-canvas.addEventListener('touchend', stopDrawing);
 
-function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); }
-
-async function saveSignature() {
-    const signer = document.getElementById('signerName').value;
-    const documentName = "Proposal-Ojol";
-    const base64Data = canvas.toDataURL('image/png');
-
-    try {
-        const res = await fetch('http://localhost:5000/api/signatures', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ document: documentName, role: signer, signature: base64Data })
-        });
-        const data = await res.json();
-        
-        const imgEl = document.getElementById('sig-' + signer + '-img');
-        imgEl.src = base64Data;
-        imgEl.style.display = 'block';
-        imgEl.previousElementSibling.style.display = 'none';
-
-        document.getElementById('sig-modal').style.display = 'none';
-        clearCanvas();
-        alert('Tanda tangan ' + signer + ' berhasil disimpan!');
-    } catch (e) {
-        console.error(e);
-        alert('Gagal menyimpan signature ke server.');
+// SUBMIT SIGNATURE TO SERVER
+async function submitSignature(role) {
+  const suffix = role === 'client' ? 'Client' : 'Dev';
+  const name = document.getElementById('name' + suffix).value.trim();
+  const canvas = document.getElementById('sig' + suffix);
+  
+  if(!name) return alert('Silakan isi nama lengkap!');
+  
+  const signatureData = canvas.toDataURL('image/png');
+  
+  try {
+    const res = await fetch('/api/signatures', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        role: role,
+        name: name,
+        signature_data: signatureData
+      })
+    });
+    
+    const result = await res.json();
+    if(result.success) {
+      document.getElementById('status' + suffix).innerHTML = '<span class="sig-status sig-status-signed">? Ditandatangani: ' + result.signed_at + '</span>';
+      document.getElementById('name' + suffix).readOnly = true;
+      document.querySelector(#sigBox button).style.display = 'none';
+      alert('Tanda tangan ' + name + ' berhasil direkam & disimpan ke database.');
+    } else {
+      alert('Gagal: ' + result.error);
     }
+  } catch (err) {
+    alert('Terjadi kesalahan sambungan ke server.');
+    console.error(err);
+  }
+}
+
+// RESET SIGNATURES
+async function resetSignatures() {
+  if(!confirm('Apakah Anda yakin ingin menghapus semua tanda tangan?')) return;
+  
+  try {
+    const res = await fetch('/api/signatures/reset', { method: 'POST' });
+    const result = await res.json();
+    if(result.success) {
+        alert('Semua tanda tangan berhasil direset.');
+        location.reload();
+    } else {
+        alert('Gagal reset: ' + result.error);
+    }
+  } catch (err) {
+    console.error("Gagal reset:", err);
+  }
+}
+
+// Jalankan ketika halaman dimuat
+window.addEventListener('DOMContentLoaded', loadSignatures);
+
+// SIMPAN SEBAGAI PDF
+async function savePDF() {
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF('p', 'mm', 'a4');
+  const pages = document.querySelectorAll('.page');
+  document.querySelectorAll('.no-print').forEach(el => el.style.display = 'none');
+  for (let i = 0; i < pages.length; i++) {
+    const canvas = await html2canvas(pages[i], { scale: 2 });
+    if (i > 0) pdf.addPage();
+    pdf.addImage(canvas.toDataURL('image/jpeg', 0.95), 'JPEG', 0, 0, 210, 297);
+  }
+  document.querySelectorAll('.no-print').forEach(el => el.style.display = '');
+  pdf.save('Proposal-Aplikasi-Ojol.pdf');
 }
 </script>
 </body>
